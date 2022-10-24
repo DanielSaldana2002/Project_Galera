@@ -33,6 +33,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Meseros.setVisible(false);
         Mesas.setVisible(false);
         Sillas.setVisible(false);
+        Comparativa.setVisible(false);
         jPreInformacion.setVisible(false);
         Mesas.setVisible(false);
         this.inicio();
@@ -55,6 +56,14 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void initComponents() {
 
         jInicio = new javax.swing.JPanel();
+        Comparativa = new javax.swing.JPanel();
+        bSalirComparativa = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        panelMesero3 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
         Sillas = new javax.swing.JPanel();
         bSalirMesas = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
@@ -130,6 +139,55 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio.setBackground(new java.awt.Color(255, 255, 255));
         jInicio.setLayout(null);
+
+        Comparativa.setBackground(new java.awt.Color(255, 255, 255));
+        Comparativa.setForeground(new java.awt.Color(0, 0, 0));
+        Comparativa.setLayout(null);
+
+        bSalirComparativa.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirComparativa.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirComparativa.setText("X");
+        bSalirComparativa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirComparativaActionPerformed(evt);
+            }
+        });
+        Comparativa.add(bSalirComparativa);
+        bSalirComparativa.setBounds(1280, 10, 90, 60);
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("Comparativa");
+        Comparativa.add(jLabel21);
+        jLabel21.setBounds(620, 0, 400, 80);
+
+        jPanel6.setBackground(new java.awt.Color(0, 0, 0));
+        Comparativa.add(jPanel6);
+        jPanel6.setBounds(180, 10, 10, 610);
+
+        jPanel7.setBackground(new java.awt.Color(0, 0, 0));
+        Comparativa.add(jPanel7);
+        jPanel7.setBounds(0, 0, 1400, 10);
+
+        panelMesero3.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero3.setLayout(null);
+        Comparativa.add(panelMesero3);
+        panelMesero3.setBounds(0, 0, 180, 620);
+
+        jLabel37.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel37.setText("Seleccione las mesa 1:");
+        Comparativa.add(jLabel37);
+        jLabel37.setBounds(220, 130, 270, 60);
+
+        jLabel38.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel38.setText("VERSION INTERFACE 1.1");
+        Comparativa.add(jLabel38);
+        jLabel38.setBounds(1150, 580, 250, 30);
+
+        jInicio.add(Comparativa);
+        Comparativa.setBounds(0, 90, 1370, 620);
 
         Sillas.setBackground(new java.awt.Color(255, 255, 255));
         Sillas.setForeground(new java.awt.Color(0, 0, 0));
@@ -686,10 +744,14 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void jMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMesasMouseClicked
         Sillas.setVisible(true);
         Meseros.setVisible(false);
+        Comparativa.setVisible(false);
     }//GEN-LAST:event_jMesasMouseClicked
 
     private void jComparativaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseClicked
-        // TODO add your handling code here:
+        Comparativa.setVisible(true);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Mesas.setVisible(false);
     }//GEN-LAST:event_jComparativaMouseClicked
 
     private void jComparativaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseEntered
@@ -790,6 +852,7 @@ public class Beta_Galera extends javax.swing.JFrame {
 
     private void jMeserosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMeserosMouseClicked
         Meseros.setVisible(true);
+        Comparativa.setVisible(false);
         Sillas.setVisible(false);
         Mesas.setVisible(false);
     }//GEN-LAST:event_jMeserosMouseClicked
@@ -805,14 +868,23 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void bSalirMeserosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMeserosActionPerformed
         Sillas.setVisible(false);
         Meseros.setVisible(false);
+        Comparativa.setVisible(false);
         Mesas.setVisible(true);
     }//GEN-LAST:event_bSalirMeserosActionPerformed
 
     private void bSalirMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasActionPerformed
         Sillas.setVisible(false);
         Meseros.setVisible(false);
+        Comparativa.setVisible(false);
         Mesas.setVisible(true);
     }//GEN-LAST:event_bSalirMesasActionPerformed
+
+    private void bSalirComparativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirComparativaActionPerformed
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+    }//GEN-LAST:event_bSalirComparativaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -884,6 +956,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     Desface deslice = new Desface();
     boolean mesas,comparativa,productos,reporte,meseros;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Comparativa;
     private javax.swing.JLabel FechaActualMesero;
     private javax.swing.JLabel Mesa1;
     private javax.swing.JLabel Mesa2;
@@ -893,6 +966,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Mesas;
     private javax.swing.JPanel Meseros;
     private javax.swing.JPanel Sillas;
+    private javax.swing.JButton bSalirComparativa;
     private javax.swing.JButton bSalirMesas;
     private javax.swing.JButton bSalirMeseros;
     private javax.swing.JButton jButton1;
@@ -918,6 +992,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -929,6 +1004,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -942,6 +1019,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPreInformacion;
     private javax.swing.JLabel jProductos;
     private javax.swing.JLabel jReporte;
@@ -954,5 +1033,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jTitulo;
     private javax.swing.JPanel panelMesero1;
     private javax.swing.JPanel panelMesero2;
+    private javax.swing.JPanel panelMesero3;
     // End of variables declaration//GEN-END:variables
 }
