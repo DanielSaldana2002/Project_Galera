@@ -33,6 +33,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Meseros.setVisible(false);
         Mesas.setVisible(false);
         MesaPrincipal.setVisible(false);
+        System.out.println("hola");
         Sillas.setVisible(false);
         Comparativa.setVisible(false);
         jPreInformacion.setVisible(false);
