@@ -32,7 +32,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jInicioSesion.setVisible(false);
         Meseros.setVisible(false);
         Mesas.setVisible(false);
-        System.out.println("Hola");
+        MesaPrincipal.setVisible(false);
         Sillas.setVisible(false);
         Comparativa.setVisible(false);
         jPreInformacion.setVisible(false);
@@ -57,6 +57,26 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void initComponents() {
 
         jInicio = new javax.swing.JPanel();
+        MesaPrincipal = new javax.swing.JPanel();
+        bSalirMesasPrincipales = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        panelMesero4 = new javax.swing.JPanel();
+        jLabel53 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
+        jCategoria = new javax.swing.JComboBox<>();
+        jLabel35 = new javax.swing.JLabel();
+        JProducto = new javax.swing.JComboBox<>();
+        jLabel36 = new javax.swing.JLabel();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        MesaTabla = new javax.swing.JTable();
+        jCancelar = new javax.swing.JButton();
+        JPagar = new javax.swing.JButton();
         Comparativa = new javax.swing.JPanel();
         bSalirComparativa = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
@@ -155,6 +175,132 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio.setBackground(new java.awt.Color(255, 255, 255));
         jInicio.setLayout(null);
+
+        MesaPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        MesaPrincipal.setLayout(null);
+
+        bSalirMesasPrincipales.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirMesasPrincipales.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirMesasPrincipales.setText("X");
+        bSalirMesasPrincipales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirMesasPrincipalesActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(bSalirMesasPrincipales);
+        bSalirMesasPrincipales.setBounds(1280, 10, 90, 60);
+
+        jLabel33.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel33.setText("Mesas");
+        MesaPrincipal.add(jLabel33);
+        jLabel33.setBounds(800, 0, 190, 80);
+
+        jPanel8.setBackground(new java.awt.Color(0, 0, 0));
+        MesaPrincipal.add(jPanel8);
+        jPanel8.setBounds(180, 10, 10, 610);
+
+        jPanel9.setBackground(new java.awt.Color(0, 0, 0));
+        MesaPrincipal.add(jPanel9);
+        jPanel9.setBounds(0, 0, 1400, 10);
+
+        panelMesero4.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero4.setLayout(null);
+        MesaPrincipal.add(panelMesero4);
+        panelMesero4.setBounds(0, 0, 180, 620);
+
+        jLabel53.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel53.setText("VERSION INTERFACE 1.1");
+        MesaPrincipal.add(jLabel53);
+        jLabel53.setBounds(1150, 580, 250, 30);
+
+        jButton5.setBackground(new java.awt.Color(255, 255, 0));
+        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton5.setText("Enviar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(jButton5);
+        jButton5.setBounds(700, 550, 240, 50);
+
+        jLabel34.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel34.setText("Categoria");
+        MesaPrincipal.add(jLabel34);
+        jLabel34.setBounds(310, 150, 120, 32);
+
+        jCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCategoriaActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(jCategoria);
+        jCategoria.setBounds(480, 160, 190, 22);
+
+        jLabel35.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel35.setText("Producto");
+        MesaPrincipal.add(jLabel35);
+        jLabel35.setBounds(800, 160, 140, 32);
+
+        JProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        MesaPrincipal.add(JProducto);
+        JProducto.setBounds(1010, 170, 200, 22);
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel36.setText("Cantidad");
+        MesaPrincipal.add(jLabel36);
+        jLabel36.setBounds(400, 270, 140, 30);
+        MesaPrincipal.add(jSpinner1);
+        jSpinner1.setBounds(620, 270, 40, 30);
+
+        jLabel47.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel47.setText("Preccio");
+        MesaPrincipal.add(jLabel47);
+        jLabel47.setBounds(900, 270, 130, 32);
+
+        jLabel48.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel48.setText("$$$$");
+        MesaPrincipal.add(jLabel48);
+        jLabel48.setBounds(1130, 270, 70, 32);
+
+        MesaTabla.setBackground(new java.awt.Color(255, 255, 0));
+        MesaTabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MesaTabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(MesaTabla);
+
+        MesaPrincipal.add(jScrollPane1);
+        jScrollPane1.setBounds(190, 360, 1180, 90);
+
+        jCancelar.setBackground(new java.awt.Color(255, 255, 0));
+        jCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jCancelar.setText("Cancelar");
+        jCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCancelarActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(jCancelar);
+        jCancelar.setBounds(490, 500, 110, 27);
+
+        JPagar.setBackground(new java.awt.Color(255, 255, 0));
+        JPagar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JPagar.setText("Pagar");
+        MesaPrincipal.add(JPagar);
+        JPagar.setBounds(1020, 500, 110, 27);
+
+        jInicio.add(MesaPrincipal);
+        MesaPrincipal.setBounds(0, 90, 1370, 620);
 
         Comparativa.setBackground(new java.awt.Color(255, 255, 255));
         Comparativa.setLayout(null);
@@ -814,8 +960,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jReporteMouseExited
 
     private void Mesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa1MouseClicked
-
-
+        Mesas.setVisible(false);
+        MesaPrincipal.setVisible(true);
+        
     }//GEN-LAST:event_Mesa1MouseClicked
 
     private void Mesa1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa1MouseEntered
@@ -894,6 +1041,7 @@ public class Beta_Galera extends javax.swing.JFrame {
 
     private void bSalirMeserosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMeserosActionPerformed
         Sillas.setVisible(false);
+        MesaPrincipal.setVisible(false);
         Meseros.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
@@ -901,6 +1049,7 @@ public class Beta_Galera extends javax.swing.JFrame {
 
     private void bSalirMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasActionPerformed
         Sillas.setVisible(false);
+        MesaPrincipal.setVisible(false);
         Meseros.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
@@ -909,6 +1058,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void bSalirComparativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirComparativaActionPerformed
         Sillas.setVisible(false);
         Meseros.setVisible(false);
+        MesaPrincipal.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
     }//GEN-LAST:event_bSalirComparativaActionPerformed
@@ -917,6 +1067,26 @@ public class Beta_Galera extends javax.swing.JFrame {
     // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Ya se realiso la comparativa");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void bSalirMesasPrincipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasPrincipalesActionPerformed
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+    }//GEN-LAST:event_bSalirMesasPrincipalesActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCancelarActionPerformed
+
+    private void jCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -990,21 +1160,29 @@ public class Beta_Galera extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Comparativa;
     private javax.swing.JLabel FechaActualMesero;
+    private javax.swing.JButton JPagar;
+    private javax.swing.JComboBox<String> JProducto;
     private javax.swing.JLabel Mesa1;
     private javax.swing.JLabel Mesa2;
     private javax.swing.JLabel Mesa3;
     private javax.swing.JLabel Mesa4;
     private javax.swing.JLabel Mesa5;
+    private javax.swing.JPanel MesaPrincipal;
+    private javax.swing.JTable MesaTabla;
     private javax.swing.JPanel Mesas;
     private javax.swing.JPanel Meseros;
     private javax.swing.JPanel Sillas;
     private javax.swing.JButton bSalirComparativa;
     private javax.swing.JButton bSalirMesas;
+    private javax.swing.JButton bSalirMesasPrincipales;
     private javax.swing.JButton bSalirMeseros;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jCancelar;
+    private javax.swing.JComboBox<String> jCategoria;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1041,6 +1219,10 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -1052,7 +1234,10 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1067,10 +1252,14 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPreInformacion;
     private javax.swing.JLabel jProductos;
     private javax.swing.JLabel jReporte;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -1081,5 +1270,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel panelMesero1;
     private javax.swing.JPanel panelMesero2;
     private javax.swing.JPanel panelMesero3;
+    private javax.swing.JPanel panelMesero4;
     // End of variables declaration//GEN-END:variables
 }
