@@ -157,7 +157,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jInicio.setLayout(null);
 
         Comparativa.setBackground(new java.awt.Color(255, 255, 255));
-        Comparativa.setForeground(new java.awt.Color(0, 0, 0));
         Comparativa.setLayout(null);
 
         bSalirComparativa.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -172,7 +171,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         bSalirComparativa.setBounds(1280, 10, 90, 60);
 
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("Comparativa");
         Comparativa.add(jLabel21);
         jLabel21.setBounds(670, 0, 400, 80);
@@ -189,37 +187,31 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero3.setLayout(null);
 
         jLabel37.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(0, 0, 0));
         jLabel37.setText("------------RELLENO-------------");
         panelMesero3.add(jLabel37);
         jLabel37.setBounds(50, 560, 250, 40);
 
         jLabel42.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(0, 0, 0));
         jLabel42.setText("Resultado comparativa:");
         panelMesero3.add(jLabel42);
         jLabel42.setBounds(40, 30, 290, 40);
 
         jLabel43.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(0, 0, 0));
         jLabel43.setText("Producto 1 (Name): $$$");
         panelMesero3.add(jLabel43);
         jLabel43.setBounds(30, 140, 210, 40);
 
         jLabel44.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(0, 0, 0));
         jLabel44.setText("Producto 2 (Name): $$$");
         panelMesero3.add(jLabel44);
         jLabel44.setBounds(30, 230, 220, 40);
 
         jLabel45.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(0, 0, 0));
         jLabel45.setText("------------RELLENO-------------");
         panelMesero3.add(jLabel45);
         jLabel45.setBounds(50, 380, 250, 40);
 
         jLabel46.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(0, 0, 0));
         jLabel46.setText("------------RELLENO-------------");
         panelMesero3.add(jLabel46);
         jLabel46.setBounds(50, 470, 250, 40);
@@ -228,7 +220,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero3.setBounds(0, 0, 360, 620);
 
         jLabel38.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(0, 0, 0));
         jLabel38.setText("VERSION INTERFACE 1.1");
         Comparativa.add(jLabel38);
         jLabel38.setBounds(1150, 580, 250, 30);
@@ -238,7 +229,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jComboBox5.setBounds(900, 160, 270, 30);
 
         jLabel39.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(0, 0, 0));
         jLabel39.setText("Seleccione el producto 1:");
         Comparativa.add(jLabel39);
         jLabel39.setBounds(420, 310, 300, 70);
@@ -248,7 +238,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jComboBox6.setBounds(730, 330, 270, 30);
 
         jLabel40.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(0, 0, 0));
         jLabel40.setText("Seleccione el producto 2:");
         Comparativa.add(jLabel40);
         jLabel40.setBounds(440, 420, 300, 70);
@@ -257,12 +246,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.add(jComboBox7);
         jComboBox7.setBounds(750, 440, 270, 30);
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("La cantidad de producto: number_producto");
         Comparativa.add(jLabel8);
         jLabel8.setBounds(1050, 430, 290, 40);
 
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("La cantidad de producto: number_producto");
         Comparativa.add(jLabel27);
         jLabel27.setBounds(1040, 320, 290, 40);
@@ -271,13 +258,16 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.add(jSeparator1);
         jSeparator1.setBounds(370, 242, 1000, 10);
 
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("Enviar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         Comparativa.add(jButton3);
         jButton3.setBounds(700, 550, 240, 50);
 
         jLabel41.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(0, 0, 0));
         jLabel41.setText("Seleccione la categoria del producto:");
         Comparativa.add(jLabel41);
         jLabel41.setBounds(450, 140, 430, 70);
@@ -286,7 +276,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setBounds(0, 90, 1370, 620);
 
         Sillas.setBackground(new java.awt.Color(255, 255, 255));
-        Sillas.setForeground(new java.awt.Color(0, 0, 0));
         Sillas.setLayout(null);
 
         bSalirMesas.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -301,7 +290,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         bSalirMesas.setBounds(1280, 10, 90, 60);
 
         jLabel20.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 0, 0));
         jLabel20.setText("JUNTAR MESAS");
         Sillas.add(jLabel20);
         jLabel20.setBounds(620, 0, 400, 80);
@@ -319,35 +307,30 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jLabel22.setBackground(new java.awt.Color(0, 0, 0));
         jLabel22.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("S");
         panelMesero2.add(jLabel22);
         jLabel22.setBounds(30, 500, 100, 90);
 
         jLabel23.setBackground(new java.awt.Color(0, 0, 0));
         jLabel23.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("M");
         panelMesero2.add(jLabel23);
         jLabel23.setBounds(20, 20, 100, 90);
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("E");
         panelMesero2.add(jLabel24);
         jLabel24.setBounds(30, 140, 100, 90);
 
         jLabel25.setBackground(new java.awt.Color(0, 0, 0));
         jLabel25.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("S");
         panelMesero2.add(jLabel25);
         jLabel25.setBounds(30, 260, 70, 90);
 
         jLabel26.setBackground(new java.awt.Color(0, 0, 0));
         jLabel26.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("A");
         panelMesero2.add(jLabel26);
         jLabel26.setBounds(30, 380, 100, 90);
@@ -356,19 +339,16 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero2.setBounds(0, 0, 140, 620);
 
         jLabel28.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("Seleccione las mesa 1:");
         Sillas.add(jLabel28);
         jLabel28.setBounds(220, 130, 270, 60);
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Juntar");
         Sillas.add(jButton4);
         jButton4.setBounds(670, 390, 220, 70);
 
         jLabel31.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(0, 0, 0));
         jLabel31.setText("VERSION INTERFACE 1.1");
         Sillas.add(jLabel31);
         jLabel31.setBounds(1150, 580, 250, 30);
@@ -378,7 +358,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jComboBox1.setBounds(1040, 140, 140, 40);
 
         jLabel32.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
         jLabel32.setText("Seleccione las mesa 2:");
         Sillas.add(jLabel32);
         jLabel32.setBounds(770, 130, 270, 60);
@@ -388,7 +367,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jComboBox2.setBounds(500, 140, 140, 40);
 
         jLabel29.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
         jLabel29.setText("Seleccione las mesa 3:");
         Sillas.add(jLabel29);
         jLabel29.setBounds(220, 240, 270, 60);
@@ -398,7 +376,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jComboBox3.setBounds(500, 250, 140, 40);
 
         jLabel30.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(0, 0, 0));
         jLabel30.setText("Seleccione las mesa 4:");
         Sillas.add(jLabel30);
         jLabel30.setBounds(770, 240, 270, 60);
@@ -411,7 +388,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         Sillas.setBounds(0, 90, 1370, 620);
 
         Meseros.setBackground(new java.awt.Color(255, 255, 255));
-        Meseros.setForeground(new java.awt.Color(0, 0, 0));
         Meseros.setLayout(null);
 
         bSalirMeseros.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -426,13 +402,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         bSalirMeseros.setBounds(1280, 10, 90, 60);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("MESEROS");
         Meseros.add(jLabel7);
         jLabel7.setBounds(730, 0, 260, 80);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("ID unico:");
         Meseros.add(jLabel9);
         jLabel9.setBounds(990, 140, 110, 50);
@@ -440,14 +414,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setToolTipText("Escriba");
         Meseros.add(jTextField1);
         jTextField1.setBounds(1100, 150, 210, 30);
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.setToolTipText("Escriba");
         Meseros.add(jTextField2);
         jTextField2.setBounds(670, 150, 260, 30);
@@ -464,43 +435,36 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero1.setLayout(null);
 
         FechaActualMesero.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        FechaActualMesero.setForeground(new java.awt.Color(0, 0, 0));
         FechaActualMesero.setText("Fecha actual:");
         panelMesero1.add(FechaActualMesero);
         FechaActualMesero.setBounds(20, 420, 270, 40);
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Nombre_MESERO 5");
         panelMesero1.add(jLabel13);
         jLabel13.setBounds(20, 340, 190, 30);
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Nombre_MESERO 1");
         panelMesero1.add(jLabel14);
         jLabel14.setBounds(20, 100, 190, 30);
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Nombre_MESERO 2");
         panelMesero1.add(jLabel15);
         jLabel15.setBounds(20, 160, 190, 30);
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Nombre_MESERO 3");
         panelMesero1.add(jLabel16);
         jLabel16.setBounds(20, 220, 190, 30);
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Nombre_MESERO 4");
         panelMesero1.add(jLabel17);
         jLabel17.setBounds(20, 280, 190, 30);
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Meseros actuales");
         panelMesero1.add(jLabel18);
@@ -510,51 +474,41 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero1.setBounds(0, 0, 290, 620);
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Nombre(s) del mesero:");
         Meseros.add(jLabel11);
         jLabel11.setBounds(400, 140, 270, 50);
 
         jLabel12.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Apellido paterno:");
         Meseros.add(jLabel12);
         jLabel12.setBounds(410, 290, 210, 50);
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
         jTextField3.setToolTipText("Escriba");
         Meseros.add(jTextField3);
         jTextField3.setBounds(620, 300, 220, 30);
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Apellido materno:");
         Meseros.add(jLabel19);
         jLabel19.setBounds(890, 290, 210, 50);
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
         jTextField4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
         jTextField4.setToolTipText("Escriba");
         Meseros.add(jTextField4);
         jTextField4.setBounds(1100, 300, 210, 30);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Registrar");
         Meseros.add(jButton1);
         jButton1.setBounds(970, 460, 220, 70);
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Eliminar usuario");
         Meseros.add(jButton2);
         jButton2.setBounds(600, 460, 220, 70);
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("VERSION INTERFACE 1.1");
         Meseros.add(jLabel10);
         jLabel10.setBounds(1150, 580, 250, 30);
@@ -563,33 +517,27 @@ public class Beta_Galera extends javax.swing.JFrame {
         Meseros.setBounds(0, 90, 1370, 620);
 
         jPreInformacion.setBackground(new java.awt.Color(0, 153, 255));
-        jPreInformacion.setForeground(new java.awt.Color(0, 0, 0));
         jPreInformacion.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Gastado: $0");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(20, 220, 120, 30);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Numero de mesa: number");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(20, 150, 240, 30);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Estatus: Activo");
         jPanel1.add(jLabel5);
         jLabel5.setBounds(20, 80, 150, 30);
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Informacion prevista de la mesa");
         jPanel1.add(jLabel4);
@@ -602,12 +550,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         jPreInformacion.setBounds(1020, 90, 360, 620);
 
         jTiempo1.setFont(new java.awt.Font("Dialog", 1, 10)); // NOI18N
-        jTiempo1.setForeground(new java.awt.Color(0, 0, 0));
         jInicio.add(jTiempo1);
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("VERSION BETA 1.00");
         jInicio.add(jLabel2);
         jLabel2.setBounds(1130, 650, 240, 50);
@@ -616,14 +562,12 @@ public class Beta_Galera extends javax.swing.JFrame {
         jMenu.setLayout(null);
 
         jTitulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jTitulo.setForeground(new java.awt.Color(0, 0, 0));
         jTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/1663952285593 (2).png"))); // NOI18N
         jTitulo.setText("PROJECT_GALERAS");
         jMenu.add(jTitulo);
         jTitulo.setBounds(20, 0, 440, 90);
 
         jMesas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jMesas.setForeground(new java.awt.Color(0, 0, 0));
         jMesas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-09-26_113114959.png"))); // NOI18N
         jMesas.setText("Mesas");
         jMesas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -641,7 +585,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jMesas.setBounds(480, 30, 100, 30);
 
         jComparativa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jComparativa.setForeground(new java.awt.Color(0, 0, 0));
         jComparativa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-03_100700234.png"))); // NOI18N
         jComparativa.setText("Comparativa");
         jComparativa.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -659,7 +602,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jComparativa.setBounds(610, 30, 160, 30);
 
         jProductos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jProductos.setForeground(new java.awt.Color(0, 0, 0));
         jProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-03_094538812.png"))); // NOI18N
         jProductos.setText("Productos");
         jProductos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -677,7 +619,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jProductos.setBounds(800, 30, 130, 30);
 
         jReporte.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jReporte.setForeground(new java.awt.Color(0, 0, 0));
         jReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-09-26_235325867.png"))); // NOI18N
         jReporte.setText("Reporte");
         jReporte.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -695,7 +636,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jReporte.setBounds(970, 30, 110, 30);
 
         jMeseros.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jMeseros.setForeground(new java.awt.Color(0, 0, 0));
         jMeseros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-19_100343372.png"))); // NOI18N
         jMeseros.setText("Meseros");
         jMeseros.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -715,16 +655,13 @@ public class Beta_Galera extends javax.swing.JFrame {
         jInicio.add(jMenu);
         jMenu.setBounds(10, 0, 1370, 90);
 
-        jInicioSesion.setForeground(new java.awt.Color(0, 0, 0));
         jInicioSesion.setLayout(null);
 
         jTiempo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jTiempo.setForeground(new java.awt.Color(0, 0, 0));
         jInicioSesion.add(jTiempo);
         jTiempo.setBounds(460, 60, 480, 40);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("BIENVENIDO A GALERAS");
         jInicioSesion.add(jLabel3);
         jLabel3.setBounds(390, 0, 590, 60);
@@ -733,11 +670,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         jInicioSesion.setBounds(10, 310, 1370, 110);
 
         Mesas.setBackground(new java.awt.Color(255, 255, 255));
-        Mesas.setForeground(new java.awt.Color(0, 0, 0));
         Mesas.setLayout(null);
 
         Mesa1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa1.setForeground(new java.awt.Color(0, 0, 0));
         Mesa1.setText("Mesa 1");
         Mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -754,7 +689,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesa1.setBounds(30, 40, 80, 30);
 
         Mesa2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa2.setForeground(new java.awt.Color(0, 0, 0));
         Mesa2.setText("Mesa 2");
         Mesa2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -771,7 +705,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesa2.setBounds(150, 40, 90, 30);
 
         Mesa3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa3.setForeground(new java.awt.Color(0, 0, 0));
         Mesa3.setText("Mesa 3");
         Mesa3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -788,7 +721,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesa3.setBounds(270, 40, 90, 30);
 
         Mesa4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa4.setForeground(new java.awt.Color(0, 0, 0));
         Mesa4.setText("Mesa 4");
         Mesa4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -805,7 +737,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesa4.setBounds(390, 40, 90, 30);
 
         Mesa5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa5.setForeground(new java.awt.Color(0, 0, 0));
         Mesa5.setText("Mesa 5");
         Mesa5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -981,6 +912,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
     }//GEN-LAST:event_bSalirComparativaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Ya se realiso la comparativa");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
