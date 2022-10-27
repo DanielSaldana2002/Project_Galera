@@ -16,7 +16,12 @@ import javax.swing.UIManager;
 import desplazable.Desface;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,6 +34,8 @@ public class Beta_Galera extends javax.swing.JFrame {
      */
     public Beta_Galera() {
         initComponents();
+        this.mostrarMeseros();
+        tID_Meseros.setText(""+this.generarIDMeseros(id));
         jInicioSesion.setVisible(false);
         Meseros.setVisible(false);
         Mesas.setVisible(false);
@@ -150,25 +157,22 @@ public class Beta_Galera extends javax.swing.JFrame {
         bSalirMeseros = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tID_Meseros = new javax.swing.JTextField();
+        tNombre_Mesero = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         panelMesero1 = new javax.swing.JPanel();
         FechaActualMesero = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tmostrarMeseros = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tApellidoP = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tApellidoM = new javax.swing.JTextField();
+        bRegistrarMesero = new javax.swing.JButton();
+        bEliminarMesero = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jPreInformacion = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -730,30 +734,35 @@ public class Beta_Galera extends javax.swing.JFrame {
         bSalirMeseros.setBounds(1280, 10, 90, 60);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel7.setText("MESEROS");
+        jLabel7.setText("REGISTRO MESEROS");
         Meseros.add(jLabel7);
-        jLabel7.setBounds(730, 0, 260, 80);
+        jLabel7.setBounds(620, 0, 520, 80);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel9.setText("ID unico:");
         Meseros.add(jLabel9);
         jLabel9.setBounds(990, 140, 110, 50);
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField1.setToolTipText("Escriba");
-        Meseros.add(jTextField1);
-        jTextField1.setBounds(1100, 150, 210, 30);
+        tID_Meseros.setEditable(false);
+        tID_Meseros.setBackground(new java.awt.Color(255, 255, 255));
+        tID_Meseros.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tID_Meseros.setToolTipText("Escriba");
+        Meseros.add(tID_Meseros);
+        tID_Meseros.setBounds(1100, 150, 210, 30);
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField2.setToolTipText("Escriba");
-        Meseros.add(jTextField2);
-        jTextField2.setBounds(670, 150, 260, 30);
+        tNombre_Mesero.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tNombre_Mesero.setToolTipText("Escriba");
+        tNombre_Mesero.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tNombre_MeseroFocusGained(evt);
+            }
+        });
+        Meseros.add(tNombre_Mesero);
+        tNombre_Mesero.setBounds(670, 150, 260, 30);
 
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         Meseros.add(jPanel3);
-        jPanel3.setBounds(290, 10, 10, 610);
+        jPanel3.setBounds(370, 10, 10, 610);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         Meseros.add(jPanel2);
@@ -762,44 +771,37 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero1.setBackground(new java.awt.Color(255, 255, 0));
         panelMesero1.setLayout(null);
 
-        FechaActualMesero.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        FechaActualMesero.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         FechaActualMesero.setText("Fecha actual:");
         panelMesero1.add(FechaActualMesero);
-        FechaActualMesero.setBounds(20, 420, 270, 40);
-
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel13.setText("Nombre_MESERO 5");
-        panelMesero1.add(jLabel13);
-        jLabel13.setBounds(20, 340, 190, 30);
-
-        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel14.setText("Nombre_MESERO 1");
-        panelMesero1.add(jLabel14);
-        jLabel14.setBounds(20, 100, 190, 30);
-
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel15.setText("Nombre_MESERO 2");
-        panelMesero1.add(jLabel15);
-        jLabel15.setBounds(20, 160, 190, 30);
-
-        jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel16.setText("Nombre_MESERO 3");
-        panelMesero1.add(jLabel16);
-        jLabel16.setBounds(20, 220, 190, 30);
-
-        jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel17.setText("Nombre_MESERO 4");
-        panelMesero1.add(jLabel17);
-        jLabel17.setBounds(20, 280, 190, 30);
+        FechaActualMesero.setBounds(20, 440, 330, 40);
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Meseros actuales");
         panelMesero1.add(jLabel18);
-        jLabel18.setBounds(10, 10, 270, 50);
+        jLabel18.setBounds(30, 10, 270, 50);
+
+        tmostrarMeseros.setBackground(new java.awt.Color(255, 255, 0));
+        tmostrarMeseros.setForeground(new java.awt.Color(0, 0, 0));
+        tmostrarMeseros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Meseros"
+            }
+        ));
+        jScrollPane4.setViewportView(tmostrarMeseros);
+
+        panelMesero1.add(jScrollPane4);
+        jScrollPane4.setBounds(20, 73, 330, 350);
 
         Meseros.add(panelMesero1);
-        panelMesero1.setBounds(0, 0, 290, 620);
+        panelMesero1.setBounds(0, 0, 370, 620);
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel11.setText("Nombre(s) del mesero:");
@@ -811,33 +813,43 @@ public class Beta_Galera extends javax.swing.JFrame {
         Meseros.add(jLabel12);
         jLabel12.setBounds(410, 290, 210, 50);
 
-        jTextField3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField3.setToolTipText("Escriba");
-        Meseros.add(jTextField3);
-        jTextField3.setBounds(620, 300, 220, 30);
+        tApellidoP.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tApellidoP.setToolTipText("Escriba");
+        Meseros.add(tApellidoP);
+        tApellidoP.setBounds(620, 300, 220, 30);
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel19.setText("Apellido materno:");
         Meseros.add(jLabel19);
         jLabel19.setBounds(890, 290, 210, 50);
 
-        jTextField4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField4.setToolTipText("Escriba");
-        Meseros.add(jTextField4);
-        jTextField4.setBounds(1100, 300, 210, 30);
+        tApellidoM.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tApellidoM.setToolTipText("Escriba");
+        Meseros.add(tApellidoM);
+        tApellidoM.setBounds(1100, 300, 210, 30);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Registrar");
-        Meseros.add(jButton1);
-        jButton1.setBounds(970, 460, 220, 70);
+        bRegistrarMesero.setBackground(new java.awt.Color(255, 255, 255));
+        bRegistrarMesero.setText("Registrar");
+        bRegistrarMesero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarMeseroActionPerformed(evt);
+            }
+        });
+        Meseros.add(bRegistrarMesero);
+        bRegistrarMesero.setBounds(970, 460, 220, 70);
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Eliminar usuario");
-        Meseros.add(jButton2);
-        jButton2.setBounds(600, 460, 220, 70);
+        bEliminarMesero.setBackground(new java.awt.Color(255, 255, 255));
+        bEliminarMesero.setText("Eliminar usuario");
+        bEliminarMesero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarMeseroActionPerformed(evt);
+            }
+        });
+        Meseros.add(bEliminarMesero);
+        bEliminarMesero.setBounds(600, 460, 220, 70);
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel10.setText("VERSION INTERFACE 1.1");
+        jLabel10.setText("VERSION INTERFACE 1.2");
         Meseros.add(jLabel10);
         jLabel10.setBounds(1150, 580, 250, 30);
 
@@ -882,7 +894,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("VERSION BETA 1.10");
+        jLabel2.setText("VERSION BETA 1.11");
         jInicio.add(jLabel2);
         jLabel2.setBounds(1130, 650, 240, 50);
 
@@ -1304,6 +1316,23 @@ public class Beta_Galera extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_bSalirReporteMouseClicked
 
+    private void bRegistrarMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarMeseroActionPerformed
+        String id_S = tID_Meseros.getText();
+        int idM = Integer.parseInt(id_S);
+        String nombre = tNombre_Mesero.getText();
+        String apellidoP = tApellidoP.getText();
+        String apellidoM = tApellidoM.getText();
+        this.agregarMesero(idM, nombre, apellidoP, apellidoM);
+    }//GEN-LAST:event_bRegistrarMeseroActionPerformed
+
+    private void tNombre_MeseroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tNombre_MeseroFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tNombre_MeseroFocusGained
+
+    private void bEliminarMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarMeseroActionPerformed
+        JOptionPane.showMessageDialog(null, "Proximamente...");
+    }//GEN-LAST:event_bEliminarMeseroActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1370,6 +1399,83 @@ public class Beta_Galera extends javax.swing.JFrame {
         scheduler.scheduleAtFixedRate(runnable, 0, 1, SECONDS);
         return 0;
     }
+    
+    public void mostrarMeseros(){
+        String apellido_materno,apellido_paterno,nombre;
+        try{
+            String[] titulos={"Nombre","Apellido Paterno","Apellido Materno"};
+            String[] registro = new String[3];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from empleados order by id_empleado desc;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("nombre_empleado");
+                    registro[1] = rs.getString("apellido_paterno");
+                    registro[2] = rs.getString("apellido_materno");
+                    modelo.addRow(registro);
+                }
+                tmostrarMeseros.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar el mesero: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public int generarIDMeseros(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select max(id_empleado) id from empleados;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+            status.close();
+            rs.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id+1;
+    }
+    
+    public void agregarMesero(int id, String nombre, String apellido_paterno, String apellido_materno){
+        try {
+            try{
+                ConexionBD con = new ConexionBD();
+                Statement status = con.getConecction().createStatement();
+                status.executeUpdate("INSERT INTO empleados (id_empleado, nombre_empleado, apellido_paterno, apellido_materno) VALUES ('"+id+"', '"+nombre+"', '"+apellido_paterno+"', '"+apellido_materno+"');");
+                JOptionPane.showMessageDialog(null, "Se registro correctamente");
+                tNombre_Mesero.setText("");
+                tApellidoP.setText("");
+                tApellidoM.setText("");
+                tID_Meseros.setText(""+this.generarIDMeseros(id));
+                this.mostrarMeseros();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede registrar ("+ e.getMessage()+")");
+                tNombre_Mesero.setText("");
+                tApellidoP.setText("");
+                tApellidoM.setText("");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    int id;
     LocalDateTime tiempo = LocalDateTime.now();
     Desface deslice = new Desface();
     boolean mesas,comparativa,productos,reporte,meseros;
@@ -1390,13 +1496,13 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Meseros;
     private javax.swing.JPanel Reporte;
     private javax.swing.JPanel Sillas;
+    private javax.swing.JButton bEliminarMesero;
+    private javax.swing.JButton bRegistrarMesero;
     private javax.swing.JButton bSalirComparativa;
     private javax.swing.JButton bSalirMesas;
     private javax.swing.JButton bSalirMesasPrincipales;
     private javax.swing.JButton bSalirMeseros;
     private javax.swing.JButton bSalirReporte;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1418,11 +1524,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1497,12 +1598,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jReporte;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel jTiempo;
     private javax.swing.JLabel jTiempo1;
     private javax.swing.JLabel jTitulo;
@@ -1511,5 +1609,10 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel panelMesero3;
     private javax.swing.JPanel panelMesero4;
     private javax.swing.JPanel panelMesero5;
+    private javax.swing.JTextField tApellidoM;
+    private javax.swing.JTextField tApellidoP;
+    private javax.swing.JTextField tID_Meseros;
+    private javax.swing.JTextField tNombre_Mesero;
+    private javax.swing.JTable tmostrarMeseros;
     // End of variables declaration//GEN-END:variables
 }
