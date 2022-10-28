@@ -37,6 +37,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         this.mostrarMeseros();
         tID_Meseros.setText(""+this.generarIDMeseros(id));
         jInicioSesion.setVisible(false);
+        Productos.setVisible(false);
         Meseros.setVisible(false);
         Mesas.setVisible(false);
         MesaPrincipal.setVisible(false);
@@ -65,6 +66,21 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void initComponents() {
 
         jInicio = new javax.swing.JPanel();
+        Productos = new javax.swing.JPanel();
+        bSalirProductos = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        panelMesero6 = new javax.swing.JPanel();
+        jLabel65 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
         MesaPrincipal = new javax.swing.JPanel();
         bSalirMesasPrincipales = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
@@ -204,6 +220,100 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio.setBackground(new java.awt.Color(255, 255, 255));
         jInicio.setLayout(null);
+
+        Productos.setBackground(new java.awt.Color(255, 255, 255));
+        Productos.setLayout(null);
+
+        bSalirProductos.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirProductos.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirProductos.setText("X");
+        bSalirProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bSalirProductosMouseClicked(evt);
+            }
+        });
+        bSalirProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirProductosActionPerformed(evt);
+            }
+        });
+        Productos.add(bSalirProductos);
+        bSalirProductos.setBounds(1290, 10, 90, 60);
+
+        jPanel12.setBackground(new java.awt.Color(0, 0, 0));
+        Productos.add(jPanel12);
+        jPanel12.setBounds(660, 0, 10, 620);
+
+        jPanel13.setBackground(new java.awt.Color(0, 0, 0));
+        Productos.add(jPanel13);
+        jPanel13.setBounds(0, 0, 1400, 10);
+
+        panelMesero6.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero6.setLayout(null);
+
+        jLabel65.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel65.setText("CATEGORIA");
+        panelMesero6.add(jLabel65);
+        jLabel65.setBounds(160, 10, 320, 80);
+
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        panelMesero6.add(jTextField1);
+        jTextField1.setBounds(300, 200, 320, 40);
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Escribe el nombre de tu categoria:");
+        panelMesero6.add(jLabel13);
+        jLabel13.setBounds(310, 160, 310, 30);
+
+        jTextField2.setEditable(false);
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        panelMesero6.add(jTextField2);
+        jTextField2.setBounds(30, 200, 180, 40);
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("ID Categoria");
+        panelMesero6.add(jLabel14);
+        jLabel14.setBounds(60, 160, 130, 30);
+
+        jButton1.setText("Registrar categoria");
+        panelMesero6.add(jButton1);
+        jButton1.setBounds(190, 280, 270, 60);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable1);
+
+        panelMesero6.add(jScrollPane3);
+        jScrollPane3.setBounds(20, 400, 620, 190);
+
+        Productos.add(panelMesero6);
+        panelMesero6.setBounds(0, 0, 660, 620);
+
+        jLabel73.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel73.setText("VERSION INTERFACE 1.2");
+        Productos.add(jLabel73);
+        jLabel73.setBounds(1150, 580, 250, 30);
+
+        jLabel66.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel66.setText("PRODUCTO");
+        Productos.add(jLabel66);
+        jLabel66.setBounds(910, 10, 290, 80);
+
+        jInicio.add(Productos);
+        Productos.setBounds(0, 90, 1380, 620);
 
         MesaPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         MesaPrincipal.setLayout(null);
@@ -1135,7 +1245,13 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jComparativaMouseExited
 
     private void jProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProductosMouseClicked
-        // TODO add your handling code here:
+        Productos.setVisible(true);
+        Reporte.setVisible(false);
+        Meseros.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Comparativa.setVisible(false);
+        Sillas.setVisible(false);
+        Mesas.setVisible(false);
     }//GEN-LAST:event_jProductosMouseClicked
 
     private void jProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProductosMouseEntered
@@ -1246,6 +1362,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jMeserosMouseExited
 
     private void bSalirMeserosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMeserosActionPerformed
+        Productos.setVisible(false);
         Sillas.setVisible(false);
         MesaPrincipal.setVisible(false);
         Meseros.setVisible(false);
@@ -1255,6 +1372,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirMeserosActionPerformed
 
     private void bSalirMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasActionPerformed
+        Productos.setVisible(false);
         Sillas.setVisible(false);
         MesaPrincipal.setVisible(false);
         Reporte.setVisible(false);
@@ -1264,6 +1382,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirMesasActionPerformed
 
     private void bSalirComparativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirComparativaActionPerformed
+        Productos.setVisible(false);
         Sillas.setVisible(false);
         Reporte.setVisible(false);
         Meseros.setVisible(false);
@@ -1278,6 +1397,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void bSalirMesasPrincipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasPrincipalesActionPerformed
+        Productos.setVisible(false);
         MesaPrincipal.setVisible(false);
         Sillas.setVisible(false);
         Meseros.setVisible(false);
@@ -1299,6 +1419,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jCategoriaActionPerformed
 
     private void bSalirReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirReporteActionPerformed
+        Productos.setVisible(false);
         MesaPrincipal.setVisible(false);
         Sillas.setVisible(false);
         Meseros.setVisible(false);
@@ -1307,10 +1428,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_bSalirReporteActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void bSalirReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSalirReporteMouseClicked
         // TODO add your handling code here:
@@ -1332,6 +1449,24 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void bEliminarMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarMeseroActionPerformed
         JOptionPane.showMessageDialog(null, "Proximamente...");
     }//GEN-LAST:event_bEliminarMeseroActionPerformed
+
+    private void bSalirProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSalirProductosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bSalirProductosMouseClicked
+
+    private void bSalirProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirProductosActionPerformed
+        Productos.setVisible(false);
+    }//GEN-LAST:event_bSalirProductosActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Productos.setVisible(false);
+        Sillas.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1494,6 +1629,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTable MesaTabla1;
     private javax.swing.JPanel Mesas;
     private javax.swing.JPanel Meseros;
+    private javax.swing.JPanel Productos;
     private javax.swing.JPanel Reporte;
     private javax.swing.JPanel Sillas;
     private javax.swing.JButton bEliminarMesero;
@@ -1502,7 +1638,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirMesas;
     private javax.swing.JButton bSalirMesasPrincipales;
     private javax.swing.JButton bSalirMeseros;
+    private javax.swing.JButton bSalirProductos;
     private javax.swing.JButton bSalirReporte;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1524,6 +1662,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1576,7 +1716,10 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jMenu;
@@ -1585,6 +1728,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1598,9 +1743,13 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jReporte;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel jTiempo;
     private javax.swing.JLabel jTiempo1;
     private javax.swing.JLabel jTitulo;
@@ -1609,6 +1758,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel panelMesero3;
     private javax.swing.JPanel panelMesero4;
     private javax.swing.JPanel panelMesero5;
+    private javax.swing.JPanel panelMesero6;
     private javax.swing.JTextField tApellidoM;
     private javax.swing.JTextField tApellidoP;
     private javax.swing.JTextField tID_Meseros;
