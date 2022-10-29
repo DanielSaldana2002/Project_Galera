@@ -35,7 +35,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     public Beta_Galera() {
         initComponents();
         this.mostrarMeseros();
+        this.mostrarCategoria();
         tID_Meseros.setText(""+this.generarIDMeseros(id));
+        tIDCategoria.setText(""+this.generarIDCategoria(id));
         jInicioSesion.setVisible(false);
         Productos.setVisible(false);
         Meseros.setVisible(false);
@@ -72,15 +74,20 @@ public class Beta_Galera extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         panelMesero6 = new javax.swing.JPanel();
         jLabel65 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        tIDCategoria = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        bRegistrarCategoria = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tTablaCategoria = new javax.swing.JTable();
+        jLabel15 = new javax.swing.JLabel();
+        tEscribirCategoria = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        tEscribirCategoria1 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        tEscribirCategoria2 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
         MesaPrincipal = new javax.swing.JPanel();
         bSalirMesasPrincipales = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
@@ -222,6 +229,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jInicio.setLayout(null);
 
         Productos.setBackground(new java.awt.Color(255, 255, 255));
+        Productos.setForeground(new java.awt.Color(0, 0, 0));
         Productos.setLayout(null);
 
         bSalirProductos.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -256,34 +264,28 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero6.add(jLabel65);
         jLabel65.setBounds(160, 10, 320, 80);
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        panelMesero6.add(jTextField1);
-        jTextField1.setBounds(300, 200, 320, 40);
-
-        jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Escribe el nombre de tu categoria:");
-        panelMesero6.add(jLabel13);
-        jLabel13.setBounds(310, 160, 310, 30);
-
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        panelMesero6.add(jTextField2);
-        jTextField2.setBounds(30, 200, 180, 40);
+        tIDCategoria.setEditable(false);
+        tIDCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        tIDCategoria.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        panelMesero6.add(tIDCategoria);
+        tIDCategoria.setBounds(40, 200, 180, 40);
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("ID Categoria");
         panelMesero6.add(jLabel14);
-        jLabel14.setBounds(60, 160, 130, 30);
+        jLabel14.setBounds(70, 160, 130, 30);
 
-        jButton1.setText("Registrar categoria");
-        panelMesero6.add(jButton1);
-        jButton1.setBounds(190, 280, 270, 60);
+        bRegistrarCategoria.setText("Registrar categoria");
+        bRegistrarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarCategoriaActionPerformed(evt);
+            }
+        });
+        panelMesero6.add(bRegistrarCategoria);
+        bRegistrarCategoria.setBounds(170, 280, 270, 60);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tTablaCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -294,10 +296,21 @@ public class Beta_Galera extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(tTablaCategoria);
 
         panelMesero6.add(jScrollPane3);
-        jScrollPane3.setBounds(20, 400, 620, 190);
+        jScrollPane3.setBounds(80, 390, 450, 150);
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Escribe el nombre de tu categoria:");
+        panelMesero6.add(jLabel15);
+        jLabel15.setBounds(320, 160, 310, 30);
+
+        tEscribirCategoria.setBackground(new java.awt.Color(255, 255, 255));
+        tEscribirCategoria.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        panelMesero6.add(tEscribirCategoria);
+        tEscribirCategoria.setBounds(320, 200, 290, 40);
 
         Productos.add(panelMesero6);
         panelMesero6.setBounds(0, 0, 660, 620);
@@ -311,6 +324,35 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel66.setText("PRODUCTO");
         Productos.add(jLabel66);
         jLabel66.setBounds(910, 10, 290, 80);
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Id producto:");
+        Productos.add(jLabel13);
+        jLabel13.setBounds(760, 160, 120, 30);
+
+        tEscribirCategoria1.setEditable(false);
+        tEscribirCategoria1.setBackground(new java.awt.Color(255, 255, 255));
+        tEscribirCategoria1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        Productos.add(tEscribirCategoria1);
+        tEscribirCategoria1.setBounds(740, 200, 150, 40);
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("Id producto:");
+        Productos.add(jLabel16);
+        jLabel16.setBounds(760, 160, 120, 30);
+
+        tEscribirCategoria2.setBackground(new java.awt.Color(255, 255, 255));
+        tEscribirCategoria2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        Productos.add(tEscribirCategoria2);
+        tEscribirCategoria2.setBounds(1010, 200, 300, 40);
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Nombre del producto:");
+        Productos.add(jLabel17);
+        jLabel17.setBounds(1060, 160, 210, 30);
 
         jInicio.add(Productos);
         Productos.setBounds(0, 90, 1380, 620);
@@ -1468,6 +1510,12 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void bRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarCategoriaActionPerformed
+        int id_categoria = Integer.parseInt(tIDCategoria.getText());
+        String nombre_categoria = tEscribirCategoria.getText();
+        this.agregarCategoria(id_categoria, nombre_categoria);
+    }//GEN-LAST:event_bRegistrarCategoriaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1610,6 +1658,78 @@ public class Beta_Galera extends javax.swing.JFrame {
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public int generarIDCategoria(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select max(id_categoria) id from categoria_productos;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+            status.close();
+            rs.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id+1;
+    }
+    
+    public void mostrarCategoria(){
+        String apellido_materno,apellido_paterno,nombre;
+        try{
+            String[] titulos={"id","nombre_categorias"};
+            String[] registro = new String[2];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from categoria_productos;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("id_categoria");
+                    registro[1] = rs.getString("nombre_categoria");
+                    modelo.addRow(registro);
+                }
+                tTablaCategoria.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar el mesero: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void agregarCategoria(int id, String nombre_categoria){
+        try {
+            try{
+                ConexionBD con = new ConexionBD();
+                Statement status = con.getConecction().createStatement();
+                status.executeUpdate("INSERT INTO categoria_productos (id_categoria, nombre_categoria) VALUES ('"+id+"', '"+nombre_categoria+"');");
+                JOptionPane.showMessageDialog(null, "Se registro correctamente");
+                tEscribirCategoria.setText("");
+                tIDCategoria.setText(""+this.generarIDCategoria(id));
+                this.mostrarCategoria();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede registrar ("+ e.getMessage()+")");
+                tEscribirCategoria.setText("");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     int id;
     LocalDateTime tiempo = LocalDateTime.now();
     Desface deslice = new Desface();
@@ -1633,6 +1753,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Reporte;
     private javax.swing.JPanel Sillas;
     private javax.swing.JButton bEliminarMesero;
+    private javax.swing.JButton bRegistrarCategoria;
     private javax.swing.JButton bRegistrarMesero;
     private javax.swing.JButton bSalirComparativa;
     private javax.swing.JButton bSalirMesas;
@@ -1640,7 +1761,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirMeseros;
     private javax.swing.JButton bSalirProductos;
     private javax.swing.JButton bSalirReporte;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1664,6 +1784,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1747,9 +1870,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel jTiempo;
     private javax.swing.JLabel jTiempo1;
     private javax.swing.JLabel jTitulo;
@@ -1761,8 +1881,13 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel panelMesero6;
     private javax.swing.JTextField tApellidoM;
     private javax.swing.JTextField tApellidoP;
+    private javax.swing.JTextField tEscribirCategoria;
+    private javax.swing.JTextField tEscribirCategoria1;
+    private javax.swing.JTextField tEscribirCategoria2;
+    private javax.swing.JTextField tIDCategoria;
     private javax.swing.JTextField tID_Meseros;
     private javax.swing.JTextField tNombre_Mesero;
+    private javax.swing.JTable tTablaCategoria;
     private javax.swing.JTable tmostrarMeseros;
     // End of variables declaration//GEN-END:variables
 }
