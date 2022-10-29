@@ -36,6 +36,15 @@ public class Beta_Galera extends javax.swing.JFrame {
         initComponents();
         this.mostrarMeseros();
         this.mostrarCategoria();
+        this.mostrarProducto();
+        try {
+            this.cargarComboCategorias();
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        tID_Productos.setText(""+this.generarIDProducto(id));
         tID_Meseros.setText(""+this.generarIDMeseros(id));
         tIDCategoria.setText(""+this.generarIDCategoria(id));
         jInicioSesion.setVisible(false);
@@ -83,16 +92,16 @@ public class Beta_Galera extends javax.swing.JFrame {
         tEscribirCategoria = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        tEscribirCategoria1 = new javax.swing.JTextField();
+        tID_Productos = new javax.swing.JTextField();
         tEscribirCategoria2 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        jCategoriaProducto = new javax.swing.JComboBox<>();
         jLabel68 = new javax.swing.JLabel();
         tEscribirCategoria3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tTablaProducto = new javax.swing.JTable();
         jLabel73 = new javax.swing.JLabel();
         MesaPrincipal = new javax.swing.JPanel();
         bSalirMesasPrincipales = new javax.swing.JButton();
@@ -332,11 +341,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         Productos.add(jLabel13);
         jLabel13.setBounds(730, 110, 120, 30);
 
-        tEscribirCategoria1.setEditable(false);
-        tEscribirCategoria1.setBackground(new java.awt.Color(255, 255, 255));
-        tEscribirCategoria1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        Productos.add(tEscribirCategoria1);
-        tEscribirCategoria1.setBounds(710, 150, 150, 40);
+        tID_Productos.setEditable(false);
+        tID_Productos.setBackground(new java.awt.Color(255, 255, 255));
+        tID_Productos.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        Productos.add(tID_Productos);
+        tID_Productos.setBounds(710, 150, 150, 40);
 
         tEscribirCategoria2.setBackground(new java.awt.Color(255, 255, 255));
         tEscribirCategoria2.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
@@ -356,11 +365,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Productos.add(jLabel67);
         jLabel67.setBounds(1040, 110, 210, 30);
 
-        jComboBox9.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox9.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Productos.add(jComboBox9);
-        jComboBox9.setBounds(700, 270, 250, 40);
+        jCategoriaProducto.setBackground(new java.awt.Color(255, 255, 255));
+        jCategoriaProducto.setForeground(new java.awt.Color(0, 0, 0));
+        Productos.add(jCategoriaProducto);
+        jCategoriaProducto.setBounds(700, 270, 250, 40);
 
         jLabel68.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel68.setForeground(new java.awt.Color(0, 0, 0));
@@ -377,7 +385,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Productos.add(jButton1);
         jButton1.setBounds(890, 350, 320, 60);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tTablaProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -388,7 +396,7 @@ public class Beta_Galera extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(jTable1);
+        jScrollPane5.setViewportView(tTablaProducto);
 
         Productos.add(jScrollPane5);
         jScrollPane5.setBounds(750, 470, 560, 90);
@@ -1090,7 +1098,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("VERSION BETA 1.11");
+        jLabel2.setText("VERSION BETA 1.20");
         jInicio.add(jLabel2);
         jLabel2.setBounds(1130, 650, 240, 50);
 
@@ -1728,6 +1736,27 @@ public class Beta_Galera extends javax.swing.JFrame {
         return id+1;
     }
     
+    public int generarIDProducto(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select max(id_productos) id from productos;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+            status.close();
+            rs.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id+1;
+    }
+    
     public void mostrarCategoria(){
         String apellido_materno,apellido_paterno,nombre;
         try{
@@ -1769,12 +1798,103 @@ public class Beta_Galera extends javax.swing.JFrame {
                 tEscribirCategoria.setText("");
                 tIDCategoria.setText(""+this.generarIDCategoria(id));
                 this.mostrarCategoria();
+                jCategoriaProducto.removeAllItems();
+                this.cargarComboCategorias();
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "No se puede registrar ("+ e.getMessage()+")");
                 tEscribirCategoria.setText("");
             }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public ArrayList<MeserosVO> llamarMeseros() throws SQLException, ClassNotFoundException{
+        ArrayList<MeserosVO> misMeseros = new ArrayList<MeserosVO>();
+        ConexionBD con = new ConexionBD();
+        try{
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from empleados order by id_empleado desc;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                MeserosVO meseros = new MeserosVO();
+                meseros.setId(rs.getInt("id_empleado"));
+                meseros.setNombre(rs.getString("nombre_empleado"));
+                meseros.setApellido_paterno(rs.getString("apellido_paterno"));
+                meseros.setApellido_materno(rs.getString("apellido_materno"));
+                misMeseros.add(meseros);
+            }
+            status.close();
+            rs.close();
+            con.desconectar();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el mesero: ("+ e.getMessage()+")");
+        }
+        return misMeseros;
+    }
+    
+    public ArrayList<categoriaVO> llamarCategorias() throws SQLException, ClassNotFoundException{
+        ArrayList<categoriaVO> misCategoria = new ArrayList<categoriaVO>();
+        ConexionBD con = new ConexionBD();
+        try{
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from categoria_productos order by id_categoria desc;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                categoriaVO categoria = new categoriaVO();
+                categoria.setId_categoria(rs.getInt("id_categoria"));
+                categoria.setId_nombre_categoria(rs.getString("nombre_categoria"));
+                misCategoria.add(categoria);
+            }
+            status.close();
+            rs.close();
+            con.desconectar();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar el mesero: ("+ e.getMessage()+")");
+        }
+        return misCategoria;
+    }
+    
+    public void mostrarProducto(){
+        String apellido_materno,apellido_paterno,nombre;
+        try{
+            String[] titulos={"ID","Nombre producto","Categoria", "Precio"};
+            String[] registro = new String[4];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from productos;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("id_productos");
+                    registro[1] = rs.getString("nombre_producto");
+                    registro[2] = rs.getString("fk_id_categoria");
+                    registro[3] = rs.getString("precio");
+                    modelo.addRow(registro);
+                }
+                tTablaProducto.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar el mesero: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void cargarComboCategorias() throws SQLException, ClassNotFoundException{
+        categoriaVO categoriaVO;
+        ArrayList <categoriaVO> misCategorias = this.llamarCategorias();
+        for (int i = 0; i < misCategorias.size(); i++) {
+            jCategoriaProducto.addItem(misCategorias.get(i).getId_nombre_categoria());
         }
     }
     
@@ -1816,6 +1936,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jCancelar;
     private javax.swing.JComboBox<String> jCategoria;
+    private javax.swing.JComboBox<String> jCategoriaProducto;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1824,7 +1945,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jComparativa;
     private javax.swing.JPanel jInicio;
     private javax.swing.JPanel jInicioSesion;
@@ -1922,7 +2042,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel jTiempo;
     private javax.swing.JLabel jTiempo1;
     private javax.swing.JLabel jTitulo;
@@ -1935,13 +2054,14 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tApellidoM;
     private javax.swing.JTextField tApellidoP;
     private javax.swing.JTextField tEscribirCategoria;
-    private javax.swing.JTextField tEscribirCategoria1;
     private javax.swing.JTextField tEscribirCategoria2;
     private javax.swing.JTextField tEscribirCategoria3;
     private javax.swing.JTextField tIDCategoria;
     private javax.swing.JTextField tID_Meseros;
+    private javax.swing.JTextField tID_Productos;
     private javax.swing.JTextField tNombre_Mesero;
     private javax.swing.JTable tTablaCategoria;
+    private javax.swing.JTable tTablaProducto;
     private javax.swing.JTable tmostrarMeseros;
     // End of variables declaration//GEN-END:variables
 }
