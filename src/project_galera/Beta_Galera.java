@@ -20,6 +20,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -238,6 +239,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesa5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Galeras | Inicio");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jInicio.setBackground(new java.awt.Color(255, 255, 255));
@@ -368,7 +370,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jCategoriaProducto.setBackground(new java.awt.Color(255, 255, 255));
         jCategoriaProducto.setForeground(new java.awt.Color(0, 0, 0));
         Productos.add(jCategoriaProducto);
-        jCategoriaProducto.setBounds(700, 270, 250, 40);
+        jCategoriaProducto.setBounds(700, 270, 250, 50);
 
         jLabel68.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel68.setForeground(new java.awt.Color(0, 0, 0));
@@ -388,7 +390,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         Productos.add(bRegistroProducto);
-        bRegistroProducto.setBounds(890, 350, 320, 60);
+        bRegistroProducto.setBounds(890, 360, 320, 60);
 
         tTablaProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -404,7 +406,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jScrollPane5.setViewportView(tTablaProducto);
 
         Productos.add(jScrollPane5);
-        jScrollPane5.setBounds(750, 470, 560, 110);
+        jScrollPane5.setBounds(750, 460, 560, 120);
 
         jLabel73.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel73.setText("VERSION INTERFACE 1.2");
@@ -1318,6 +1320,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jMesasMouseExited
 
     private void jMesasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMesasMouseClicked
+        this.setTitle("Galeras | Juntar mesas");
         Productos.setVisible(false);
         Sillas.setVisible(true);
         Meseros.setVisible(false);
@@ -1328,6 +1331,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jMesasMouseClicked
 
     private void jComparativaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseClicked
+        this.setTitle("Galeras | Comparativa");
         Productos.setVisible(false);
         Comparativa.setVisible(true);
         Sillas.setVisible(false);
@@ -1346,6 +1350,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jComparativaMouseExited
 
     private void jProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProductosMouseClicked
+        this.setTitle("Galeras | Categorias & Productos");
         Productos.setVisible(true);
         Reporte.setVisible(false);
         Meseros.setVisible(false);
@@ -1364,6 +1369,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jProductosMouseExited
 
     private void jReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jReporteMouseClicked
+        this.setTitle("Galeras | Reporte");
         Productos.setVisible(false);
         Reporte.setVisible(true);
         Meseros.setVisible(false);
@@ -1447,6 +1453,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_Mesa5MouseExited
 
     private void jMeserosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMeserosMouseClicked
+        this.setTitle("Galeras | Meseros");
         Productos.setVisible(false);
         Meseros.setVisible(true);
         MesaPrincipal.setVisible(false);
@@ -1465,6 +1472,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jMeserosMouseExited
 
     private void bSalirMeserosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMeserosActionPerformed
+        this.setTitle("Galeras | Inicio");
         Productos.setVisible(false);
         Sillas.setVisible(false);
         MesaPrincipal.setVisible(false);
@@ -1475,6 +1483,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirMeserosActionPerformed
 
     private void bSalirMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasActionPerformed
+        this.setTitle("Galeras | Inicio");
         Productos.setVisible(false);
         Sillas.setVisible(false);
         MesaPrincipal.setVisible(false);
@@ -1485,6 +1494,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirMesasActionPerformed
 
     private void bSalirComparativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirComparativaActionPerformed
+        this.setTitle("Galeras | Inicio");
         Productos.setVisible(false);
         Sillas.setVisible(false);
         Reporte.setVisible(false);
@@ -1500,6 +1510,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void bSalirMesasPrincipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasPrincipalesActionPerformed
+        this.setTitle("Galeras | Inicio");
         Productos.setVisible(false);
         MesaPrincipal.setVisible(false);
         Sillas.setVisible(false);
@@ -1522,6 +1533,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jCategoriaActionPerformed
 
     private void bSalirReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirReporteActionPerformed
+        this.setTitle("Galeras | Inicio");
         Productos.setVisible(false);
         MesaPrincipal.setVisible(false);
         Sillas.setVisible(false);
@@ -1558,6 +1570,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirProductosMouseClicked
 
     private void bSalirProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirProductosActionPerformed
+        this.setTitle("Galeras | Inicio");
         Productos.setVisible(false);
     }//GEN-LAST:event_bSalirProductosActionPerformed
 
