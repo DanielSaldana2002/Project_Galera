@@ -35,7 +35,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
     public Inicio_Galera() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.setExtendedState(Frame.MAXIMIZED_BOTH);
         this.colorMesaDefault();
         acomodoMesas.setVisible(false);
         Comparativa.setVisible(false);

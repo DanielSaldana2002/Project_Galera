@@ -35,7 +35,8 @@ public class Beta_Galera extends javax.swing.JFrame {
      */
     public Beta_Galera() {
         initComponents(); 
-        this.setExtendedState(JFrame.MAXIMIZED_HORIZ);
+        this.setExtendedState(Frame.MAXIMIZED_BOTH);
+        this.colorMesaDefault();
         this.mostrarMeseros();
         this.mostrarCategoria();
         this.mostrarProducto();
@@ -112,7 +113,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        bAgregarPedido = new javax.swing.JButton();
         jLabel34 = new javax.swing.JLabel();
         jCategoria = new javax.swing.JComboBox<>();
         jLabel35 = new javax.swing.JLabel();
@@ -480,16 +481,16 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.add(jLabel53);
         jLabel53.setBounds(1150, 580, 250, 30);
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 0));
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton5.setText("Agregar pedido");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        bAgregarPedido.setBackground(new java.awt.Color(255, 255, 0));
+        bAgregarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bAgregarPedido.setText("Agregar pedido");
+        bAgregarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                bAgregarPedidoActionPerformed(evt);
             }
         });
-        MesaPrincipal.add(jButton5);
-        jButton5.setBounds(650, 290, 240, 50);
+        MesaPrincipal.add(bAgregarPedido);
+        bAgregarPedido.setBounds(650, 290, 240, 50);
 
         jLabel34.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel34.setText("Categoria:");
@@ -563,6 +564,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         JPagar.setBackground(new java.awt.Color(255, 255, 0));
         JPagar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JPagar.setText("Pagar pedido");
+        JPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JPagarActionPerformed(evt);
+            }
+        });
         MesaPrincipal.add(JPagar);
         JPagar.setBounds(860, 520, 180, 80);
 
@@ -1384,6 +1390,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jReporteMouseExited
 
     private void Mesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa1MouseClicked
+        this.aparacerDesaparecerMesas(1);
         Mesas.setVisible(false);
         MesaPrincipal.setVisible(true);
         
@@ -1507,6 +1514,7 @@ public class Beta_Galera extends javax.swing.JFrame {
 
     private void bSalirMesasPrincipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasPrincipalesActionPerformed
         this.setTitle("Galeras | Inicio");
+        this.aparacerDesaparecerMesas(0);
         Productos.setVisible(false);
         MesaPrincipal.setVisible(false);
         Sillas.setVisible(false);
@@ -1516,12 +1524,12 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(true);
     }//GEN-LAST:event_bSalirMesasPrincipalesActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void bAgregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPedidoActionPerformed
+        this.statusOccupied(1);
+    }//GEN-LAST:event_bAgregarPedidoActionPerformed
 
     private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
-        // TODO add your handling code here:
+        this.statusBorrar(1);
     }//GEN-LAST:event_jCancelarActionPerformed
 
     private void jCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCategoriaActionPerformed
@@ -1594,6 +1602,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         this.registrarProducto(id_producto, nombre_producto, fk_id_categoria, precio);
     }//GEN-LAST:event_bRegistroProductoActionPerformed
 
+    private void JPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPagarActionPerformed
+        this.statusBorrar(1);
+    }//GEN-LAST:event_JPagarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1627,6 +1639,362 @@ public class Beta_Galera extends javax.swing.JFrame {
                 new Beta_Galera().setVisible(true);
             }
         });
+    }
+    
+    public void colorMesaDefault(){
+        Mesa1.setForeground(Color.GREEN);
+        Mesa2.setForeground(Color.GREEN);
+        Mesa3.setForeground(Color.GREEN);
+        Mesa4.setForeground(Color.GREEN);
+        Mesa5.setForeground(Color.GREEN);
+        //Mesa6.setForeground(Color.GREEN);
+        //Mesa7.setForeground(Color.GREEN);
+        //Mesa8.setForeground(Color.GREEN);
+        //Mesa9.setForeground(Color.GREEN);
+        //Mesa10.setForeground(Color.GREEN);
+        //Mesa11.setForeground(Color.GREEN);
+        //Mesa12.setForeground(Color.GREEN);
+        //Mesa13.setForeground(Color.GREEN);
+        //Mesa14.setForeground(Color.GREEN);   
+    }
+    
+    public void statusOccupied(int numero){
+        if(numero==1){
+            mesa1="Occupied";
+            Mesa1.setForeground(Color.RED);
+        }else if(numero==2){
+            mesa2="Occupied";
+            Mesa2.setForeground(Color.RED);
+        }else if(numero==3){
+            mesa3="Occupied";
+            Mesa3.setForeground(Color.RED);
+        }else if(numero==4){
+            mesa4="Occupied";
+            Mesa4.setForeground(Color.RED);
+        }else if(numero==5){
+            mesa5="Occupied";
+            Mesa5.setForeground(Color.RED);
+        /*}else if(numero==6){
+            mesa6="Occupied";
+            Mesa6.setForeground(Color.RED);
+        }else if(numero==7){
+            mesa7="Occupied";
+            Mesa7.setForeground(Color.RED);
+        }else if(numero==8){
+            mesa8="Occupied";
+            Mesa8.setForeground(Color.RED);
+        }else if(numero==9){
+            mesa9="Occupied";
+            Mesa9.setForeground(Color.RED);
+        }else if(numero==10){
+            mesa10="Occupied";
+            Mesa10.setForeground(Color.RED);*/
+        }else if(numero==11){
+            mesa11="Occupied";
+        }else if(numero==12){
+            mesa12="Occupied";
+        }else if(numero==13){
+            mesa13="Occupied";
+        }else if(numero==14){
+            mesa3="Occupied";
+        }else if(numero==3){
+            mesa14="Occupied";
+        }else if(numero==15){
+            mesa15="Occupied";
+        }else if(numero==16){
+            mesa16="Occupied";
+        }else if(numero==17){
+            mesa17="Occupied";
+        }else if(numero==18){
+            mesa18="Occupied";
+        }else if(numero==19){
+            mesa19="Occupied";
+        }else if(numero==20){
+            mesa20="Occupied";
+        }else if(numero==21){
+            mesa21="Occupied";
+        }else if(numero==22){
+            mesa22="Occupied";
+        }else if(numero==23){
+            mesa23="Occupied";
+        }else if(numero==24){
+            mesa24="Occupied";
+        }else if(numero==25){
+            mesa25="Occupied";
+        }else if(numero==26){
+            mesa26="Occupied";
+        }else if(numero==27){
+            mesa27="Occupied";
+        }else if(numero==28){
+            mesa28="Occupied";
+        }else if(numero==29){
+            mesa29="Occupied";
+        }else if(numero==30){
+            mesa30="Occupied";
+        }else if(numero==31){
+            mesa31="Occupied";
+        }else if(numero==32){
+            mesa33="Occupied";
+        }else if(numero==33){
+            mesa33="Occupied";
+        }else if(numero==34){
+            mesa34="Occupied";
+        }else if(numero==35){
+            mesa35="Occupied";
+        }else if(numero==36){
+            mesa36="Occupied";
+        }else if(numero==37){
+            mesa37="Occupied";
+        }else if(numero==38){
+            mesa38="Occupied";
+        }else if(numero==39){
+            mesa39="Occupied";
+        }else if(numero==40){
+            mesa40="Occupied";
+        }else if(numero==41){
+            mesa41="Occupied";
+        }else if(numero==42){
+            mesa42="Occupied";
+        }else if(numero==43){
+            mesa43="Occupied";
+        }else if(numero==44){
+            mesa44="Occupied";
+        }else if(numero==45){
+            mesa45="Occupied";
+        }else if(numero==46){
+            mesa46="Occupied";
+        }else if(numero==47){
+            mesa47="Occupied";
+        }else if(numero==48){
+            mesa48="Occupied";
+        }else if(numero==49){
+            mesa49="Occupied";
+        }else if(numero==50){
+            mesa50="Occupied";
+        }
+    }
+    
+     public void statusBorrar(int numero){
+        if(numero==1){
+            mesa1="Active";
+            Mesa1.setForeground(Color.GREEN);
+        }else if(numero==2){
+            mesa2="Active";
+            Mesa2.setForeground(Color.GREEN);
+        }else if(numero==3){
+            mesa3="Active";
+            Mesa3.setForeground(Color.GREEN);
+        }else if(numero==4){
+            mesa4="Active";
+            Mesa4.setForeground(Color.GREEN);
+        }else if(numero==5){
+            mesa5="Active";
+            Mesa5.setForeground(Color.GREEN);
+        /*}else if(numero==6){
+            mesa6="Active";
+            Mesa6.setForeground(Color.GREEN);
+        }else if(numero==7){
+            mesa7="Active";
+            Mesa7.setForeground(Color.GREEN);
+        }else if(numero==8){
+            mesa8="Active";
+            Mesa8.setForeground(Color.GREEN);
+        }else if(numero==9){
+            mesa9="Active";
+            Mesa9.setForeground(Color.GREEN);
+        }else if(numero==10){
+            mesa10="Active";
+            Mesa10.setForeground(Color.GREEN);*/
+        }else if(numero==11){
+            mesa11="Active";
+        }else if(numero==12){
+            mesa12="Active";
+        }else if(numero==13){
+            mesa13="Active";
+        }else if(numero==14){
+            mesa14="Active";
+        }else if(numero==15){
+            mesa15="Active";
+        }else if(numero==16){
+            mesa16="Active";
+        }else if(numero==17){
+            mesa17="Active";
+        }else if(numero==18){
+            mesa18="Active";
+        }else if(numero==19){
+            mesa19="Active";
+        }else if(numero==20){
+            mesa20="Active";
+        }else if(numero==21){
+            mesa21="Active";
+        }else if(numero==22){
+            mesa22="Active";
+        }else if(numero==23){
+            mesa23="Active";
+        }else if(numero==24){
+            mesa24="Active";
+        }else if(numero==25){
+            mesa25="Active";
+        }else if(numero==26){
+            mesa26="Active";
+        }else if(numero==27){
+            mesa27="Active";
+        }else if(numero==28){
+            mesa28="Active";
+        }else if(numero==29){
+            mesa29="Active";
+        }else if(numero==30){
+            mesa30="Active";
+        }else if(numero==31){
+            mesa31="Active";
+        }else if(numero==32){
+            mesa32="Active";
+        }else if(numero==33){
+            mesa33="Active";
+        }else if(numero==34){
+            mesa34="Active";
+        }else if(numero==35){
+            mesa35="Active";
+        }else if(numero==36){
+            mesa36="Active";
+        }else if(numero==37){
+            mesa37="Active";
+        }else if(numero==38){
+            mesa38="Active";
+        }else if(numero==39){
+            mesa39="Active";
+        }else if(numero==40){
+            mesa40="Active";
+        }else if(numero==41){
+            mesa41="Active";
+        }else if(numero==42){
+            mesa42="Active";
+        }else if(numero==43){
+            mesa43="Active";
+        }else if(numero==44){
+            mesa44="Active";
+        }else if(numero==45){
+            mesa45="Active";
+        }else if(numero==46){
+            mesa46="Active";
+        }else if(numero==47){
+            mesa47="Active";
+        }else if(numero==48){
+            mesa48="Active";
+        }else if(numero==49){
+            mesa49="Active";
+        }else if(numero==50){
+            mesa50="Active";
+        }
+    }
+     
+    public void aparacerDesaparecerMesas(int numero){
+        if(numero==0){
+            Mesa1.setVisible(true);
+            Mesa2.setVisible(true);
+            Mesa3.setVisible(true);
+            Mesa4.setVisible(true);
+            Mesa5.setVisible(true);
+            /*Mesa6.setVisible(true);
+            Mesa7.setVisible(true);
+            Mesa8.setVisible(true);
+            Mesa9.setVisible(true);
+            Mesa10.setVisible(true);
+            Mesa11.setVisible(true);
+            Mesa12.setVisible(true);
+            Mesa13.setVisible(true);
+            Mesa14.setVisible(true);
+            Mesa15.setVisible(true);
+            Mesa16.setVisible(true);
+            Mesa17.setVisible(true);
+            Mesa18.setVisible(true);
+            Mesa19.setVisible(true);
+            Mesa20.setVisible(true);
+            Mesa21.setVisible(true);
+            Mesa22.setVisible(true);
+            Mesa23.setVisible(true);
+            Mesa24.setVisible(true);
+            Mesa25.setVisible(true);
+            Mesa26.setVisible(true);
+            Mesa27.setVisible(true);
+            Mesa28.setVisible(true);
+            Mesa29.setVisible(true);
+            Mesa30.setVisible(true);
+            Mesa31.setVisible(true);
+            Mesa32.setVisible(true);
+            Mesa33.setVisible(true);
+            Mesa34.setVisible(true);
+            Mesa35.setVisible(true);
+            Mesa36.setVisible(true);
+            Mesa37.setVisible(true);
+            Mesa38.setVisible(true);
+            Mesa39.setVisible(true);
+            Mesa40.setVisible(true);
+            Mesa41.setVisible(true);
+            Mesa42.setVisible(true);
+            Mesa43.setVisible(true);
+            Mesa44.setVisible(true);
+            Mesa45.setVisible(true);
+            Mesa46.setVisible(true);
+            Mesa47.setVisible(true);
+            Mesa48.setVisible(true);
+            Mesa49.setVisible(true);
+            Mesa50.setVisible(true);*/
+        }else if(numero==1){
+            Mesa1.setVisible(false);
+            Mesa2.setVisible(false);
+            Mesa3.setVisible(false);
+            Mesa1.setVisible(false);
+            Mesa2.setVisible(false);
+            Mesa3.setVisible(false);
+            Mesa4.setVisible(false);
+            Mesa5.setVisible(false);
+            /*Mesa6.setVisible(false);
+            Mesa7.setVisible(false);
+            Mesa8.setVisible(false);
+            Mesa9.setVisible(false);
+            Mesa10.setVisible(false);
+            Mesa11.setVisible(false);
+            Mesa12.setVisible(false);
+            Mesa13.setVisible(false);
+            Mesa14.setVisible(false);
+            Mesa15.setVisible(false);
+            Mesa16.setVisible(false);
+            Mesa17.setVisible(false);
+            Mesa18.setVisible(false);
+            Mesa19.setVisible(false);
+            Mesa20.setVisible(false);
+            Mesa21.setVisible(false);
+            Mesa22.setVisible(false);
+            Mesa23.setVisible(false);
+            Mesa24.setVisible(false);
+            Mesa25.setVisible(false);
+            Mesa26.setVisible(false);
+            Mesa27.setVisible(false);
+            Mesa28.setVisible(false);
+            Mesa29.setVisible(false);
+            Mesa30.setVisible(false);
+            Mesa31.setVisible(false);
+            Mesa32.setVisible(false);
+            Mesa33.setVisible(false);
+            Mesa34.setVisible(false);
+            Mesa35.setVisible(false);
+            Mesa36.setVisible(false);
+            Mesa37.setVisible(false);
+            Mesa38.setVisible(false);
+            Mesa39.setVisible(false);
+            Mesa40.setVisible(false);
+            Mesa41.setVisible(false);
+            Mesa42.setVisible(false);
+            Mesa43.setVisible(false);
+            Mesa44.setVisible(false);
+            Mesa45.setVisible(false);
+            Mesa46.setVisible(false);
+            Mesa47.setVisible(false);
+            Mesa48.setVisible(false);
+            Mesa49.setVisible(false);
+            Mesa50.setVisible(false);*/
+        }
     }
     
     public int inicio(){
@@ -1956,6 +2324,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     LocalDateTime tiempo = LocalDateTime.now();
     Desface deslice = new Desface();
     boolean mesas,comparativa,productos,reporte,meseros;
+    String mesa1="Active", mesa2="Active", mesa3="Active", mesa4="Active", mesa5="Active", mesa6="Active", mesa7="Active", mesa8="Active", mesa9="Active", mesa10="Active", mesa11="Active", mesa12="Active", mesa13="Active", mesa14="Active", mesa15="Active", mesa16="Active", mesa17="Active", mesa18="Active", mesa19="Active", mesa20="Active", mesa21="Active", mesa22="Active", mesa23="Active", mesa24="Active", mesa25="Active", mesa26="Active", mesa27="Active", mesa28="Active", mesa29="Active", mesa30="Active", mesa31="Active", mesa32="Active", mesa33="Active", mesa34="Active", mesa35="Active", mesa36="Active", mesa37="Active", mesa38="Active", mesa39="Active", mesa40="Active", mesa41="Active", mesa42="Active", mesa43="Active", mesa44="Active", mesa45="Active", mesa46="Active", mesa47="Active", mesa48="Active", mesa49="Active", mesa50="Active";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Comparativa;
     private javax.swing.JLabel FechaActualMesero;
@@ -1974,6 +2343,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Productos;
     private javax.swing.JPanel Reporte;
     private javax.swing.JPanel Sillas;
+    private javax.swing.JButton bAgregarPedido;
     private javax.swing.JButton bEliminarMesero;
     private javax.swing.JButton bRegistrarCategoria;
     private javax.swing.JButton bRegistrarMesero;
@@ -1986,7 +2356,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirReporte;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jCancelar;
     private javax.swing.JComboBox<String> jCategoria;
