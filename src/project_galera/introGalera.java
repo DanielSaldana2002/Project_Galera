@@ -13,6 +13,7 @@ import javax.swing.BorderFactory;
 import javax.swing.UIManager;
 import ds.desktop.notify.DesktopNotify;
 import java.awt.Cursor;
+import java.awt.Frame;
 
 /**
  *
@@ -27,6 +28,7 @@ public class introGalera extends javax.swing.JFrame {
      */
     public introGalera() {
         initComponents();
+        Barra.setVisible(false);
         introGalera.this.getRootPane().setOpaque(false);
         introGalera.this.getContentPane().setBackground(new Color (0, 0, 0, 0));
         this.setResizable(false);
@@ -34,7 +36,6 @@ public class introGalera extends javax.swing.JFrame {
         Galeras2.setVisible(false);
         Galeras3.setVisible(false);
         Version.setVisible(false);
-        Porcen.setVisible(false);
         UIManager.put( "nimbusOrange", new Color(33, 27, 27) );
     }
 
@@ -48,16 +49,18 @@ public class introGalera extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        Barra = new javax.swing.JProgressBar();
         jPanel1 = new javax.swing.JPanel();
         Texto = new javax.swing.JLabel();
-        Barra = new javax.swing.JProgressBar();
         Galeras1 = new javax.swing.JLabel();
         Galeras2 = new javax.swing.JLabel();
         Galeras3 = new javax.swing.JLabel();
         Version = new javax.swing.JLabel();
-        Porcen = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
+
+        Barra.setBackground(new java.awt.Color(255, 255, 255));
+        Barra.setAutoscrolls(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -70,7 +73,8 @@ public class introGalera extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 51));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel1.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jPanel1FocusGained(evt);
@@ -83,16 +87,11 @@ public class introGalera extends javax.swing.JFrame {
         });
         jPanel1.setLayout(null);
 
-        Texto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Texto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Texto.setForeground(new java.awt.Color(0, 0, 0));
-        Texto.setText("   Open_project_galeras...");
+        Texto.setText("VERSION BETA 1.30");
         jPanel1.add(Texto);
-        Texto.setBounds(110, 210, 230, 20);
-
-        Barra.setBackground(new java.awt.Color(255, 255, 255));
-        Barra.setAutoscrolls(true);
-        jPanel1.add(Barra);
-        Barra.setBounds(20, 170, 360, 20);
+        Texto.setBounds(170, 220, 230, 20);
 
         Galeras1.setFont(new java.awt.Font("Rage Italic", 0, 130)); // NOI18N
         Galeras1.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,17 +108,12 @@ public class introGalera extends javax.swing.JFrame {
         jPanel1.add(Galeras3);
         Galeras3.setBounds(150, 0, 150, 160);
 
-        Version.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        Version.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         Version.setForeground(new java.awt.Color(0, 0, 0));
         Version.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Version.setText("Loading_softw_sem_1.0");
+        Version.setText("GALERAS");
         jPanel1.add(Version);
-        Version.setBounds(250, 0, 150, 40);
-
-        Porcen.setForeground(new java.awt.Color(0, 0, 0));
-        Porcen.setText("(0%)");
-        jPanel1.add(Porcen);
-        Porcen.setBounds(340, 150, 50, 16);
+        Version.setBounds(80, 170, 250, 40);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 240));
 
@@ -190,56 +184,29 @@ public class introGalera extends javax.swing.JFrame {
                         
                         break;
                     case 3:
-                        Porcen.setVisible(true);
-                        Porcen.setText("(0%)");
                         Galeras1.setVisible(true);
                         break;
                     case 5:
-                        Porcen.setText("(5%)");
-                        DesktopNotify.showDesktopMessage("Accessing_Rest", "Info_ResT", DesktopNotify.INFORMATION, 6000);
-                        desplace.desplazarIzquierda(Texto, Texto.getX(), -5, 15, 1);
+                        desplace.desplazarIzquierda(Texto, Texto.getX(), 5, 15, 1);
                         Galeras1.setVisible(false);
                         Galeras2.setVisible(true);
                         break;
                     case 6:
-                        Porcen.setText("(6%)");
                         Galeras2.setVisible(false);
                         Galeras3.setVisible(true);
-                        break;
-                    case 25:
-                        Porcen.setText("(34%)");
-                        Texto.setText("   Loading_JFrame_Rest...");
-                        break;
-                    case 35:
-                        Porcen.setText("(50%)");
-                        break;
-                    case 50:
-                        Porcen.setText("(79%)");
                         Version.setVisible(true);
-                        Texto.setText("   Loading_BD_Rest...");
-                        break;
-                    case 62:
-                        Porcen.setText("(94%)");
-                        break;
-                    case 57:
-                        Porcen.setText("(88%)");
-                        break;
-                    case 67:
-                        Porcen.setText("(100%)");
                         break;
                     case 70:
-                        
-                        Texto.setText("   Carga finalizada");
-                        Texto.setForeground(Color.WHITE);
                         jPanel1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-                        Inicio_Galera inicio = new Inicio_Galera();
+                        Beta_Galera inicio = new Beta_Galera();
+                        inicio.setExtendedState(Frame.MAXIMIZED_BOTH);
                         inicio.setVisible(true);
                         inicio.setLocationRelativeTo(introGalera.this);
                         introGalera.this.dispose();
                         ejecutar.stop();
                         break;
                 }
-                Thread.sleep(100);}
+                Thread.sleep(50);}
             } catch (InterruptedException ex) {
                 java.util.logging.Logger.getLogger(introGalera.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -251,7 +218,6 @@ public class introGalera extends javax.swing.JFrame {
     private javax.swing.JLabel Galeras1;
     private javax.swing.JLabel Galeras2;
     private javax.swing.JLabel Galeras3;
-    private javax.swing.JLabel Porcen;
     private javax.swing.JLabel Texto;
     private javax.swing.JLabel Version;
     private javax.swing.JLabel jLabel1;

@@ -34,7 +34,8 @@ public class Beta_Galera extends javax.swing.JFrame {
      * Creates new form Beta_Galera
      */
     public Beta_Galera() {
-        initComponents();
+        initComponents(); 
+        this.setExtendedState(JFrame.MAXIMIZED_HORIZ);
         this.mostrarMeseros();
         this.mostrarCategoria();
         this.mostrarProducto();
@@ -61,11 +62,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         this.inicio();
         jTiempo.setText("Ultima sesion: "+tiempo.getDayOfMonth()+"/"+tiempo.getMonth()+"/"+tiempo.getYear()+" "+tiempo.getHour()+":"+tiempo.getMinute()+":"+tiempo.getSecond());
         FechaActualMesero.setText("Fecha actual: "+tiempo.getDayOfMonth()+"/"+tiempo.getMonth()+"/"+tiempo.getYear());
-        try {   
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAbdFeel");
-        } catch (Exception e) {
-        } 
-         this.setExtendedState(Frame.MAXIMIZED_BOTH);   
     }
 
     /**
@@ -1105,7 +1101,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("VERSION BETA 1.25");
+        jLabel2.setText("VERSION BETA 1.30");
         jInicio.add(jLabel2);
         jLabel2.setBounds(1130, 650, 240, 50);
 
