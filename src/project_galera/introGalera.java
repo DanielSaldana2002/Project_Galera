@@ -113,7 +113,7 @@ public class introGalera extends javax.swing.JFrame {
         Version.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Version.setText("GALERAS");
         jPanel1.add(Version);
-        Version.setBounds(80, 170, 250, 40);
+        Version.setBounds(70, 170, 260, 40);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 240));
 
@@ -197,7 +197,7 @@ public class introGalera extends javax.swing.JFrame {
                         Version.setVisible(true);
                         break;
                     case 70:
-                        jPanel1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+                        //jPanel1.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                         Beta_Galera inicio = new Beta_Galera();
                         inicio.setExtendedState(Frame.MAXIMIZED_BOTH);
                         inicio.setVisible(true);
