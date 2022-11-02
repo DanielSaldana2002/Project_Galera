@@ -34,35 +34,42 @@ public class Beta_Galera extends javax.swing.JFrame {
      * Creates new form Beta_Galera
      */
     public Beta_Galera() {
-        initComponents(); 
-        this.setExtendedState(Frame.MAXIMIZED_BOTH);
-        this.colorMesaDefault();
-        this.mostrarMeseros();
-        this.mostrarCategoria();
-        this.mostrarProducto();
         try {
-            this.cargarComboCategorias();
+            initComponents();
+            this.setExtendedState(Frame.MAXIMIZED_BOTH);
+            //this.colorMesaDefault();
+            this.cargarComboCategoriasComparativa();
+            this.mostrarMeseros();
+            this.mostrarCategoria();
+            this.mostrarProducto();
+            try {
+                this.cargarComboCategorias();
+            } catch (SQLException ex) {
+                Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            tID_Productos.setText(""+this.generarIDProducto(id));
+            tID_Meseros.setText(""+this.generarIDMeseros(id));
+            tIDCategoria.setText(""+this.generarIDCategoria(id));
+            jInicioSesion.setVisible(false);
+            Productos.setVisible(false);
+            Meseros.setVisible(false);
+            Mesas.setVisible(false);
+            MesaPrincipal.setVisible(false);
+            Reporte.setVisible(false);
+            Sillas.setVisible(false);
+            Comparativa.setVisible(false);
+            jPreInformacion.setVisible(false);
+            Mesas.setVisible(false);
+            this.inicio();
+            jTiempo.setText("Ultima sesion: "+tiempo.getDayOfMonth()+"/"+tiempo.getMonth()+"/"+tiempo.getYear()+" "+tiempo.getHour()+":"+tiempo.getMinute()+":"+tiempo.getSecond());
+            FechaActualMesero.setText("Fecha actual: "+tiempo.getDayOfMonth()+"/"+tiempo.getMonth()+"/"+tiempo.getYear());
         } catch (SQLException ex) {
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
         }
-        tID_Productos.setText(""+this.generarIDProducto(id));
-        tID_Meseros.setText(""+this.generarIDMeseros(id));
-        tIDCategoria.setText(""+this.generarIDCategoria(id));
-        jInicioSesion.setVisible(false);
-        Productos.setVisible(false);
-        Meseros.setVisible(false);
-        Mesas.setVisible(false);
-        MesaPrincipal.setVisible(false);
-        Reporte.setVisible(false);
-        Sillas.setVisible(false);
-        Comparativa.setVisible(false);
-        jPreInformacion.setVisible(false);
-        Mesas.setVisible(false);
-        this.inicio();
-        jTiempo.setText("Ultima sesion: "+tiempo.getDayOfMonth()+"/"+tiempo.getMonth()+"/"+tiempo.getYear()+" "+tiempo.getHour()+":"+tiempo.getMinute()+":"+tiempo.getSecond());
-        FechaActualMesero.setText("Fecha actual: "+tiempo.getDayOfMonth()+"/"+tiempo.getMonth()+"/"+tiempo.getYear());
     }
 
     /**
@@ -158,11 +165,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        cComparativaCombo = new javax.swing.JComboBox<>();
         jLabel39 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        jSeleccionProducto1 = new javax.swing.JComboBox<>();
         jLabel40 = new javax.swing.JLabel();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        jSeleccionProducto2 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -769,27 +776,39 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.add(jLabel38);
         jLabel38.setBounds(1150, 580, 250, 30);
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Comparativa.add(jComboBox5);
-        jComboBox5.setBounds(900, 160, 270, 30);
+        cComparativaCombo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cComparativaComboMouseClicked(evt);
+            }
+        });
+        cComparativaCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cComparativaComboActionPerformed(evt);
+            }
+        });
+        Comparativa.add(cComparativaCombo);
+        cComparativaCombo.setBounds(900, 160, 270, 30);
 
         jLabel39.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel39.setText("Seleccione el producto 1:");
         Comparativa.add(jLabel39);
         jLabel39.setBounds(420, 310, 300, 70);
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Comparativa.add(jComboBox6);
-        jComboBox6.setBounds(730, 330, 270, 30);
+        jSeleccionProducto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSeleccionProducto1ActionPerformed(evt);
+            }
+        });
+        Comparativa.add(jSeleccionProducto1);
+        jSeleccionProducto1.setBounds(730, 330, 270, 30);
 
         jLabel40.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel40.setText("Seleccione el producto 2:");
         Comparativa.add(jLabel40);
         jLabel40.setBounds(440, 420, 300, 70);
 
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Comparativa.add(jComboBox7);
-        jComboBox7.setBounds(750, 440, 270, 30);
+        Comparativa.add(jSeleccionProducto2);
+        jSeleccionProducto2.setBounds(750, 440, 270, 30);
 
         jLabel8.setText("La cantidad de producto: number_producto");
         Comparativa.add(jLabel8);
@@ -1606,6 +1625,23 @@ public class Beta_Galera extends javax.swing.JFrame {
         this.statusBorrar(1);
     }//GEN-LAST:event_JPagarActionPerformed
 
+    private void cComparativaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cComparativaComboActionPerformed
+        int id_compa = cComparativaCombo.getSelectedIndex();
+        if(id_compa == 0){
+            this.consultaProductos(1);
+        }else if(id_compa == 1){
+            this.consultaProductos(2);
+        }
+    }//GEN-LAST:event_cComparativaComboActionPerformed
+
+    private void jSeleccionProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionProducto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSeleccionProducto1ActionPerformed
+
+    private void cComparativaComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cComparativaComboMouseClicked
+
+    }//GEN-LAST:event_cComparativaComboMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2279,7 +2315,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    // Esta funcion lo que realiza es paras poder cargar la informacion de los comboBox del panel PRODUCTOS.
     public void cargarComboCategorias() throws SQLException, ClassNotFoundException{
         categoriaVO categoriaVO;
         ArrayList <categoriaVO> misCategorias = this.llamarCategorias();
@@ -2287,7 +2323,15 @@ public class Beta_Galera extends javax.swing.JFrame {
             jCategoriaProducto.addItem(misCategorias.get(i).getId_nombre_categoria());
         }
     }
-    
+    // Esta funcion lo que realiza es paras poder cargar la informacion de los comboBox del panel COMPARATIVA.
+    public void cargarComboCategoriasComparativa() throws SQLException, ClassNotFoundException{
+        categoriaVO categoriaVO;
+        ArrayList <categoriaVO> misCategorias = this.llamarCategorias();
+        for (int i = 0; i < misCategorias.size(); i++) {
+            cComparativaCombo.addItem(misCategorias.get(i).getId_nombre_categoria());
+        }
+    }
+    // Esta funcion lo que realice es que se arregle la problematica a la hora de registrar un combox, esto con el fin que registre correctamente en la base de datos.
     public int automatizacionCategoria (){
        int id =  jCategoriaProducto.getSelectedIndex();
        int nueva_id=0;
@@ -2298,7 +2342,18 @@ public class Beta_Galera extends javax.swing.JFrame {
        }
        return nueva_id;
     }
-    
+    // Esta funcion lo que realice es que se arregle la problematica a la hora de registrar un combox, esto con el fin que registre correctamente en la base de datos.
+    public int automatizacionComparativa(){
+       int id =  cComparativaCombo.getSelectedIndex();
+       int nueva_id=0;
+       if(id == 0){
+           nueva_id = id+1;
+       }else{
+           nueva_id = id+1;
+       }
+       return nueva_id;
+    }
+    // Esta funcion es para poder registrar los productos a la base de datos del panel PRODUCTOS.
     public void registrarProducto(int id_productos, String nombre_producto, int fk_id_categoria, int precio){
         try {
             try{
@@ -2318,6 +2373,33 @@ public class Beta_Galera extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    // Aqui es para poder funcionar los 3 comboBox del panel COMPARATIVA.
+    public ArrayList<productoVO> consultaProductos(int id){
+        try {
+            ArrayList<productoVO> misProductos = new ArrayList<productoVO>();
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select nombre_producto from productos where fk_id_categoria = '"+id+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                jSeleccionProducto1.removeAllItems();
+                jSeleccionProducto2.removeAllItems();
+                productoVO producto = new productoVO();
+                producto.setNombre(rs.getString("nombre_producto"));
+                misProductos.add(producto);
+                for (int i = 0; i < misProductos.size(); i++) {
+                    jSeleccionProducto1.addItem(misProductos.get(i).getNombre());
+                    jSeleccionProducto2.addItem(misProductos.get(i).getNombre());
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
     int id;
@@ -2354,6 +2436,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirMeseros;
     private javax.swing.JButton bSalirProductos;
     private javax.swing.JButton bSalirReporte;
+    private javax.swing.JComboBox<String> cComparativaCombo;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -2364,9 +2447,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jComparativa;
     private javax.swing.JPanel jInicio;
@@ -2463,6 +2543,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JComboBox<String> jSeleccionProducto1;
+    private javax.swing.JComboBox<String> jSeleccionProducto2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel jTiempo;
