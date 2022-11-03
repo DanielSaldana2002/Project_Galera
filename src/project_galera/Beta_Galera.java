@@ -38,6 +38,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             initComponents();
             this.setExtendedState(Frame.MAXIMIZED_BOTH);
             //this.colorMesaDefault();
+            System.out.println("H");
             this.cargarComboCategoriasComparativa();
             this.mostrarMeseros();
             this.mostrarCategoria();
