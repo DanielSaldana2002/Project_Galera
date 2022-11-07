@@ -14,10 +14,10 @@ import java.sql.SQLException;
  * @author cdani
  */
 public class ConexionBD {
-    String bd="sql5530075";
-    String login="sql5530075";
-    String password="gSbH3iYK3u";
-    String url="jdbc:mysql://sql5.freemysqlhosting.net/"+bd;
+    String bd="galera";
+    String login="root";
+    String password="12345678";
+    String url="jdbc:mysql://localhost/"+bd;
     Connection con = null;
     
     public ConexionBD() throws SQLException, ClassNotFoundException{

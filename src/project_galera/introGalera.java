@@ -14,6 +14,8 @@ import javax.swing.UIManager;
 import ds.desktop.notify.DesktopNotify;
 import java.awt.Cursor;
 import java.awt.Frame;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -28,6 +30,7 @@ public class introGalera extends javax.swing.JFrame {
      */
     public introGalera() {
         initComponents();
+        setIconImage(getIconImage());
         Barra.setVisible(false);
         introGalera.this.getRootPane().setOpaque(false);
         introGalera.this.getContentPane().setBackground(new Color (0, 0, 0, 0));
@@ -50,8 +53,8 @@ public class introGalera extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         Barra = new javax.swing.JProgressBar();
-        jPanel1 = new javax.swing.JPanel();
         Texto = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         Galeras1 = new javax.swing.JLabel();
         Galeras2 = new javax.swing.JLabel();
         Galeras3 = new javax.swing.JLabel();
@@ -62,7 +65,12 @@ public class introGalera extends javax.swing.JFrame {
         Barra.setBackground(new java.awt.Color(255, 255, 255));
         Barra.setAutoscrolls(true);
 
+        Texto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Texto.setForeground(new java.awt.Color(0, 0, 0));
+        Texto.setText("VERSION BETA 1.50");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Galeras | Cargando...");
         setAlwaysOnTop(true);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
@@ -86,12 +94,6 @@ public class introGalera extends javax.swing.JFrame {
             }
         });
         jPanel1.setLayout(null);
-
-        Texto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Texto.setForeground(new java.awt.Color(0, 0, 0));
-        Texto.setText("VERSION BETA 1.30");
-        jPanel1.add(Texto);
-        Texto.setBounds(170, 220, 230, 20);
 
         Galeras1.setFont(new java.awt.Font("Rage Italic", 0, 130)); // NOI18N
         Galeras1.setForeground(new java.awt.Color(255, 255, 255));
@@ -212,6 +214,14 @@ public class introGalera extends javax.swing.JFrame {
             }
         }
     }
+    
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("Icono/Logon.png"));
+        return retValue;
+    }
+    
     Desface desplace = new Desface();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar Barra;

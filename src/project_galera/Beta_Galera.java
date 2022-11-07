@@ -16,10 +16,14 @@ import javax.swing.UIManager;
 import desplazable.Desface;
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -38,7 +42,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             initComponents();
             this.setExtendedState(Frame.MAXIMIZED_BOTH);
             //this.colorMesaDefault();
-            System.out.println("H");
+            this.cargarComboMesas();
             this.cargarComboCategoriasComparativa();
             this.mostrarMeseros();
             this.mostrarCategoria();
@@ -51,9 +55,14 @@ public class Beta_Galera extends javax.swing.JFrame {
                 Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
             }
             tID_Productos.setText(""+this.generarIDProducto(id));
+            tIDUsuario.setText(""+this.generarIDCuentas(id_cuentas));
             tID_Meseros.setText(""+this.generarIDMeseros(id));
             tIDCategoria.setText(""+this.generarIDCategoria(id));
             jInicioSesion.setVisible(false);
+            setIconImage(getIconImage());
+            Cuentas.setVisible(false);
+            eliminarUsuario.setVisible(false);
+            tablaCuentas.setVisible(false);
             Productos.setVisible(false);
             Meseros.setVisible(false);
             Mesas.setVisible(false);
@@ -83,6 +92,47 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void initComponents() {
 
         jInicio = new javax.swing.JPanel();
+        Cuentas = new javax.swing.JPanel();
+        eliminarUsuario = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        bSalirEliminarUsuario = new javax.swing.JButton();
+        jTitulo2 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tablaEliminar = new javax.swing.JTable();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel78 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        tBorrar = new javax.swing.JTextField();
+        tBorrarCuenta = new javax.swing.JButton();
+        tablaCuentas = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        bSalirTablaCuenta = new javax.swing.JButton();
+        jTitulo1 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablaCuenta = new javax.swing.JTable();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        bSalirMesas1 = new javax.swing.JButton();
+        jLabel48 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        panelMesero7 = new javax.swing.JPanel();
+        bVisualizar = new javax.swing.JButton();
+        jLabel76 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        tNombres = new javax.swing.JTextField();
+        jLabel71 = new javax.swing.JLabel();
+        tUsuario = new javax.swing.JTextField();
+        tContraseña = new javax.swing.JTextField();
+        jLabel72 = new javax.swing.JLabel();
+        tApellidoMaterno = new javax.swing.JTextField();
+        tIDUsuario = new javax.swing.JTextField();
+        bRegistrarSesion = new javax.swing.JButton();
+        bEliminarUsuario = new javax.swing.JButton();
+        tApellidoPaterno = new javax.swing.JTextField();
+        jLabel80 = new javax.swing.JLabel();
         Productos = new javax.swing.JPanel();
         bSalirProductos = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
@@ -129,7 +179,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
+        lPrecio = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         MesaTabla = new javax.swing.JTable();
         jCancelar = new javax.swing.JButton();
@@ -226,6 +276,12 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jTiempo1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        Mesas = new javax.swing.JPanel();
+        Mesa1 = new javax.swing.JLabel();
+        Mesa2 = new javax.swing.JLabel();
+        Mesa3 = new javax.swing.JLabel();
+        Mesa4 = new javax.swing.JLabel();
+        Mesa5 = new javax.swing.JLabel();
         jMenu = new javax.swing.JPanel();
         jTitulo = new javax.swing.JLabel();
         jMesas = new javax.swing.JLabel();
@@ -233,15 +289,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         jProductos = new javax.swing.JLabel();
         jReporte = new javax.swing.JLabel();
         jMeseros = new javax.swing.JLabel();
+        jCuentas = new javax.swing.JLabel();
         jInicioSesion = new javax.swing.JPanel();
         jTiempo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Mesas = new javax.swing.JPanel();
-        Mesa1 = new javax.swing.JLabel();
-        Mesa2 = new javax.swing.JLabel();
-        Mesa3 = new javax.swing.JLabel();
-        Mesa4 = new javax.swing.JLabel();
-        Mesa5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galeras | Inicio");
@@ -249,6 +300,299 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio.setBackground(new java.awt.Color(255, 255, 255));
         jInicio.setLayout(null);
+
+        Cuentas.setBackground(new java.awt.Color(255, 255, 255));
+        Cuentas.setLayout(null);
+
+        eliminarUsuario.setBackground(new java.awt.Color(204, 204, 204));
+        eliminarUsuario.setLayout(null);
+
+        jPanel18.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel18.setLayout(null);
+
+        bSalirEliminarUsuario.setBackground(new java.awt.Color(255, 255, 0));
+        bSalirEliminarUsuario.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        bSalirEliminarUsuario.setText("X");
+        bSalirEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirEliminarUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel18.add(bSalirEliminarUsuario);
+        bSalirEliminarUsuario.setBounds(300, 20, 80, 50);
+
+        jTitulo2.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        jTitulo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/1663952285593 (2).png"))); // NOI18N
+        jTitulo2.setText("GALERAS");
+        jPanel18.add(jTitulo2);
+        jTitulo2.setBounds(10, 0, 220, 90);
+
+        eliminarUsuario.add(jPanel18);
+        jPanel18.setBounds(0, 0, 400, 90);
+
+        tablaEliminar.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        tablaEliminar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(tablaEliminar);
+
+        eliminarUsuario.add(jScrollPane7);
+        jScrollPane7.setBounds(0, 170, 400, 190);
+
+        jLabel77.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel77.setText("ID Usuario:");
+        eliminarUsuario.add(jLabel77);
+        jLabel77.setBounds(10, 370, 100, 50);
+
+        jLabel78.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel78.setText("VERSION INTERFACE 1.0");
+        eliminarUsuario.add(jLabel78);
+        jLabel78.setBounds(220, 430, 190, 30);
+
+        jLabel79.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel79.setText("ELIMINAR USUARIOS");
+        eliminarUsuario.add(jLabel79);
+        jLabel79.setBounds(80, 100, 250, 40);
+        eliminarUsuario.add(tBorrar);
+        tBorrar.setBounds(120, 380, 180, 30);
+
+        tBorrarCuenta.setText("Borrar");
+        tBorrarCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tBorrarCuentaActionPerformed(evt);
+            }
+        });
+        eliminarUsuario.add(tBorrarCuenta);
+        tBorrarCuenta.setBounds(310, 380, 77, 32);
+
+        Cuentas.add(eliminarUsuario);
+        eliminarUsuario.setBounds(880, 20, 400, 460);
+
+        tablaCuentas.setBackground(new java.awt.Color(204, 204, 204));
+        tablaCuentas.setLayout(null);
+
+        jPanel17.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel17.setLayout(null);
+
+        bSalirTablaCuenta.setBackground(new java.awt.Color(255, 255, 0));
+        bSalirTablaCuenta.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        bSalirTablaCuenta.setText("X");
+        bSalirTablaCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirTablaCuentaActionPerformed(evt);
+            }
+        });
+        jPanel17.add(bSalirTablaCuenta);
+        bSalirTablaCuenta.setBounds(300, 20, 80, 50);
+
+        jTitulo1.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        jTitulo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/1663952285593 (2).png"))); // NOI18N
+        jTitulo1.setText("GALERAS");
+        jPanel17.add(jTitulo1);
+        jTitulo1.setBounds(10, 0, 220, 90);
+
+        tablaCuentas.add(jPanel17);
+        jPanel17.setBounds(0, 0, 400, 90);
+
+        tablaCuenta.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        tablaCuenta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(tablaCuenta);
+
+        tablaCuentas.add(jScrollPane6);
+        jScrollPane6.setBounds(0, 170, 400, 230);
+
+        jLabel74.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel74.setText("TABLA DE CUENTAS");
+        tablaCuentas.add(jLabel74);
+        jLabel74.setBounds(80, 100, 250, 40);
+
+        jLabel75.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel75.setText("VERSION INTERFACE 1.0");
+        tablaCuentas.add(jLabel75);
+        jLabel75.setBounds(220, 430, 190, 30);
+
+        Cuentas.add(tablaCuentas);
+        tablaCuentas.setBounds(270, 20, 400, 460);
+
+        bSalirMesas1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirMesas1.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirMesas1.setText("X");
+        bSalirMesas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirMesas1ActionPerformed(evt);
+            }
+        });
+        Cuentas.add(bSalirMesas1);
+        bSalirMesas1.setBounds(1280, 10, 90, 60);
+
+        jLabel48.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel48.setText("REGISTROS DE CUENTAS");
+        Cuentas.add(jLabel48);
+        jLabel48.setBounds(490, 0, 610, 80);
+
+        jPanel14.setBackground(new java.awt.Color(0, 0, 0));
+        Cuentas.add(jPanel14);
+        jPanel14.setBounds(160, 10, 10, 610);
+
+        jPanel15.setBackground(new java.awt.Color(0, 0, 0));
+        Cuentas.add(jPanel15);
+        jPanel15.setBounds(0, 0, 1400, 10);
+
+        panelMesero7.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero7.setLayout(null);
+        Cuentas.add(panelMesero7);
+        panelMesero7.setBounds(0, 0, 160, 620);
+
+        bVisualizar.setBackground(new java.awt.Color(255, 255, 255));
+        bVisualizar.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bVisualizar.setText("Visualizar");
+        bVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVisualizarActionPerformed(evt);
+            }
+        });
+        Cuentas.add(bVisualizar);
+        bVisualizar.setBounds(360, 480, 240, 70);
+
+        jLabel76.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel76.setText("VERSION INTERFACE 1.0");
+        Cuentas.add(jLabel76);
+        jLabel76.setBounds(1150, 580, 250, 30);
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel16.setText("Nombre(s) del usuario:");
+        Cuentas.add(jLabel16);
+        jLabel16.setBounds(280, 110, 270, 50);
+
+        jLabel69.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel69.setText("ID Usuario:");
+        Cuentas.add(jLabel69);
+        jLabel69.setBounds(710, 240, 140, 50);
+
+        jLabel70.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel70.setText("Apellido materno:");
+        Cuentas.add(jLabel70);
+        jLabel70.setBounds(970, 110, 210, 50);
+
+        tNombres.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tNombres.setToolTipText("Escriba");
+        tNombres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tNombresActionPerformed(evt);
+            }
+        });
+        Cuentas.add(tNombres);
+        tNombres.setBounds(280, 170, 270, 30);
+
+        jLabel71.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel71.setText("Usuario: ");
+        Cuentas.add(jLabel71);
+        jLabel71.setBounds(500, 320, 120, 50);
+
+        tUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tUsuario.setToolTipText("Escriba");
+        tUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tUsuarioActionPerformed(evt);
+            }
+        });
+        Cuentas.add(tUsuario);
+        tUsuario.setBounds(420, 380, 270, 30);
+
+        tContraseña.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tContraseña.setToolTipText("Escriba");
+        tContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tContraseñaActionPerformed(evt);
+            }
+        });
+        Cuentas.add(tContraseña);
+        tContraseña.setBounds(840, 380, 270, 30);
+
+        jLabel72.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel72.setText("Contraseña:");
+        Cuentas.add(jLabel72);
+        jLabel72.setBounds(910, 320, 140, 50);
+
+        tApellidoMaterno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tApellidoMaterno.setToolTipText("Escriba");
+        tApellidoMaterno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tApellidoMaternoActionPerformed(evt);
+            }
+        });
+        Cuentas.add(tApellidoMaterno);
+        tApellidoMaterno.setBounds(940, 170, 270, 30);
+
+        tIDUsuario.setEditable(false);
+        tIDUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tIDUsuario.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tIDUsuario.setToolTipText("Escriba");
+        tIDUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tIDUsuarioActionPerformed(evt);
+            }
+        });
+        Cuentas.add(tIDUsuario);
+        tIDUsuario.setBounds(620, 290, 270, 30);
+
+        bRegistrarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        bRegistrarSesion.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bRegistrarSesion.setText("Registrar");
+        bRegistrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bRegistrarSesionActionPerformed(evt);
+            }
+        });
+        Cuentas.add(bRegistrarSesion);
+        bRegistrarSesion.setBounds(670, 480, 240, 70);
+
+        bEliminarUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        bEliminarUsuario.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bEliminarUsuario.setText("Eliminar");
+        bEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarUsuarioActionPerformed(evt);
+            }
+        });
+        Cuentas.add(bEliminarUsuario);
+        bEliminarUsuario.setBounds(980, 480, 240, 70);
+
+        tApellidoPaterno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tApellidoPaterno.setToolTipText("Escriba");
+        tApellidoPaterno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tApellidoPaternoActionPerformed(evt);
+            }
+        });
+        Cuentas.add(tApellidoPaterno);
+        tApellidoPaterno.setBounds(620, 170, 270, 30);
+
+        jLabel80.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel80.setText("Apellido paterno:");
+        Cuentas.add(jLabel80);
+        jLabel80.setBounds(650, 110, 210, 50);
+
+        jInicio.add(Cuentas);
+        Cuentas.setBounds(0, 90, 1370, 620);
 
         Productos.setBackground(new java.awt.Color(255, 255, 255));
         Productos.setForeground(new java.awt.Color(0, 0, 0));
@@ -505,7 +849,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.add(jLabel34);
         jLabel34.setBounds(310, 130, 120, 32);
 
-        jCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCategoriaActionPerformed(evt);
@@ -519,7 +862,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.add(jLabel35);
         jLabel35.setBounds(800, 140, 140, 32);
 
-        JProducto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JProductoActionPerformed(evt);
+            }
+        });
         MesaPrincipal.add(JProducto);
         JProducto.setBounds(970, 150, 200, 26);
 
@@ -535,10 +882,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.add(jLabel47);
         jLabel47.setBounds(890, 230, 90, 32);
 
-        jLabel48.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel48.setText("$$$$");
-        MesaPrincipal.add(jLabel48);
-        jLabel48.setBounds(990, 230, 70, 32);
+        lPrecio.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lPrecio.setText("$$$$");
+        MesaPrincipal.add(lPrecio);
+        lPrecio.setBounds(990, 230, 70, 32);
 
         MesaTabla.setBackground(new java.awt.Color(255, 255, 0));
         MesaTabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1127,120 +1474,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("VERSION BETA 1.30");
+        jLabel2.setText("VERSION BETA 1.50");
         jInicio.add(jLabel2);
         jLabel2.setBounds(1130, 650, 240, 50);
-
-        jMenu.setBackground(new java.awt.Color(255, 255, 0));
-        jMenu.setLayout(null);
-
-        jTitulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/1663952285593 (2).png"))); // NOI18N
-        jTitulo.setText("PROJECT_GALERAS");
-        jMenu.add(jTitulo);
-        jTitulo.setBounds(20, 0, 440, 90);
-
-        jMesas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jMesas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-09-26_113114959.png"))); // NOI18N
-        jMesas.setText("Mesas");
-        jMesas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMesasMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jMesasMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jMesasMouseExited(evt);
-            }
-        });
-        jMenu.add(jMesas);
-        jMesas.setBounds(480, 30, 100, 30);
-
-        jComparativa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jComparativa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-03_100700234.png"))); // NOI18N
-        jComparativa.setText("Comparativa");
-        jComparativa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jComparativaMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jComparativaMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jComparativaMouseExited(evt);
-            }
-        });
-        jMenu.add(jComparativa);
-        jComparativa.setBounds(610, 30, 160, 30);
-
-        jProductos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-03_094538812.png"))); // NOI18N
-        jProductos.setText("Productos");
-        jProductos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jProductosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jProductosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jProductosMouseExited(evt);
-            }
-        });
-        jMenu.add(jProductos);
-        jProductos.setBounds(800, 30, 130, 30);
-
-        jReporte.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-09-26_235325867.png"))); // NOI18N
-        jReporte.setText("Reporte");
-        jReporte.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jReporteMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jReporteMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jReporteMouseExited(evt);
-            }
-        });
-        jMenu.add(jReporte);
-        jReporte.setBounds(970, 30, 110, 30);
-
-        jMeseros.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jMeseros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-19_100343372.png"))); // NOI18N
-        jMeseros.setText("Meseros");
-        jMeseros.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMeserosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jMeserosMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jMeserosMouseExited(evt);
-            }
-        });
-        jMenu.add(jMeseros);
-        jMeseros.setBounds(1120, 30, 110, 30);
-
-        jInicio.add(jMenu);
-        jMenu.setBounds(10, 0, 1370, 90);
-
-        jInicioSesion.setLayout(null);
-
-        jTiempo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jInicioSesion.add(jTiempo);
-        jTiempo.setBounds(460, 60, 480, 40);
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel3.setText("BIENVENIDO A GALERAS");
-        jInicioSesion.add(jLabel3);
-        jLabel3.setBounds(390, 0, 590, 60);
-
-        jInicio.add(jInicioSesion);
-        jInicioSesion.setBounds(10, 310, 1370, 110);
 
         Mesas.setBackground(new java.awt.Color(255, 255, 255));
         Mesas.setLayout(null);
@@ -1328,6 +1564,134 @@ public class Beta_Galera extends javax.swing.JFrame {
         jInicio.add(Mesas);
         Mesas.setBounds(10, 90, 1370, 620);
 
+        jMenu.setBackground(new java.awt.Color(255, 255, 0));
+        jMenu.setLayout(null);
+
+        jTitulo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/1663952285593 (2).png"))); // NOI18N
+        jTitulo.setText("GALERAS");
+        jMenu.add(jTitulo);
+        jTitulo.setBounds(20, 0, 250, 90);
+
+        jMesas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jMesas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-09-26_113114959.png"))); // NOI18N
+        jMesas.setText("Mesas");
+        jMesas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMesasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMesasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMesasMouseExited(evt);
+            }
+        });
+        jMenu.add(jMesas);
+        jMesas.setBounds(310, 30, 100, 30);
+
+        jComparativa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jComparativa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-03_100700234.png"))); // NOI18N
+        jComparativa.setText("Comparativa");
+        jComparativa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComparativaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jComparativaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jComparativaMouseExited(evt);
+            }
+        });
+        jMenu.add(jComparativa);
+        jComparativa.setBounds(440, 30, 160, 30);
+
+        jProductos.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-03_094538812.png"))); // NOI18N
+        jProductos.setText("Productos");
+        jProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jProductosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jProductosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jProductosMouseExited(evt);
+            }
+        });
+        jMenu.add(jProductos);
+        jProductos.setBounds(630, 30, 130, 30);
+
+        jReporte.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-09-26_235325867.png"))); // NOI18N
+        jReporte.setText("Reporte");
+        jReporte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jReporteMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jReporteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jReporteMouseExited(evt);
+            }
+        });
+        jMenu.add(jReporte);
+        jReporte.setBounds(800, 30, 110, 30);
+
+        jMeseros.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jMeseros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-10-19_100343372.png"))); // NOI18N
+        jMeseros.setText("Meseros");
+        jMeseros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMeserosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMeserosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMeserosMouseExited(evt);
+            }
+        });
+        jMenu.add(jMeseros);
+        jMeseros.setBounds(950, 30, 110, 30);
+
+        jCuentas.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jCuentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/imagen_2022-11-05_154312856.png"))); // NOI18N
+        jCuentas.setText("Cuentas");
+        jCuentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCuentasMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jCuentasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jCuentasMouseExited(evt);
+            }
+        });
+        jMenu.add(jCuentas);
+        jCuentas.setBounds(1100, 30, 110, 30);
+
+        jInicio.add(jMenu);
+        jMenu.setBounds(10, 0, 1370, 90);
+
+        jInicioSesion.setLayout(null);
+
+        jTiempo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jInicioSesion.add(jTiempo);
+        jTiempo.setBounds(460, 60, 480, 40);
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel3.setText("BIENVENIDO A GALERAS");
+        jInicioSesion.add(jLabel3);
+        jLabel3.setBounds(390, 0, 590, 60);
+
+        jInicio.add(jInicioSesion);
+        jInicioSesion.setBounds(10, 310, 1370, 110);
+
         getContentPane().add(jInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1380, 710));
 
         pack();
@@ -1350,6 +1714,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.setVisible(false);
         Mesas.setVisible(false);
         Comparativa.setVisible(false);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_jMesasMouseClicked
 
     private void jComparativaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseClicked
@@ -1361,6 +1726,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         MesaPrincipal.setVisible(false);
         Mesas.setVisible(false);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_jComparativaMouseClicked
 
     private void jComparativaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseEntered
@@ -1380,6 +1746,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Sillas.setVisible(false);
         Mesas.setVisible(false);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_jProductosMouseClicked
 
     private void jProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProductosMouseEntered
@@ -1399,6 +1766,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Sillas.setVisible(false);
         Mesas.setVisible(false);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_jReporteMouseClicked
 
     private void jReporteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jReporteMouseEntered
@@ -1484,6 +1852,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Sillas.setVisible(false);
         Mesas.setVisible(false);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_jMeserosMouseClicked
 
     private void jMeserosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMeserosMouseEntered
@@ -1503,6 +1872,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_bSalirMeserosActionPerformed
 
     private void bSalirMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasActionPerformed
@@ -1514,6 +1884,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Meseros.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_bSalirMesasActionPerformed
 
     private void bSalirComparativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirComparativaActionPerformed
@@ -1525,6 +1896,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_bSalirComparativaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1542,6 +1914,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        Cuentas.setVisible(false);
     }//GEN-LAST:event_bSalirMesasPrincipalesActionPerformed
 
     private void bAgregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPedidoActionPerformed
@@ -1553,7 +1926,20 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_jCancelarActionPerformed
 
     private void jCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCategoriaActionPerformed
-        // TODO add your handling code here:
+        int id_mesas = jCategoria.getSelectedIndex();
+        if(id_mesas == 0){
+            this.consultaMesas(1);
+        }else if(id_mesas == 1){
+            this.consultaMesas(2);
+        }else if(id_mesas == 2){
+            this.consultaMesas(3);
+        }else if(id_mesas == 3){
+            this.consultaMesas(4);
+        }else if(id_mesas == 4){
+            this.consultaMesas(5);
+        }else if(id_mesas == 5){
+            this.consultaMesas(6);
+        }
     }//GEN-LAST:event_jCategoriaActionPerformed
 
     private void bSalirReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirReporteActionPerformed
@@ -1565,6 +1951,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        Cuentas.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_bSalirReporteActionPerformed
 
@@ -1605,6 +1992,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Meseros.setVisible(false);
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
+        Cuentas.setVisible(false);
         Mesas.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -1643,6 +2031,104 @@ public class Beta_Galera extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cComparativaComboMouseClicked
 
+    private void JProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JProductoActionPerformed
+        String nombre_producto = (String) JProducto.getSelectedItem();
+        this.precioProducto(nombre_producto);
+    }//GEN-LAST:event_JProductoActionPerformed
+
+    private void jCuentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCuentasMouseClicked
+        this.setTitle("Galeras | Cuentas");
+        Productos.setVisible(false);
+        Sillas.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(false);
+        Cuentas.setVisible(true);
+    }//GEN-LAST:event_jCuentasMouseClicked
+
+    private void jCuentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCuentasMouseEntered
+        jMenu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_jCuentasMouseEntered
+
+    private void jCuentasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCuentasMouseExited
+        jMenu.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_jCuentasMouseExited
+
+    private void bSalirMesas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesas1ActionPerformed
+        this.setTitle("Galeras | Inicio");
+        Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+        Cuentas.setVisible(false);
+    }//GEN-LAST:event_bSalirMesas1ActionPerformed
+
+    private void tNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNombresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tNombresActionPerformed
+
+    private void tUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tUsuarioActionPerformed
+
+    private void tContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tContraseñaActionPerformed
+
+    private void tApellidoMaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tApellidoMaternoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tApellidoMaternoActionPerformed
+
+    private void tIDUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tIDUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tIDUsuarioActionPerformed
+
+    private void bVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVisualizarActionPerformed
+        tablaCuentas.setVisible(true);
+        this.habilitarTablaCuenta(false);
+        this.mostrarCuentasUsuario();
+    }//GEN-LAST:event_bVisualizarActionPerformed
+
+    private void bRegistrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarSesionActionPerformed
+        String nombres = tNombres.getText();
+        String apellidosPaterno = tApellidoPaterno.getText();
+        String apellidosMaterno = tApellidoMaterno.getText();
+        int id_usuario_cuenta = Integer.parseInt(tIDUsuario.getText());
+        String usuario_cuenta = tUsuario.getText();
+        String contrasena = tContraseña.getText();
+        this.registrarCuentas(id_usuario_cuenta, nombres, apellidosPaterno, apellidosMaterno, usuario_cuenta, contrasena);
+    }//GEN-LAST:event_bRegistrarSesionActionPerformed
+
+    private void bEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarUsuarioActionPerformed
+        eliminarUsuario.setVisible(true);
+        this.habilitarEliminarUsuario(false);
+        this.mostrarCuentasUsuario2();
+    }//GEN-LAST:event_bEliminarUsuarioActionPerformed
+
+    private void bSalirTablaCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirTablaCuentaActionPerformed
+        tablaCuentas.setVisible(false);
+        this.habilitarTablaCuenta(true);
+    }//GEN-LAST:event_bSalirTablaCuentaActionPerformed
+
+    private void bSalirEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirEliminarUsuarioActionPerformed
+        eliminarUsuario.setVisible(false);
+        this.habilitarEliminarUsuario(true);
+    }//GEN-LAST:event_bSalirEliminarUsuarioActionPerformed
+
+    private void tApellidoPaternoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tApellidoPaternoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tApellidoPaternoActionPerformed
+
+    private void tBorrarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBorrarCuentaActionPerformed
+        int id_user = Integer.parseInt(tBorrar.getText());
+        this.eliminarCuentas(id_user);
+    }//GEN-LAST:event_tBorrarCuentaActionPerformed
+        
     /**
      * @param args the command line arguments
      */
@@ -1676,6 +2162,29 @@ public class Beta_Galera extends javax.swing.JFrame {
                 new Beta_Galera().setVisible(true);
             }
         });
+    }
+    
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("Icono/Logon.png"));
+        return retValue;
+    }
+    
+    public void habilitarTablaCuenta(boolean boton){
+        if(boton == true){
+            bVisualizar.setEnabled(true);
+        }else{
+            bVisualizar.setEnabled(false);
+        }
+    }
+    
+    public void habilitarEliminarUsuario(boolean boton){
+        if(boton == true){
+            bEliminarUsuario.setEnabled(true);
+        }else{
+            bEliminarUsuario.setEnabled(false);
+        }
     }
     
     public void colorMesaDefault(){
@@ -2309,6 +2818,7 @@ public class Beta_Galera extends javax.swing.JFrame {
                 con.desconectar();
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "No se puede mostrar la categoria: ("+ e.getMessage()+")");
+                System.out.println(""+e.getMessage());
             }
         }catch(SQLException ex){
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
@@ -2403,13 +2913,200 @@ public class Beta_Galera extends javax.swing.JFrame {
         return null;
     }
     
-    int id;
+    public ArrayList<productoVO> consultaMesas(int id){
+        try {
+            ArrayList<productoVO> misProductos = new ArrayList<productoVO>();
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select nombre_producto from productos where fk_id_categoria = '"+id+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                JProducto.removeAllItems();
+                productoVO producto = new productoVO();
+                producto.setNombre(rs.getString("nombre_producto"));
+                misProductos.add(producto);
+                for (int i = 0; i < misProductos.size(); i++) {
+                    JProducto.addItem(misProductos.get(i).getNombre());
+                    
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    
+    public void cargarComboMesas() throws SQLException, ClassNotFoundException{
+        categoriaVO categoriaVO;
+        ArrayList <categoriaVO> misCategorias = this.llamarCategorias();
+        for (int i = 0; i < misCategorias.size(); i++) {
+            jCategoria.addItem(misCategorias.get(i).getId_nombre_categoria());
+        }
+    }
+    
+    public int precioProducto(String nombre){
+        int precio=0;
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select precio from productos where nombre_producto = '"+nombre+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                precio = rs.getInt("precio");
+                lPrecio.setText("$"+precio);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return precio;
+    }
+    
+    public int generarIDCuentas(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select max(id_sesion) id from inicio_sesion;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+            status.close();
+            rs.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id+1;
+    }
+    
+    public void registrarCuentas(int id_sesion, String nombre_sesion, String apellido_p_sesion, String apellido_m_sesion, String usuario_sesion, String contrasena_sesion){
+        try {
+            try{
+                ConexionBD con = new ConexionBD();
+                Statement status = con.getConecction().createStatement();
+                status.executeUpdate("INSERT INTO inicio_sesion (id_sesion, nombre_sesion, apellido_p_sesion, apellido_m_sesion, usuario_sesion, contrasena_sesion) VALUES ('"+id_sesion+"', '"+nombre_sesion+"', '"+apellido_p_sesion+"', '"+apellido_m_sesion+"', '"+usuario_sesion+"', '"+contrasena_sesion+"');");
+                JOptionPane.showMessageDialog(null, "Se registro correctamente");
+                tNombres.setText("");
+                tApellidoPaterno.setText("");
+                tApellidoMaterno.setText("");
+                tIDUsuario.setText(""+this.generarIDCuentas(id_cuentas));
+                tUsuario.setText("");
+                tContraseña.setText("");
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede registrar ("+ e.getMessage()+")");
+                tNombres.setText("");
+                tApellidoPaterno.setText("");
+                tApellidoMaterno.setText("");
+                tIDUsuario.setText(""+this.generarIDCuentas(id_cuentas));
+                tUsuario.setText("");
+                tContraseña.setText("");
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void mostrarCuentasUsuario(){
+        try{
+            String[] titulos={"ID","Nombre","Usuario","Contraseña"};
+            String[] registro = new String[5];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from inicio_sesion order by id_sesion desc;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("id_sesion");
+                    registro[1] = rs.getString("nombre_sesion");
+                    registro[2] = rs.getString("usuario_sesion");
+                    registro[3] = rs.getString("contrasena_sesion");
+                    modelo.addRow(registro);
+                }
+                tablaCuenta.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar las cuentas: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void mostrarCuentasUsuario2(){
+        try{
+            String[] titulos={"ID","Nombre","Usuario","Contraseña"};
+            String[] registro = new String[5];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from inicio_sesion order by id_sesion desc;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("id_sesion");
+                    registro[1] = rs.getString("nombre_sesion");
+                    registro[2] = rs.getString("usuario_sesion");
+                    registro[3] = rs.getString("contrasena_sesion");
+                    modelo.addRow(registro);
+                }
+                tablaEliminar.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar las cuentas: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void eliminarCuentas(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("delete from inicio_sesion where id_sesion = '"+id+"';");
+            JOptionPane.showMessageDialog(null, "Eliminaste el usuario: "+id);
+            this.mostrarCuentasUsuario2();
+            tBorrar.setText("");
+            status.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No existe este usuario ("+ex+")");
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+        
+    int id, id_cuentas;
     LocalDateTime tiempo = LocalDateTime.now();
     Desface deslice = new Desface();
     boolean mesas,comparativa,productos,reporte,meseros;
     String mesa1="Active", mesa2="Active", mesa3="Active", mesa4="Active", mesa5="Active", mesa6="Active", mesa7="Active", mesa8="Active", mesa9="Active", mesa10="Active", mesa11="Active", mesa12="Active", mesa13="Active", mesa14="Active", mesa15="Active", mesa16="Active", mesa17="Active", mesa18="Active", mesa19="Active", mesa20="Active", mesa21="Active", mesa22="Active", mesa23="Active", mesa24="Active", mesa25="Active", mesa26="Active", mesa27="Active", mesa28="Active", mesa29="Active", mesa30="Active", mesa31="Active", mesa32="Active", mesa33="Active", mesa34="Active", mesa35="Active", mesa36="Active", mesa37="Active", mesa38="Active", mesa39="Active", mesa40="Active", mesa41="Active", mesa42="Active", mesa43="Active", mesa44="Active", mesa45="Active", mesa46="Active", mesa47="Active", mesa48="Active", mesa49="Active", mesa50="Active";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Comparativa;
+    private javax.swing.JPanel Cuentas;
     private javax.swing.JLabel FechaActualMesero;
     private javax.swing.JButton JPagar;
     private javax.swing.JComboBox<String> JProducto;
@@ -2428,16 +3125,23 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Sillas;
     private javax.swing.JButton bAgregarPedido;
     private javax.swing.JButton bEliminarMesero;
+    private javax.swing.JButton bEliminarUsuario;
     private javax.swing.JButton bRegistrarCategoria;
     private javax.swing.JButton bRegistrarMesero;
+    private javax.swing.JButton bRegistrarSesion;
     private javax.swing.JButton bRegistroProducto;
     private javax.swing.JButton bSalirComparativa;
+    private javax.swing.JButton bSalirEliminarUsuario;
     private javax.swing.JButton bSalirMesas;
+    private javax.swing.JButton bSalirMesas1;
     private javax.swing.JButton bSalirMesasPrincipales;
     private javax.swing.JButton bSalirMeseros;
     private javax.swing.JButton bSalirProductos;
     private javax.swing.JButton bSalirReporte;
+    private javax.swing.JButton bSalirTablaCuenta;
+    private javax.swing.JButton bVisualizar;
     private javax.swing.JComboBox<String> cComparativaCombo;
+    private javax.swing.JPanel eliminarUsuario;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -2450,6 +3154,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jComparativa;
+    private javax.swing.JLabel jCuentas;
     private javax.swing.JPanel jInicio;
     private javax.swing.JPanel jInicioSesion;
     private javax.swing.JLabel jLabel1;
@@ -2459,6 +3164,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -2516,9 +3222,20 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jMenu;
     private javax.swing.JLabel jMesas;
@@ -2528,6 +3245,10 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -2544,6 +3265,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JComboBox<String> jSeleccionProducto1;
     private javax.swing.JComboBox<String> jSeleccionProducto2;
     private javax.swing.JSeparator jSeparator1;
@@ -2551,23 +3274,38 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jTiempo;
     private javax.swing.JLabel jTiempo1;
     private javax.swing.JLabel jTitulo;
+    private javax.swing.JLabel jTitulo1;
+    private javax.swing.JLabel jTitulo2;
+    private javax.swing.JLabel lPrecio;
     private javax.swing.JPanel panelMesero1;
     private javax.swing.JPanel panelMesero2;
     private javax.swing.JPanel panelMesero3;
     private javax.swing.JPanel panelMesero4;
     private javax.swing.JPanel panelMesero5;
     private javax.swing.JPanel panelMesero6;
+    private javax.swing.JPanel panelMesero7;
     private javax.swing.JTextField tApellidoM;
+    private javax.swing.JTextField tApellidoMaterno;
     private javax.swing.JTextField tApellidoP;
+    private javax.swing.JTextField tApellidoPaterno;
+    private javax.swing.JTextField tBorrar;
+    private javax.swing.JButton tBorrarCuenta;
+    private javax.swing.JTextField tContraseña;
     private javax.swing.JTextField tEscribirCategoria;
     private javax.swing.JTextField tIDCategoria;
+    private javax.swing.JTextField tIDUsuario;
     private javax.swing.JTextField tID_Meseros;
     private javax.swing.JTextField tID_Productos;
     private javax.swing.JTextField tNombre_Mesero;
     private javax.swing.JTextField tNombreproducto;
+    private javax.swing.JTextField tNombres;
     private javax.swing.JTextField tPrecioProducto;
     private javax.swing.JTable tTablaCategoria;
     private javax.swing.JTable tTablaProducto;
+    private javax.swing.JTextField tUsuario;
+    private javax.swing.JTable tablaCuenta;
+    private javax.swing.JPanel tablaCuentas;
+    private javax.swing.JTable tablaEliminar;
     private javax.swing.JTable tmostrarMeseros;
     // End of variables declaration//GEN-END:variables
 }
