@@ -60,6 +60,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             tIDCategoria.setText(""+this.generarIDCategoria(id));
             jInicioSesion.setVisible(false);
             setIconImage(getIconImage());
+            User.setVisible(false);
             userInfo.setVisible(false);
             Cuentas.setVisible(false);
             eliminarUsuario.setVisible(false);
@@ -93,6 +94,27 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void initComponents() {
 
         jInicio = new javax.swing.JPanel();
+        User = new javax.swing.JPanel();
+        bSalirInfo = new javax.swing.JButton();
+        jLabel86 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jPanel21 = new javax.swing.JPanel();
+        panelMesero8 = new javax.swing.JPanel();
+        bVisualizar1 = new javax.swing.JButton();
+        jLabel87 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
+        jLabel89 = new javax.swing.JLabel();
+        jLabel90 = new javax.swing.JLabel();
+        tNombresUser = new javax.swing.JTextField();
+        jLabel91 = new javax.swing.JLabel();
+        tUsuarioUser = new javax.swing.JTextField();
+        tContraseñaUser = new javax.swing.JTextField();
+        jLabel92 = new javax.swing.JLabel();
+        tApellidoMaternoUser = new javax.swing.JTextField();
+        tIDUsuarioUser = new javax.swing.JTextField();
+        bEliminarUsuario1 = new javax.swing.JButton();
+        tApellidoPaternoUser = new javax.swing.JTextField();
+        jLabel93 = new javax.swing.JLabel();
         Cuentas = new javax.swing.JPanel();
         eliminarUsuario = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
@@ -305,6 +327,170 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio.setBackground(new java.awt.Color(255, 255, 255));
         jInicio.setLayout(null);
+
+        User.setBackground(new java.awt.Color(255, 255, 255));
+        User.setLayout(null);
+
+        bSalirInfo.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirInfo.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirInfo.setText("X");
+        bSalirInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirInfoActionPerformed(evt);
+            }
+        });
+        User.add(bSalirInfo);
+        bSalirInfo.setBounds(1280, 10, 90, 60);
+
+        jLabel86.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        jLabel86.setText("INFORMACION DE CUENTA");
+        User.add(jLabel86);
+        jLabel86.setBounds(460, 0, 640, 80);
+
+        jPanel16.setBackground(new java.awt.Color(0, 0, 0));
+        User.add(jPanel16);
+        jPanel16.setBounds(160, 10, 10, 610);
+
+        jPanel21.setBackground(new java.awt.Color(0, 0, 0));
+        User.add(jPanel21);
+        jPanel21.setBounds(0, 0, 1400, 10);
+
+        panelMesero8.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero8.setLayout(null);
+        User.add(panelMesero8);
+        panelMesero8.setBounds(0, 0, 160, 620);
+
+        bVisualizar1.setBackground(new java.awt.Color(255, 255, 255));
+        bVisualizar1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bVisualizar1.setText("Modificar");
+        bVisualizar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bVisualizar1ActionPerformed(evt);
+            }
+        });
+        User.add(bVisualizar1);
+        bVisualizar1.setBounds(500, 480, 240, 70);
+
+        jLabel87.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel87.setText("VERSION INTERFACE 1.0");
+        User.add(jLabel87);
+        jLabel87.setBounds(1150, 580, 250, 30);
+
+        jLabel88.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel88.setText("Nombre(s) del usuario:");
+        User.add(jLabel88);
+        jLabel88.setBounds(280, 110, 270, 50);
+
+        jLabel89.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel89.setText("ID Usuario:");
+        User.add(jLabel89);
+        jLabel89.setBounds(710, 240, 140, 50);
+
+        jLabel90.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel90.setText("Apellido materno:");
+        User.add(jLabel90);
+        jLabel90.setBounds(970, 110, 210, 50);
+
+        tNombresUser.setEditable(false);
+        tNombresUser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tNombresUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tNombresUser.setToolTipText("Escriba");
+        tNombresUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tNombresUserActionPerformed(evt);
+            }
+        });
+        User.add(tNombresUser);
+        tNombresUser.setBounds(280, 170, 270, 30);
+
+        jLabel91.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel91.setText("Usuario: ");
+        User.add(jLabel91);
+        jLabel91.setBounds(500, 320, 120, 50);
+
+        tUsuarioUser.setEditable(false);
+        tUsuarioUser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tUsuarioUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tUsuarioUser.setToolTipText("Escriba");
+        tUsuarioUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tUsuarioUserActionPerformed(evt);
+            }
+        });
+        User.add(tUsuarioUser);
+        tUsuarioUser.setBounds(420, 380, 270, 30);
+
+        tContraseñaUser.setEditable(false);
+        tContraseñaUser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tContraseñaUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tContraseñaUser.setToolTipText("Escriba");
+        tContraseñaUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tContraseñaUserActionPerformed(evt);
+            }
+        });
+        User.add(tContraseñaUser);
+        tContraseñaUser.setBounds(840, 380, 270, 30);
+
+        jLabel92.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel92.setText("Contraseña:");
+        User.add(jLabel92);
+        jLabel92.setBounds(910, 320, 140, 50);
+
+        tApellidoMaternoUser.setEditable(false);
+        tApellidoMaternoUser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tApellidoMaternoUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tApellidoMaternoUser.setToolTipText("Escriba");
+        tApellidoMaternoUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tApellidoMaternoUserActionPerformed(evt);
+            }
+        });
+        User.add(tApellidoMaternoUser);
+        tApellidoMaternoUser.setBounds(940, 170, 270, 30);
+
+        tIDUsuarioUser.setEditable(false);
+        tIDUsuarioUser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tIDUsuarioUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tIDUsuarioUser.setToolTipText("Escriba");
+        tIDUsuarioUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tIDUsuarioUserActionPerformed(evt);
+            }
+        });
+        User.add(tIDUsuarioUser);
+        tIDUsuarioUser.setBounds(620, 290, 270, 30);
+
+        bEliminarUsuario1.setBackground(new java.awt.Color(255, 255, 255));
+        bEliminarUsuario1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bEliminarUsuario1.setText("Eliminar");
+        bEliminarUsuario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarUsuario1ActionPerformed(evt);
+            }
+        });
+        User.add(bEliminarUsuario1);
+        bEliminarUsuario1.setBounds(830, 480, 240, 70);
+
+        tApellidoPaternoUser.setEditable(false);
+        tApellidoPaternoUser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tApellidoPaternoUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tApellidoPaternoUser.setToolTipText("Escriba");
+        tApellidoPaternoUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tApellidoPaternoUserActionPerformed(evt);
+            }
+        });
+        User.add(tApellidoPaternoUser);
+        tApellidoPaternoUser.setBounds(620, 170, 270, 30);
+
+        jLabel93.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel93.setText("Apellido paterno:");
+        User.add(jLabel93);
+        jLabel93.setBounds(650, 110, 210, 50);
+
+        jInicio.add(User);
+        User.setBounds(0, 90, 1370, 620);
 
         Cuentas.setBackground(new java.awt.Color(255, 255, 255));
         Cuentas.setLayout(null);
@@ -1666,6 +1852,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jMenu.add(jCuentas);
         jCuentas.setBounds(1100, 30, 110, 30);
 
+        lUsuario.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         lUsuario.setText("Usuario:");
         lUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1684,6 +1871,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         userInfo.setBackground(new java.awt.Color(255, 255, 255));
         userInfo.setLayout(null);
 
+        lCerrarSesion.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         lCerrarSesion.setText("Cerrar sesion");
         lCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1697,8 +1885,9 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         userInfo.add(lCerrarSesion);
-        lCerrarSesion.setBounds(0, 20, 90, 14);
+        lCerrarSesion.setBounds(0, 20, 90, 15);
 
+        lUserInfo.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         lUserInfo.setText("Ver informacion");
         lUserInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1712,7 +1901,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         userInfo.add(lUserInfo);
-        lUserInfo.setBounds(0, 0, 90, 14);
+        lUserInfo.setBounds(0, 0, 90, 15);
 
         jMenu.add(userInfo);
         userInfo.setBounds(1230, 20, 120, 40);
@@ -1758,6 +1947,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(false);
         Comparativa.setVisible(false);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_jMesasMouseClicked
 
     private void jComparativaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseClicked
@@ -1770,6 +1960,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.setVisible(false);
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_jComparativaMouseClicked
 
     private void jComparativaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseEntered
@@ -1790,6 +1981,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Sillas.setVisible(false);
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_jProductosMouseClicked
 
     private void jProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProductosMouseEntered
@@ -1810,6 +2002,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Sillas.setVisible(false);
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_jReporteMouseClicked
 
     private void jReporteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jReporteMouseEntered
@@ -1896,6 +2089,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Sillas.setVisible(false);
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_jMeserosMouseClicked
 
     private void jMeserosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMeserosMouseEntered
@@ -1916,6 +2110,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_bSalirMeserosActionPerformed
 
     private void bSalirMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasActionPerformed
@@ -1928,6 +2123,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_bSalirMesasActionPerformed
 
     private void bSalirComparativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirComparativaActionPerformed
@@ -1940,6 +2136,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_bSalirComparativaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -1958,6 +2155,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_bSalirMesasPrincipalesActionPerformed
 
     private void bAgregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPedidoActionPerformed
@@ -1995,6 +2193,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
         Cuentas.setVisible(false);
+        User.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_bSalirReporteActionPerformed
 
@@ -2037,6 +2236,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Cuentas.setVisible(false);
         Mesas.setVisible(true);
+        User.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void bRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarCategoriaActionPerformed
@@ -2089,6 +2289,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(false);
         Cuentas.setVisible(true);
+        User.setVisible(false);
     }//GEN-LAST:event_jCuentasMouseClicked
 
     private void jCuentasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCuentasMouseEntered
@@ -2109,6 +2310,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
         Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_bSalirMesas1ActionPerformed
 
     private void tNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNombresActionPerformed
@@ -2191,7 +2393,19 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_lUsuarioMouseExited
 
     private void lUserInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lUserInfoMouseClicked
-        // TODO add your handling code here:
+        this.setTitle("Galeras | "+nombre_user);
+        Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(false);
+        Cuentas.setVisible(false);
+        userInfo.setVisible(false);
+        user = false;
+        this.mostrarUser(id_user);
+        User.setVisible(true);
     }//GEN-LAST:event_lUserInfoMouseClicked
 
     private void lUserInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lUserInfoMouseEntered
@@ -2216,6 +2430,51 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void lCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCerrarSesionMouseExited
         userInfo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
     }//GEN-LAST:event_lCerrarSesionMouseExited
+
+    private void bSalirInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirInfoActionPerformed
+        this.setTitle("Galeras | Inicio");
+        Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+        Cuentas.setVisible(false);
+        User.setVisible(false);
+    }//GEN-LAST:event_bSalirInfoActionPerformed
+
+    private void bVisualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVisualizar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bVisualizar1ActionPerformed
+
+    private void tNombresUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNombresUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tNombresUserActionPerformed
+
+    private void tUsuarioUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tUsuarioUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tUsuarioUserActionPerformed
+
+    private void tContraseñaUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tContraseñaUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tContraseñaUserActionPerformed
+
+    private void tApellidoMaternoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tApellidoMaternoUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tApellidoMaternoUserActionPerformed
+
+    private void tIDUsuarioUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tIDUsuarioUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tIDUsuarioUserActionPerformed
+
+    private void bEliminarUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarUsuario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bEliminarUsuario1ActionPerformed
+
+    private void tApellidoPaternoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tApellidoPaternoUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tApellidoPaternoUserActionPerformed
         
     /**
      * @param args the command line arguments
@@ -3195,7 +3454,12 @@ public class Beta_Galera extends javax.swing.JFrame {
             ResultSet rs = null;
             rs = status.getResultSet();
             while(rs.next()){
-                
+                tNombresUser.setText(rs.getString("nombre_sesion"));
+                tApellidoPaternoUser.setText(rs.getString("apellido_p_sesion"));
+                tApellidoMaternoUser.setText(rs.getString("apellido_m_sesion"));
+                tIDUsuarioUser.setText(rs.getString("id_sesion"));
+                tUsuarioUser.setText(rs.getString("usuario_sesion"));
+                tContraseñaUser.setText(rs.getString("contrasena_sesion"));
             }
             con.desconectar();
             status.close();
@@ -3235,15 +3499,18 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Productos;
     private javax.swing.JPanel Reporte;
     private javax.swing.JPanel Sillas;
+    private javax.swing.JPanel User;
     private javax.swing.JButton bAgregarPedido;
     private javax.swing.JButton bEliminarMesero;
     private javax.swing.JButton bEliminarUsuario;
+    private javax.swing.JButton bEliminarUsuario1;
     private javax.swing.JButton bRegistrarCategoria;
     private javax.swing.JButton bRegistrarMesero;
     private javax.swing.JButton bRegistrarSesion;
     private javax.swing.JButton bRegistroProducto;
     private javax.swing.JButton bSalirComparativa;
     private javax.swing.JButton bSalirEliminarUsuario;
+    private javax.swing.JButton bSalirInfo;
     private javax.swing.JButton bSalirMesas;
     private javax.swing.JButton bSalirMesas1;
     private javax.swing.JButton bSalirMesasPrincipales;
@@ -3252,6 +3519,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirReporte;
     private javax.swing.JButton bSalirTablaCuenta;
     private javax.swing.JButton bVisualizar;
+    private javax.swing.JButton bVisualizar1;
     private javax.swing.JComboBox<String> cComparativaCombo;
     private javax.swing.JPanel eliminarUsuario;
     private javax.swing.JButton jButton3;
@@ -3347,7 +3615,15 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel93;
     private javax.swing.JPanel jMenu;
     private javax.swing.JLabel jMesas;
     private javax.swing.JLabel jMeseros;
@@ -3358,9 +3634,11 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -3399,25 +3677,32 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel panelMesero5;
     private javax.swing.JPanel panelMesero6;
     private javax.swing.JPanel panelMesero7;
+    private javax.swing.JPanel panelMesero8;
     private javax.swing.JTextField tApellidoM;
     private javax.swing.JTextField tApellidoMaterno;
+    private javax.swing.JTextField tApellidoMaternoUser;
     private javax.swing.JTextField tApellidoP;
     private javax.swing.JTextField tApellidoPaterno;
+    private javax.swing.JTextField tApellidoPaternoUser;
     private javax.swing.JTextField tBorrar;
     private javax.swing.JButton tBorrarCuenta;
     private javax.swing.JTextField tContraseña;
+    private javax.swing.JTextField tContraseñaUser;
     private javax.swing.JTextField tEscribirCategoria;
     private javax.swing.JTextField tIDCategoria;
     private javax.swing.JTextField tIDUsuario;
+    private javax.swing.JTextField tIDUsuarioUser;
     private javax.swing.JTextField tID_Meseros;
     private javax.swing.JTextField tID_Productos;
     private javax.swing.JTextField tNombre_Mesero;
     private javax.swing.JTextField tNombreproducto;
     private javax.swing.JTextField tNombres;
+    private javax.swing.JTextField tNombresUser;
     private javax.swing.JTextField tPrecioProducto;
     private javax.swing.JTable tTablaCategoria;
     private javax.swing.JTable tTablaProducto;
     private javax.swing.JTextField tUsuario;
+    private javax.swing.JTextField tUsuarioUser;
     private javax.swing.JTable tablaCuenta;
     private javax.swing.JPanel tablaCuentas;
     private javax.swing.JTable tablaEliminar;
@@ -3431,6 +3716,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         usuario_user = user; 
         nombre_user = nombre+" "+apellido0+" "+apellido1;
         password_user = password;
-        id = id_user;
+        id_user = id;
     }
 }
