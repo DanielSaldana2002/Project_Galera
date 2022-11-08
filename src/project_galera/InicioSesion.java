@@ -186,16 +186,20 @@ public class InicioSesion extends javax.swing.JFrame {
             Statement status = con.getConecction().createStatement();
             status.executeQuery("select usuario_sesion from inicio_sesion where usuario_sesion = '"+usuario+"';");
             status.executeQuery("select contrasena_sesion from inicio_sesion where contrasena_sesion = '"+password+"';");
-            status.executeQuery("select id_sesion, usuario_sesion, contrasena_sesion from inicio_sesion where usuario_sesion = '"+usuario+"' && contrasena_sesion = '"+password+"';");
+            status.executeQuery("select * from inicio_sesion where usuario_sesion = '"+usuario+"' && contrasena_sesion = '"+password+"';");
             ResultSet rs = null;
             rs = status.getResultSet();
             if(rs.next()){
                 usuario1 = rs.getString("usuario_sesion");
                 password1 = rs.getString("contrasena_sesion");
                 id = rs.getInt("id_sesion");
+                String nombre = rs.getString("nombre_sesion");
+                String apellidoP = rs.getString("apellido_p_sesion");
+                String apellidoM = rs.getString("apellido_m_sesion");
                 this.dispose();
-                introGalera inicio = new introGalera();
-                inicio.setVisible(true);
+                Beta_Galera galera = new Beta_Galera();
+                galera.settMostrarDatos(usuario1, nombre, apellidoM, apellidoM);
+                galera.setVisible(true);
                 rs.close();
                 status.close();
                 con.desconectar();

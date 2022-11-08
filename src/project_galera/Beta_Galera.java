@@ -290,9 +290,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         jReporte = new javax.swing.JLabel();
         jMeseros = new javax.swing.JLabel();
         jCuentas = new javax.swing.JLabel();
+        lUsuario = new javax.swing.JLabel();
         jInicioSesion = new javax.swing.JPanel();
         jTiempo = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lGaleras = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Galeras | Inicio");
@@ -371,7 +372,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         eliminarUsuario.add(tBorrarCuenta);
-        tBorrarCuenta.setBounds(310, 380, 77, 32);
+        tBorrarCuenta.setBounds(310, 380, 77, 23);
 
         Cuentas.add(eliminarUsuario);
         eliminarUsuario.setBounds(880, 20, 400, 460);
@@ -595,7 +596,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         Cuentas.setBounds(0, 90, 1370, 620);
 
         Productos.setBackground(new java.awt.Color(255, 255, 255));
-        Productos.setForeground(new java.awt.Color(0, 0, 0));
         Productos.setLayout(null);
 
         bSalirProductos.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -637,7 +637,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         tIDCategoria.setBounds(40, 200, 180, 40);
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("ID Categoria");
         panelMesero6.add(jLabel14);
         jLabel14.setBounds(70, 160, 130, 30);
@@ -668,15 +667,13 @@ public class Beta_Galera extends javax.swing.JFrame {
         jScrollPane3.setBounds(80, 390, 450, 150);
 
         jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Escribe el nombre de tu categoria:");
         panelMesero6.add(jLabel15);
         jLabel15.setBounds(320, 160, 310, 30);
 
-        tEscribirCategoria.setBackground(new java.awt.Color(255, 255, 255));
         tEscribirCategoria.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         panelMesero6.add(tEscribirCategoria);
-        tEscribirCategoria.setBounds(320, 200, 290, 40);
+        tEscribirCategoria.setBounds(320, 200, 290, 38);
 
         Productos.add(panelMesero6);
         panelMesero6.setBounds(0, 0, 660, 620);
@@ -687,7 +684,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel66.setBounds(910, 10, 290, 80);
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Id producto:");
         Productos.add(jLabel13);
         jLabel13.setBounds(730, 110, 120, 30);
@@ -696,41 +692,33 @@ public class Beta_Galera extends javax.swing.JFrame {
         tID_Productos.setBackground(new java.awt.Color(255, 255, 255));
         tID_Productos.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         Productos.add(tID_Productos);
-        tID_Productos.setBounds(710, 150, 150, 40);
+        tID_Productos.setBounds(710, 150, 150, 38);
 
-        tPrecioProducto.setBackground(new java.awt.Color(255, 255, 255));
         tPrecioProducto.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        tPrecioProducto.setForeground(new java.awt.Color(0, 0, 0));
         Productos.add(tPrecioProducto);
         tPrecioProducto.setBounds(1070, 270, 170, 40);
 
         jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Precio:");
         Productos.add(jLabel17);
         jLabel17.setBounds(1120, 230, 70, 30);
 
         jLabel67.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel67.setForeground(new java.awt.Color(0, 0, 0));
         jLabel67.setText("Nombre del producto:");
         Productos.add(jLabel67);
         jLabel67.setBounds(1040, 110, 210, 30);
 
-        jCategoriaProducto.setBackground(new java.awt.Color(255, 255, 255));
-        jCategoriaProducto.setForeground(new java.awt.Color(0, 0, 0));
         Productos.add(jCategoriaProducto);
         jCategoriaProducto.setBounds(700, 270, 250, 50);
 
         jLabel68.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel68.setForeground(new java.awt.Color(0, 0, 0));
         jLabel68.setText("Categoria del producto:");
         Productos.add(jLabel68);
         jLabel68.setBounds(720, 230, 210, 30);
 
-        tNombreproducto.setBackground(new java.awt.Color(255, 255, 255));
         tNombreproducto.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         Productos.add(tNombreproducto);
-        tNombreproducto.setBounds(990, 150, 300, 40);
+        tNombreproducto.setBounds(990, 150, 300, 38);
 
         bRegistroProducto.setText("Registrar productos");
         bRegistroProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -855,7 +843,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         MesaPrincipal.add(jCategoria);
-        jCategoria.setBounds(470, 140, 190, 26);
+        jCategoria.setBounds(470, 140, 190, 22);
 
         jLabel35.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel35.setText("Producto:");
@@ -868,7 +856,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         MesaPrincipal.add(JProducto);
-        JProducto.setBounds(970, 150, 200, 26);
+        JProducto.setBounds(970, 150, 200, 22);
 
         jLabel36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel36.setText("Cantidad:");
@@ -1363,7 +1351,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel18.setBounds(30, 10, 270, 50);
 
         tmostrarMeseros.setBackground(new java.awt.Color(255, 255, 0));
-        tmostrarMeseros.setForeground(new java.awt.Color(0, 0, 0));
         tmostrarMeseros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -1675,6 +1662,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         jMenu.add(jCuentas);
         jCuentas.setBounds(1100, 30, 110, 30);
 
+        lUsuario.setText("Usuario:");
+        jMenu.add(lUsuario);
+        lUsuario.setBounds(1170, 4, 190, 20);
+
         jInicio.add(jMenu);
         jMenu.setBounds(10, 0, 1370, 90);
 
@@ -1682,12 +1673,13 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jTiempo.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jInicioSesion.add(jTiempo);
-        jTiempo.setBounds(460, 60, 480, 40);
+        jTiempo.setBounds(440, 60, 670, 40);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel3.setText("BIENVENIDO A GALERAS");
-        jInicioSesion.add(jLabel3);
-        jLabel3.setBounds(390, 0, 590, 60);
+        lGaleras.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        lGaleras.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lGaleras.setText("BIENVENIDO A GALERAS");
+        jInicioSesion.add(lGaleras);
+        lGaleras.setBounds(30, 0, 1310, 60);
 
         jInicio.add(jInicioSesion);
         jInicioSesion.setBounds(10, 310, 1370, 110);
@@ -3179,7 +3171,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -3276,7 +3267,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jTitulo;
     private javax.swing.JLabel jTitulo1;
     private javax.swing.JLabel jTitulo2;
+    private javax.swing.JLabel lGaleras;
     private javax.swing.JLabel lPrecio;
+    private javax.swing.JLabel lUsuario;
     private javax.swing.JPanel panelMesero1;
     private javax.swing.JPanel panelMesero2;
     private javax.swing.JPanel panelMesero3;
@@ -3308,4 +3301,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTable tablaEliminar;
     private javax.swing.JTable tmostrarMeseros;
     // End of variables declaration//GEN-END:variables
+
+    void settMostrarDatos(String user, String nombre, String apellido0, String apellido1){
+        lUsuario.setText("Usuario: "+user);
+        lGaleras.setText("Bienvenido "+nombre+" "+apellido0+" "+apellido1+" a Galeras");
+    }
 }
