@@ -198,7 +198,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 String apellidoM = rs.getString("apellido_m_sesion");
                 this.dispose();
                 Beta_Galera galera = new Beta_Galera();
-                galera.settMostrarDatos(usuario1, nombre, apellidoM, apellidoM);
+                galera.settMostrarDatos(usuario1, password1, nombre, apellidoP, apellidoM, id);
                 galera.setVisible(true);
                 rs.close();
                 status.close();
@@ -227,4 +227,10 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JPasswordField tPassword;
     private javax.swing.JTextField tUser;
     // End of variables declaration//GEN-END:variables
+    
+    void settMostrarUser(String user, String password){
+        tUser.setText(user);
+        tPassword.setText(password);
+    }
+
 }

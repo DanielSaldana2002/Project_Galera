@@ -60,6 +60,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             tIDCategoria.setText(""+this.generarIDCategoria(id));
             jInicioSesion.setVisible(false);
             setIconImage(getIconImage());
+            userInfo.setVisible(false);
             Cuentas.setVisible(false);
             eliminarUsuario.setVisible(false);
             tablaCuentas.setVisible(false);
@@ -291,6 +292,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         jMeseros = new javax.swing.JLabel();
         jCuentas = new javax.swing.JLabel();
         lUsuario = new javax.swing.JLabel();
+        userInfo = new javax.swing.JPanel();
+        lCerrarSesion = new javax.swing.JLabel();
+        lUserInfo = new javax.swing.JLabel();
         jInicioSesion = new javax.swing.JPanel();
         jTiempo = new javax.swing.JLabel();
         lGaleras = new javax.swing.JLabel();
@@ -1663,8 +1667,55 @@ public class Beta_Galera extends javax.swing.JFrame {
         jCuentas.setBounds(1100, 30, 110, 30);
 
         lUsuario.setText("Usuario:");
+        lUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lUsuarioMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lUsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lUsuarioMouseExited(evt);
+            }
+        });
         jMenu.add(lUsuario);
-        lUsuario.setBounds(1170, 4, 190, 20);
+        lUsuario.setBounds(1190, 0, 170, 20);
+
+        userInfo.setBackground(new java.awt.Color(255, 255, 255));
+        userInfo.setLayout(null);
+
+        lCerrarSesion.setText("Cerrar sesion");
+        lCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lCerrarSesionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lCerrarSesionMouseExited(evt);
+            }
+        });
+        userInfo.add(lCerrarSesion);
+        lCerrarSesion.setBounds(0, 20, 90, 14);
+
+        lUserInfo.setText("Ver informacion");
+        lUserInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lUserInfoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lUserInfoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lUserInfoMouseExited(evt);
+            }
+        });
+        userInfo.add(lUserInfo);
+        lUserInfo.setBounds(0, 0, 90, 14);
+
+        jMenu.add(userInfo);
+        userInfo.setBounds(1230, 20, 120, 40);
 
         jInicio.add(jMenu);
         jMenu.setBounds(10, 0, 1370, 90);
@@ -2120,6 +2171,51 @@ public class Beta_Galera extends javax.swing.JFrame {
         int id_user = Integer.parseInt(tBorrar.getText());
         this.eliminarCuentas(id_user);
     }//GEN-LAST:event_tBorrarCuentaActionPerformed
+
+    private void lUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lUsuarioMouseClicked
+        if(user == false){
+            userInfo.setVisible(true);
+            user = true;
+        }else if(user == true){
+            user = false;
+            userInfo.setVisible(false);
+        }
+    }//GEN-LAST:event_lUsuarioMouseClicked
+
+    private void lUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lUsuarioMouseEntered
+        jMenu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lUsuarioMouseEntered
+
+    private void lUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lUsuarioMouseExited
+        jMenu.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_lUsuarioMouseExited
+
+    private void lUserInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lUserInfoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lUserInfoMouseClicked
+
+    private void lUserInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lUserInfoMouseEntered
+        userInfo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lUserInfoMouseEntered
+
+    private void lUserInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lUserInfoMouseExited
+        userInfo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_lUserInfoMouseExited
+
+    private void lCerrarSesionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCerrarSesionMouseClicked
+        this.dispose();
+        InicioSesion inicio = new InicioSesion();
+        inicio.settMostrarUser(usuario_user, password_user);
+        inicio.setVisible(true);
+    }//GEN-LAST:event_lCerrarSesionMouseClicked
+
+    private void lCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCerrarSesionMouseEntered
+        userInfo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_lCerrarSesionMouseEntered
+
+    private void lCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lCerrarSesionMouseExited
+        userInfo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+    }//GEN-LAST:event_lCerrarSesionMouseExited
         
     /**
      * @param args the command line arguments
@@ -3090,7 +3186,31 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
         
     }
+    
+    public void mostrarUser(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from inicio_sesion where id_sesion = '"+id+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                
+            }
+            con.desconectar();
+            status.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+    }
+        
+    boolean user = false;
+    String nombre_user, password_user, usuario_user;
+    int id_user;
     int id, id_cuentas;
     LocalDateTime tiempo = LocalDateTime.now();
     Desface deslice = new Desface();
@@ -3267,8 +3387,10 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jTitulo;
     private javax.swing.JLabel jTitulo1;
     private javax.swing.JLabel jTitulo2;
+    private javax.swing.JLabel lCerrarSesion;
     private javax.swing.JLabel lGaleras;
     private javax.swing.JLabel lPrecio;
+    private javax.swing.JLabel lUserInfo;
     private javax.swing.JLabel lUsuario;
     private javax.swing.JPanel panelMesero1;
     private javax.swing.JPanel panelMesero2;
@@ -3300,10 +3422,15 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel tablaCuentas;
     private javax.swing.JTable tablaEliminar;
     private javax.swing.JTable tmostrarMeseros;
+    private javax.swing.JPanel userInfo;
     // End of variables declaration//GEN-END:variables
 
-    void settMostrarDatos(String user, String nombre, String apellido0, String apellido1){
+    void settMostrarDatos(String user, String password, String nombre, String apellido0, String apellido1, int id){
         lUsuario.setText("Usuario: "+user);
         lGaleras.setText("Bienvenido "+nombre+" "+apellido0+" "+apellido1+" a Galeras");
+        usuario_user = user; 
+        nombre_user = nombre+" "+apellido0+" "+apellido1;
+        password_user = password;
+        id = id_user;
     }
 }
