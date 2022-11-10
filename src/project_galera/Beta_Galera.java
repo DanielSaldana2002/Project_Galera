@@ -5,6 +5,7 @@
  */
 package project_galera;
 
+import com.sun.glass.events.KeyEvent;
 import java.awt.Frame;
 import java.time.LocalDateTime;
 import java.util.concurrent.Executors;
@@ -146,7 +147,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel69 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
         tNombres = new javax.swing.JTextField();
-        jLabel71 = new javax.swing.JLabel();
+        lValidacionU = new javax.swing.JLabel();
         tUsuario = new javax.swing.JTextField();
         tContraseña = new javax.swing.JTextField();
         jLabel72 = new javax.swing.JLabel();
@@ -156,6 +157,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         bEliminarUsuario = new javax.swing.JButton();
         tApellidoPaterno = new javax.swing.JTextField();
         jLabel80 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
         Productos = new javax.swing.JPanel();
         bSalirProductos = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
@@ -167,8 +169,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         bRegistrarCategoria = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tTablaCategoria = new javax.swing.JTable();
-        jLabel15 = new javax.swing.JLabel();
+        lValidacionC = new javax.swing.JLabel();
         tEscribirCategoria = new javax.swing.JTextField();
+        jLabel81 = new javax.swing.JLabel();
         jLabel66 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         tID_Productos = new javax.swing.JTextField();
@@ -182,6 +185,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tTablaProducto = new javax.swing.JTable();
         jLabel73 = new javax.swing.JLabel();
+        lValidacionP = new javax.swing.JLabel();
         MesaPrincipal = new javax.swing.JPanel();
         bSalirMesasPrincipales = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
@@ -693,16 +697,22 @@ public class Beta_Galera extends javax.swing.JFrame {
         Cuentas.add(tNombres);
         tNombres.setBounds(280, 170, 270, 30);
 
-        jLabel71.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel71.setText("Usuario: ");
-        Cuentas.add(jLabel71);
-        jLabel71.setBounds(500, 320, 120, 50);
+        lValidacionU.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lValidacionU.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lValidacionU.setText(" ");
+        Cuentas.add(lValidacionU);
+        lValidacionU.setBounds(420, 410, 270, 30);
 
         tUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tUsuario.setToolTipText("Escriba");
         tUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tUsuarioActionPerformed(evt);
+            }
+        });
+        tUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tUsuarioKeyReleased(evt);
             }
         });
         Cuentas.add(tUsuario);
@@ -782,6 +792,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         Cuentas.add(jLabel80);
         jLabel80.setBounds(650, 110, 210, 50);
 
+        jLabel82.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel82.setText("Usuario: ");
+        Cuentas.add(jLabel82);
+        jLabel82.setBounds(500, 320, 120, 50);
+
         jInicio.add(Cuentas);
         Cuentas.setBounds(0, 90, 1370, 620);
 
@@ -856,14 +871,24 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero6.add(jScrollPane3);
         jScrollPane3.setBounds(80, 390, 450, 150);
 
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel15.setText("Escribe el nombre de tu categoria:");
-        panelMesero6.add(jLabel15);
-        jLabel15.setBounds(320, 160, 310, 30);
+        lValidacionC.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lValidacionC.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        panelMesero6.add(lValidacionC);
+        lValidacionC.setBounds(320, 240, 290, 30);
 
         tEscribirCategoria.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        tEscribirCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tEscribirCategoriaKeyReleased(evt);
+            }
+        });
         panelMesero6.add(tEscribirCategoria);
         tEscribirCategoria.setBounds(320, 200, 290, 38);
+
+        jLabel81.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel81.setText("Escribe el nombre de tu categoria:");
+        panelMesero6.add(jLabel81);
+        jLabel81.setBounds(320, 160, 310, 30);
 
         Productos.add(panelMesero6);
         panelMesero6.setBounds(0, 0, 660, 620);
@@ -884,7 +909,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Productos.add(tID_Productos);
         tID_Productos.setBounds(710, 150, 150, 38);
 
-        tPrecioProducto.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        tPrecioProducto.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         Productos.add(tPrecioProducto);
         tPrecioProducto.setBounds(1070, 270, 170, 40);
 
@@ -907,6 +932,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel68.setBounds(720, 230, 210, 30);
 
         tNombreproducto.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        tNombreproducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tNombreproductoKeyReleased(evt);
+            }
+        });
         Productos.add(tNombreproducto);
         tNombreproducto.setBounds(990, 150, 300, 38);
 
@@ -939,6 +969,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel73.setText("VERSION INTERFACE 1.2");
         Productos.add(jLabel73);
         jLabel73.setBounds(1150, 590, 250, 30);
+
+        lValidacionP.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lValidacionP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Productos.add(lValidacionP);
+        lValidacionP.setBounds(990, 190, 300, 30);
 
         jInicio.add(Productos);
         Productos.setBounds(0, 90, 1380, 620);
@@ -1033,7 +1068,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         MesaPrincipal.add(jCategoria);
-        jCategoria.setBounds(470, 140, 190, 22);
+        jCategoria.setBounds(470, 140, 190, 20);
 
         jLabel35.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel35.setText("Producto:");
@@ -1046,7 +1081,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         MesaPrincipal.add(JProducto);
-        JProducto.setBounds(970, 150, 200, 22);
+        JProducto.setBounds(970, 150, 200, 20);
 
         jLabel36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel36.setText("Cantidad:");
@@ -2475,6 +2510,39 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void tApellidoPaternoUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tApellidoPaternoUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tApellidoPaternoUserActionPerformed
+
+    private void tEscribirCategoriaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tEscribirCategoriaKeyReleased
+        bRegistrarCategoria.setEnabled(true);
+        lValidacionC.setText("");
+        this.ValidacionCategoria(tEscribirCategoria.getText());
+        if(evt.getKeyCode() == KeyEvent.VK_BACKSPACE){
+            bRegistrarCategoria.setEnabled(true);
+            lValidacionC.setText("");
+            this.ValidacionCategoria(tEscribirCategoria.getText());
+        }
+    }//GEN-LAST:event_tEscribirCategoriaKeyReleased
+
+    private void tNombreproductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tNombreproductoKeyReleased
+        bRegistroProducto.setEnabled(true);
+        lValidacionP.setText("");
+        this.ValidacionProducto(tNombreproducto.getText());
+        if(evt.getKeyCode() == KeyEvent.VK_BACKSPACE){
+            bRegistroProducto.setEnabled(true);
+            lValidacionP.setText("");
+            this.ValidacionProducto(tNombreproducto.getText());
+        }
+    }//GEN-LAST:event_tNombreproductoKeyReleased
+
+    private void tUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tUsuarioKeyReleased
+        bRegistrarSesion.setEnabled(true);
+        lValidacionU.setText("");
+        this.ValidacionUser(tUsuario.getText());
+        if(evt.getKeyCode() == KeyEvent.VK_BACKSPACE){
+            bRegistrarSesion.setEnabled(true);
+            lValidacionU.setText("");
+            this.ValidacionUser(tUsuario.getText());
+        }
+    }//GEN-LAST:event_tUsuarioKeyReleased
         
     /**
      * @param args the command line arguments
@@ -3471,7 +3539,73 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
         
     }
-        
+    
+    public void ValidacionCategoria(String categoria){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select nombre_categoria from categoria_productos where nombre_categoria = '"+categoria+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            if(rs.next()){
+                if(rs.getString("nombre_categoria") == ""){
+                }else{
+                    lValidacionC.setText("Esta categoria ya existe");
+                    lValidacionC.setForeground(Color.RED);
+                    bRegistrarCategoria.setEnabled(false);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void ValidacionProducto(String producto){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select nombre_producto from productos where nombre_producto = '"+producto+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            if(rs.next()){
+                if(rs.getString("nombre_producto") == ""){
+                }else{
+                    lValidacionP.setText("Este producto ya existe");
+                    lValidacionP.setForeground(Color.RED);
+                    bRegistroProducto.setEnabled(false);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+       
+    public void ValidacionUser(String user){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select usuario_sesion from inicio_sesion where usuario_sesion = '"+user+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            if(rs.next()){
+                if(rs.getString("usuario_sesion") == ""){
+                }else{
+                    lValidacionU.setText("Este usuario ya existe");
+                    lValidacionU.setForeground(Color.RED);
+                    bRegistrarSesion.setEnabled(false);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     boolean user = false;
     String nombre_user, password_user, usuario_user;
     int id_user;
@@ -3543,7 +3677,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -3604,7 +3737,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
@@ -3615,6 +3747,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
@@ -3670,6 +3804,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel lPrecio;
     private javax.swing.JLabel lUserInfo;
     private javax.swing.JLabel lUsuario;
+    private javax.swing.JLabel lValidacionC;
+    private javax.swing.JLabel lValidacionP;
+    private javax.swing.JLabel lValidacionU;
     private javax.swing.JPanel panelMesero1;
     private javax.swing.JPanel panelMesero2;
     private javax.swing.JPanel panelMesero3;
