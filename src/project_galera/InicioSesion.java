@@ -179,8 +179,6 @@ public class InicioSesion extends javax.swing.JFrame {
     }
     
     public void verificarUsuario(String usuario, String password){
-        String usuario1, password1;
-        int id;
         try {
             ConexionBD con = new ConexionBD();
             Statement status = con.getConecction().createStatement();
@@ -213,7 +211,9 @@ public class InicioSesion extends javax.swing.JFrame {
         }
         
     }
-
+    
+    String usuario1, password1, user;
+    int id;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -232,5 +232,4 @@ public class InicioSesion extends javax.swing.JFrame {
         tUser.setText(user);
         tPassword.setText(password);
     }
-
 }
