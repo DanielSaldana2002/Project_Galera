@@ -46,6 +46,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             this.setExtendedState(Frame.MAXIMIZED_BOTH);
             //this.colorMesaDefault();
             this.cargarComboMesas();
+            this.mostrarPedidas();
             this.cargarComboCategoriasComparativa();
             this.mostrarMeseros();
             this.mostrarCategoria();
@@ -970,6 +971,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         tTicketMesas.setEditable(false);
         tTicketMesas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tTicketMesas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tTicketMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tTicketMesasActionPerformed(evt);
+            }
+        });
         MesaPrincipal.add(tTicketMesas);
         tTicketMesas.setBounds(370, 130, 110, 30);
 
@@ -2267,6 +2273,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void bSalirMesasPrincipalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirMesasPrincipalesActionPerformed
         this.setTitle("Galeras | Inicio");
         this.aparacerDesaparecerMesas(0);
+        MesaTabla.removeAll();
+        this.EliminarTicket(Integer.parseInt(tTicketMesas.getText()), Integer.parseInt((String) cMesa.getSelectedItem()));
         Productos.setVisible(false);
         MesaPrincipal.setVisible(false);
         Sillas.setVisible(false);
@@ -2283,18 +2291,18 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirMesasPrincipalesActionPerformed
 
     private void bAgregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPedidoActionPerformed
-        if(cMesa.getSelectedIndex() == 1){
-            this.statusOccupied(cMesa.getSelectedIndex()+1);
+        if(Integer.parseInt((String) cMesa.getSelectedItem()) == 1){
             int precio_t = Integer.parseInt(tPrecioMesa.getText());
             int cantidad_t = Integer.parseInt(sCantidad.getValue().toString());
             int total_t = precio_t*cantidad_t;
             this.registroTicket(Integer.parseInt(tTicketMesas.getText()), this.comboProducto(), Integer.parseInt((String) cMesa.getSelectedItem()), Integer.parseInt(tPrecioMesa.getText()), Integer.parseInt(sCantidad.getValue().toString()), total_t);
+            this.mostrarPedidosTicket(Integer.parseInt(tTicketMesas.getText()));
         }else{
             int precio_t = Integer.parseInt(tPrecioMesa.getText());
             int cantidad_t = Integer.parseInt(sCantidad.getValue().toString());
             int total_t = precio_t*cantidad_t;
-            this.statusOccupied(cMesa.getSelectedIndex()+1);
-            this.registroTicket(Integer.parseInt(tTicketMesas.getText()), this.comboProducto(), Integer.parseInt((String) cMesa.getSelectedItem()), Integer.parseInt(tPrecioMesa.getText()), Integer.parseInt(sCantidad.getValue().toString()), total_t);
+            this.registroTicket(Integer.parseInt(tTicketMesas.getText()), this.comboProducto(), Integer.parseInt((String) cMesa.getSelectedItem()), Integer.parseInt(tPrecioMesa.getText()), Integer.parseInt(sCantidad.getValue().toString()), total_t);          
+            this.mostrarPedidosTicket(Integer.parseInt(tTicketMesas.getText()));
         }
     }//GEN-LAST:event_bAgregarPedidoActionPerformed
 
@@ -2677,9 +2685,11 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void bAgregarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarMesaActionPerformed
         try {
             this.setTitle("Galeras | Agregar pedido");
+            cMesa.removeAllItems();
+            this.cargarComboMesasMesas();
             tTicketMesas.setText(""+this.generarIDTicket(id));
             this.registroIDInicialTicket(this.generarIDTicket(id));
-            this.cargarComboMesasMesas();
+            this.mostrarPedidosTicket(Integer.parseInt(tTicketMesas.getText()));
             this.aparacerDesaparecerMesas(1);
             Productos.setVisible(false);
             MesaPrincipal.setVisible(false);
@@ -2715,8 +2725,32 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_TablaEnVivoMouseEntered
 
     private void bEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEnviarPedidoActionPerformed
-        // TODO add your handling code here:
+        this.setTitle("Galeras | Inicio");
+        this.UpdateTickets(this.MostrarMeseroMesa(), Integer.parseInt((String) cMesa.getSelectedItem()), Integer.parseInt(tTicketMesas.getText()));
+        this.MesasOcupacion(Integer.parseInt((String) cMesa.getSelectedItem())); 
+        this.statusOccupied(Integer.parseInt((String) cMesa.getSelectedItem()));
+        this.mostrarPedidas();
+        this.aparacerDesaparecerMesas(0);
+        MesaPrincipal.setVisible(false);
+        Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+        PedidosEnVivo.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
+        Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_bEnviarPedidoActionPerformed
+
+    private void tTicketMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTicketMesasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tTicketMesasActionPerformed
         
     /**
      * @param args the command line arguments
@@ -3909,12 +3943,132 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
     }
     
+    public int MostrarMeseroMesa(){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("SELECT id_empleado from empleados where nombre_empleado = '"+(String) cMeseroMesas.getSelectedItem()+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+              id_em = rs.getInt("id_empleado");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id_em;
+    }
+    
+    public void UpdateTickets(int id, int mesa, int ticket){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("UPDATE tickets SET fk_id_empleados = '"+id+"', fk_id_mesas = '"+mesa+"' WHERE id_tickets = '"+ticket+"';");
+            JOptionPane.showMessageDialog(null, "Se guardo el ticket correctamente");
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void EliminarTicket(int ticket, int mesa){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("DELETE FROM tickets_pedidos where fk_id_tickets_p = '"+ticket+"';");
+            status.executeUpdate("DELETE FROM tickets WHERE id_tickets = '"+ticket+"';");
+            status.executeUpdate("UPDATE mesas SET ocupacion = '1' WHERE id_mesas = '"+mesa+"';");
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+    }
+    
+    public void MesasOcupacion(int mesa){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("UPDATE mesas SET ocupacion = '0' WHERE id_mesas = '"+mesa+"';");
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+    }
+    
+    public void mostrarPedidas(){
+        try{
+            String[] titulos={"MESA", "TICKET"};
+            String[] registro = new String[2];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select id_tickets, fk_id_mesas from tickets;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("fk_id_mesas");
+                    registro[1] = rs.getString("id_tickets");
+                    modelo.addRow(registro);
+                }
+                TablaEnVivo.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar los pedidos: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void mostrarPedidosTicket(int tickets){
+        try{
+            String[] titulos={"Producto", "Mesas", "Precio", "Cantidad", "Total"};
+            String[] registro = new String[5];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from tickets_pedidos where fk_id_tickets_p = '"+tickets+"';");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("fk_id_producto_p");
+                    registro[1] = rs.getString("fk_id_mesas_p");
+                    registro[2] = rs.getString("pk_precio");
+                    registro[3] = rs.getString("cantidad");
+                    registro[4] = rs.getString("total_pedido");
+                    modelo.addRow(registro);
+                }
+                MesaTabla.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar los pedidos: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     boolean ticket = true;
     boolean user = false;
     int numeroM;
-    String nombre_user, password_user, usuario_user;
+    String nombre_user, password_user, usuario_user, meseroMesasUser;
     int id_user;
-    int id=0, id_cuentas, id_fk, id_fk_empleado;
+    int id=0, id_cuentas, id_fk, id_fk_empleado, id_em;
     LocalDateTime tiempo = LocalDateTime.now();
     Desface deslice = new Desface();
     boolean mesas,comparativa,productos,reporte,meseros;
