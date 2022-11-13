@@ -24,6 +24,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -48,6 +50,8 @@ public class Beta_Galera extends javax.swing.JFrame {
             this.mostrarMeseros();
             this.mostrarCategoria();
             this.mostrarProducto();
+            this.cargarComboMesero();
+            this.circuloEnVivo();
             try {
                 this.cargarComboCategorias();
             } catch (SQLException ex) {
@@ -158,6 +162,36 @@ public class Beta_Galera extends javax.swing.JFrame {
         tApellidoPaterno = new javax.swing.JTextField();
         jLabel80 = new javax.swing.JLabel();
         jLabel82 = new javax.swing.JLabel();
+        MesaPrincipal = new javax.swing.JPanel();
+        bSalirMesasPrincipales = new javax.swing.JButton();
+        lTituloMesa = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        panelMesero4 = new javax.swing.JPanel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        bAgregarPedido = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
+        jCategoria = new javax.swing.JComboBox<>();
+        jLabel35 = new javax.swing.JLabel();
+        JProducto = new javax.swing.JComboBox<>();
+        jLabel36 = new javax.swing.JLabel();
+        sCantidad = new javax.swing.JSpinner();
+        jLabel47 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        MesaTabla = new javax.swing.JTable();
+        jLabel71 = new javax.swing.JLabel();
+        cMeseroMesas = new javax.swing.JComboBox<>();
+        jLabel83 = new javax.swing.JLabel();
+        tTicketMesas = new javax.swing.JTextField();
+        jLabel84 = new javax.swing.JLabel();
+        cMesa = new javax.swing.JComboBox<>();
+        bEnviarPedido = new javax.swing.JButton();
+        tPrecioMesa = new javax.swing.JTextField();
         Productos = new javax.swing.JPanel();
         bSalirProductos = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
@@ -186,31 +220,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         tTablaProducto = new javax.swing.JTable();
         jLabel73 = new javax.swing.JLabel();
         lValidacionP = new javax.swing.JLabel();
-        MesaPrincipal = new javax.swing.JPanel();
-        bSalirMesasPrincipales = new javax.swing.JButton();
-        jLabel33 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        panelMesero4 = new javax.swing.JPanel();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
-        bAgregarPedido = new javax.swing.JButton();
-        jLabel34 = new javax.swing.JLabel();
-        jCategoria = new javax.swing.JComboBox<>();
-        jLabel35 = new javax.swing.JLabel();
-        JProducto = new javax.swing.JComboBox<>();
-        jLabel36 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel47 = new javax.swing.JLabel();
-        lPrecio = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        MesaTabla = new javax.swing.JTable();
-        jCancelar = new javax.swing.JButton();
-        JPagar = new javax.swing.JButton();
         Reporte = new javax.swing.JPanel();
         bSalirReporte = new javax.swing.JButton();
         jLabel49 = new javax.swing.JLabel();
@@ -309,6 +318,15 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesa3 = new javax.swing.JLabel();
         Mesa4 = new javax.swing.JLabel();
         Mesa5 = new javax.swing.JLabel();
+        bPagarMesa = new javax.swing.JButton();
+        bAgregarMesa = new javax.swing.JButton();
+        bModificarMesa = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        PedidosEnVivo = new javax.swing.JPanel();
+        lll = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        TablaEnVivo = new javax.swing.JTable();
+        lCirculo = new javax.swing.JLabel();
         jMenu = new javax.swing.JPanel();
         jTitulo = new javax.swing.JLabel();
         jMesas = new javax.swing.JLabel();
@@ -800,6 +818,187 @@ public class Beta_Galera extends javax.swing.JFrame {
         jInicio.add(Cuentas);
         Cuentas.setBounds(0, 90, 1370, 620);
 
+        MesaPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        MesaPrincipal.setLayout(null);
+
+        bSalirMesasPrincipales.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirMesasPrincipales.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirMesasPrincipales.setText("X");
+        bSalirMesasPrincipales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirMesasPrincipalesActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(bSalirMesasPrincipales);
+        bSalirMesasPrincipales.setBounds(1290, 10, 90, 60);
+
+        lTituloMesa.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        lTituloMesa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lTituloMesa.setText("Agregar pedido");
+        MesaPrincipal.add(lTituloMesa);
+        lTituloMesa.setBounds(190, 0, 1100, 80);
+
+        jPanel8.setBackground(new java.awt.Color(0, 0, 0));
+        MesaPrincipal.add(jPanel8);
+        jPanel8.setBounds(180, 10, 10, 610);
+
+        jPanel9.setBackground(new java.awt.Color(0, 0, 0));
+        MesaPrincipal.add(jPanel9);
+        jPanel9.setBounds(0, 0, 1400, 10);
+
+        panelMesero4.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero4.setLayout(null);
+
+        jLabel50.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel50.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel50.setText("M");
+        panelMesero4.add(jLabel50);
+        jLabel50.setBounds(50, 20, 120, 90);
+
+        jLabel51.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel51.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel51.setText("E");
+        panelMesero4.add(jLabel51);
+        jLabel51.setBounds(50, 140, 100, 90);
+
+        jLabel55.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel55.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel55.setText("S");
+        panelMesero4.add(jLabel55);
+        jLabel55.setBounds(50, 260, 70, 90);
+
+        jLabel56.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel56.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel56.setText("A");
+        panelMesero4.add(jLabel56);
+        jLabel56.setBounds(50, 380, 100, 90);
+
+        jLabel57.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel57.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel57.setText("S");
+        panelMesero4.add(jLabel57);
+        jLabel57.setBounds(50, 500, 100, 90);
+
+        MesaPrincipal.add(panelMesero4);
+        panelMesero4.setBounds(0, 0, 180, 620);
+
+        jLabel53.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel53.setText("VERSION INTERFACE 2.0");
+        MesaPrincipal.add(jLabel53);
+        jLabel53.setBounds(1150, 580, 250, 30);
+
+        bAgregarPedido.setBackground(new java.awt.Color(255, 255, 0));
+        bAgregarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bAgregarPedido.setText("Agregar pedido");
+        bAgregarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAgregarPedidoActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(bAgregarPedido);
+        bAgregarPedido.setBounds(420, 310, 240, 50);
+
+        jLabel34.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel34.setText("Categoria:");
+        MesaPrincipal.add(jLabel34);
+        jLabel34.setBounds(260, 230, 120, 32);
+
+        jCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCategoriaActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(jCategoria);
+        jCategoria.setBounds(420, 230, 140, 30);
+
+        jLabel35.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel35.setText("Mesa:");
+        MesaPrincipal.add(jLabel35);
+        jLabel35.setBounds(570, 130, 80, 32);
+
+        JProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JProductoActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(JProducto);
+        JProducto.setBounds(770, 230, 180, 30);
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel36.setText("Cantidad:");
+        MesaPrincipal.add(jLabel36);
+        jLabel36.setBounds(1030, 230, 120, 30);
+        MesaPrincipal.add(sCantidad);
+        sCantidad.setBounds(1170, 230, 60, 30);
+
+        jLabel47.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel47.setText("Precio: $");
+        MesaPrincipal.add(jLabel47);
+        jLabel47.setBounds(1010, 320, 100, 32);
+
+        MesaTabla.setBackground(new java.awt.Color(255, 255, 0));
+        MesaTabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        MesaTabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(MesaTabla);
+
+        MesaPrincipal.add(jScrollPane1);
+        jScrollPane1.setBounds(210, 380, 1150, 190);
+
+        jLabel71.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel71.setText("Producto:");
+        MesaPrincipal.add(jLabel71);
+        jLabel71.setBounds(630, 220, 140, 40);
+
+        MesaPrincipal.add(cMeseroMesas);
+        cMeseroMesas.setBounds(990, 130, 250, 30);
+
+        jLabel83.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel83.setText("Mesero:");
+        MesaPrincipal.add(jLabel83);
+        jLabel83.setBounds(890, 130, 100, 32);
+
+        tTicketMesas.setEditable(false);
+        tTicketMesas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tTicketMesas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        MesaPrincipal.add(tTicketMesas);
+        tTicketMesas.setBounds(370, 130, 110, 30);
+
+        jLabel84.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel84.setText("Ticket:");
+        MesaPrincipal.add(jLabel84);
+        jLabel84.setBounds(260, 130, 140, 32);
+
+        MesaPrincipal.add(cMesa);
+        cMesa.setBounds(650, 130, 170, 30);
+
+        bEnviarPedido.setBackground(new java.awt.Color(255, 255, 0));
+        bEnviarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bEnviarPedido.setText("Enviar pedido");
+        bEnviarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEnviarPedidoActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(bEnviarPedido);
+        bEnviarPedido.setBounds(730, 310, 240, 50);
+
+        tPrecioMesa.setEditable(false);
+        MesaPrincipal.add(tPrecioMesa);
+        tPrecioMesa.setBounds(1110, 320, 140, 30);
+
+        jInicio.add(MesaPrincipal);
+        MesaPrincipal.setBounds(0, 90, 1380, 620);
+
         Productos.setBackground(new java.awt.Color(255, 255, 255));
         Productos.setLayout(null);
 
@@ -977,171 +1176,6 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio.add(Productos);
         Productos.setBounds(0, 90, 1380, 620);
-
-        MesaPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        MesaPrincipal.setLayout(null);
-
-        bSalirMesasPrincipales.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        bSalirMesasPrincipales.setForeground(new java.awt.Color(255, 255, 255));
-        bSalirMesasPrincipales.setText("X");
-        bSalirMesasPrincipales.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSalirMesasPrincipalesActionPerformed(evt);
-            }
-        });
-        MesaPrincipal.add(bSalirMesasPrincipales);
-        bSalirMesasPrincipales.setBounds(1290, 10, 90, 60);
-
-        jLabel33.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel33.setText("Mesas (NUMBER)");
-        MesaPrincipal.add(jLabel33);
-        jLabel33.setBounds(610, 0, 420, 80);
-
-        jPanel8.setBackground(new java.awt.Color(0, 0, 0));
-        MesaPrincipal.add(jPanel8);
-        jPanel8.setBounds(180, 10, 10, 610);
-
-        jPanel9.setBackground(new java.awt.Color(0, 0, 0));
-        MesaPrincipal.add(jPanel9);
-        jPanel9.setBounds(0, 0, 1400, 10);
-
-        panelMesero4.setBackground(new java.awt.Color(255, 255, 0));
-        panelMesero4.setLayout(null);
-
-        jLabel50.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel50.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel50.setText("M");
-        panelMesero4.add(jLabel50);
-        jLabel50.setBounds(50, 20, 120, 90);
-
-        jLabel51.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel51.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel51.setText("E");
-        panelMesero4.add(jLabel51);
-        jLabel51.setBounds(50, 140, 100, 90);
-
-        jLabel55.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel55.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel55.setText("S");
-        panelMesero4.add(jLabel55);
-        jLabel55.setBounds(50, 260, 70, 90);
-
-        jLabel56.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel56.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel56.setText("A");
-        panelMesero4.add(jLabel56);
-        jLabel56.setBounds(50, 380, 100, 90);
-
-        jLabel57.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel57.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
-        jLabel57.setText("S");
-        panelMesero4.add(jLabel57);
-        jLabel57.setBounds(50, 500, 100, 90);
-
-        MesaPrincipal.add(panelMesero4);
-        panelMesero4.setBounds(0, 0, 180, 620);
-
-        jLabel53.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel53.setText("VERSION INTERFACE 1.2");
-        MesaPrincipal.add(jLabel53);
-        jLabel53.setBounds(1150, 580, 250, 30);
-
-        bAgregarPedido.setBackground(new java.awt.Color(255, 255, 0));
-        bAgregarPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        bAgregarPedido.setText("Agregar pedido");
-        bAgregarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAgregarPedidoActionPerformed(evt);
-            }
-        });
-        MesaPrincipal.add(bAgregarPedido);
-        bAgregarPedido.setBounds(650, 290, 240, 50);
-
-        jLabel34.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel34.setText("Categoria:");
-        MesaPrincipal.add(jLabel34);
-        jLabel34.setBounds(310, 130, 120, 32);
-
-        jCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCategoriaActionPerformed(evt);
-            }
-        });
-        MesaPrincipal.add(jCategoria);
-        jCategoria.setBounds(470, 140, 190, 20);
-
-        jLabel35.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel35.setText("Producto:");
-        MesaPrincipal.add(jLabel35);
-        jLabel35.setBounds(800, 140, 140, 32);
-
-        JProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JProductoActionPerformed(evt);
-            }
-        });
-        MesaPrincipal.add(JProducto);
-        JProducto.setBounds(970, 150, 200, 20);
-
-        jLabel36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel36.setText("Cantidad:");
-        MesaPrincipal.add(jLabel36);
-        jLabel36.setBounds(390, 230, 120, 30);
-        MesaPrincipal.add(jSpinner1);
-        jSpinner1.setBounds(550, 230, 40, 30);
-
-        jLabel47.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel47.setText("Precio:");
-        MesaPrincipal.add(jLabel47);
-        jLabel47.setBounds(890, 230, 90, 32);
-
-        lPrecio.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        lPrecio.setText("$$$$");
-        MesaPrincipal.add(lPrecio);
-        lPrecio.setBounds(990, 230, 70, 32);
-
-        MesaTabla.setBackground(new java.awt.Color(255, 255, 0));
-        MesaTabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        MesaTabla.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(MesaTabla);
-
-        MesaPrincipal.add(jScrollPane1);
-        jScrollPane1.setBounds(210, 370, 1150, 90);
-
-        jCancelar.setBackground(new java.awt.Color(255, 255, 0));
-        jCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jCancelar.setText("Cancelar pedido");
-        jCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCancelarActionPerformed(evt);
-            }
-        });
-        MesaPrincipal.add(jCancelar);
-        jCancelar.setBounds(530, 520, 190, 80);
-
-        JPagar.setBackground(new java.awt.Color(255, 255, 0));
-        JPagar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        JPagar.setText("Pagar pedido");
-        JPagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JPagarActionPerformed(evt);
-            }
-        });
-        MesaPrincipal.add(JPagar);
-        JPagar.setBounds(860, 520, 180, 80);
-
-        jInicio.add(MesaPrincipal);
-        MesaPrincipal.setBounds(0, 90, 1380, 620);
 
         Reporte.setBackground(new java.awt.Color(255, 255, 255));
         Reporte.setLayout(null);
@@ -1686,7 +1720,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("VERSION BETA 1.50");
+        jLabel2.setText("VERSION BETA 2.00");
         jInicio.add(jLabel2);
         jLabel2.setBounds(1130, 650, 240, 50);
 
@@ -1695,17 +1729,6 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         Mesa1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         Mesa1.setText("Mesa 1");
-        Mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Mesa1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Mesa1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Mesa1MouseExited(evt);
-            }
-        });
         Mesas.add(Mesa1);
         Mesa1.setBounds(30, 40, 80, 30);
 
@@ -1759,19 +1782,79 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         Mesa5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         Mesa5.setText("Mesa 5");
-        Mesa5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Mesa5MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                Mesa5MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                Mesa5MouseExited(evt);
-            }
-        });
         Mesas.add(Mesa5);
         Mesa5.setBounds(520, 40, 90, 30);
+
+        bPagarMesa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bPagarMesa.setText("Pagar Pedido");
+        Mesas.add(bPagarMesa);
+        bPagarMesa.setBounds(1160, 10, 190, 40);
+
+        bAgregarMesa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bAgregarMesa.setText("Agregar Pedido");
+        bAgregarMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAgregarMesaActionPerformed(evt);
+            }
+        });
+        Mesas.add(bAgregarMesa);
+        bAgregarMesa.setBounds(710, 10, 180, 40);
+
+        bModificarMesa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        bModificarMesa.setText("Modificar Pedido");
+        Mesas.add(bModificarMesa);
+        bModificarMesa.setBounds(920, 10, 210, 40);
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        Mesas.add(jSeparator2);
+        jSeparator2.setBounds(670, 0, 10, 620);
+
+        PedidosEnVivo.setBackground(new java.awt.Color(255, 255, 0));
+        PedidosEnVivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PedidosEnVivoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                PedidosEnVivoMouseExited(evt);
+            }
+        });
+        PedidosEnVivo.setLayout(null);
+
+        lll.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        lll.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lll.setText("PEDIDOS EN VIVO");
+        PedidosEnVivo.add(lll);
+        lll.setBounds(70, 10, 450, 70);
+
+        TablaEnVivo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        TablaEnVivo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "MESA", "TICKET"
+            }
+        ));
+        TablaEnVivo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TablaEnVivoMouseEntered(evt);
+            }
+        });
+        jScrollPane8.setViewportView(TablaEnVivo);
+
+        PedidosEnVivo.add(jScrollPane8);
+        jScrollPane8.setBounds(50, 90, 540, 360);
+
+        lCirculo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lCirculo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/58afdad6829958a978a4a693(1).png"))); // NOI18N
+        PedidosEnVivo.add(lCirculo);
+        lCirculo.setBounds(520, 20, 50, 50);
+
+        Mesas.add(PedidosEnVivo);
+        PedidosEnVivo.setBounds(710, 70, 640, 490);
 
         jInicio.add(Mesas);
         Mesas.setBounds(10, 90, 1370, 620);
@@ -1983,6 +2066,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Cuentas.setVisible(false);
         User.setVisible(false);
+        bAgregarMesa.setVisible(false);
+        bModificarMesa.setVisible(false);
+        bPagarMesa.setVisible(false);
+        PedidosEnVivo.setVisible(false);
     }//GEN-LAST:event_jMesasMouseClicked
 
     private void jComparativaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseClicked
@@ -1996,6 +2083,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
         User.setVisible(false);
+        bAgregarMesa.setVisible(false);
+        bModificarMesa.setVisible(false);
+        bPagarMesa.setVisible(false);
+        PedidosEnVivo.setVisible(false);
     }//GEN-LAST:event_jComparativaMouseClicked
 
     private void jComparativaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseEntered
@@ -2017,6 +2108,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
         User.setVisible(false);
+        bAgregarMesa.setVisible(false);
+        bModificarMesa.setVisible(false);
+        bPagarMesa.setVisible(false);
+        PedidosEnVivo.setVisible(false);
     }//GEN-LAST:event_jProductosMouseClicked
 
     private void jProductosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jProductosMouseEntered
@@ -2038,6 +2133,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
         User.setVisible(false);
+        bAgregarMesa.setVisible(false);
+        bModificarMesa.setVisible(false);
+        bPagarMesa.setVisible(false);
+        PedidosEnVivo.setVisible(false);
     }//GEN-LAST:event_jReporteMouseClicked
 
     private void jReporteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jReporteMouseEntered
@@ -2048,33 +2147,15 @@ public class Beta_Galera extends javax.swing.JFrame {
         jMenu.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
     }//GEN-LAST:event_jReporteMouseExited
 
-    private void Mesa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa1MouseClicked
-        this.aparacerDesaparecerMesas(1);
-        Mesas.setVisible(false);
-        MesaPrincipal.setVisible(true);
-        
-    }//GEN-LAST:event_Mesa1MouseClicked
-
-    private void Mesa1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa1MouseEntered
-        Mesas.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        jPreInformacion.setVisible(true);
-    }//GEN-LAST:event_Mesa1MouseEntered
-
-    private void Mesa1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa1MouseExited
-        Mesas.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-        jPreInformacion.setVisible(false);
-    }//GEN-LAST:event_Mesa1MouseExited
-
     private void Mesa2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa2MouseClicked
 
     }//GEN-LAST:event_Mesa2MouseClicked
 
     private void Mesa2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa2MouseEntered
-        Mesas.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
     }//GEN-LAST:event_Mesa2MouseEntered
 
     private void Mesa2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa2MouseExited
-        Mesas.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 
     }//GEN-LAST:event_Mesa2MouseExited
 
@@ -2083,11 +2164,11 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_Mesa3MouseClicked
 
     private void Mesa3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa3MouseEntered
-        Mesas.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
     }//GEN-LAST:event_Mesa3MouseEntered
 
     private void Mesa3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa3MouseExited
-        Mesas.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+
     }//GEN-LAST:event_Mesa3MouseExited
 
     private void Mesa4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa4MouseClicked
@@ -2095,24 +2176,12 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_Mesa4MouseClicked
 
     private void Mesa4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa4MouseEntered
-        Mesas.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
     }//GEN-LAST:event_Mesa4MouseEntered
 
     private void Mesa4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa4MouseExited
-        Mesas.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+
     }//GEN-LAST:event_Mesa4MouseExited
-
-    private void Mesa5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa5MouseClicked
-
-    }//GEN-LAST:event_Mesa5MouseClicked
-
-    private void Mesa5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa5MouseEntered
-        
-    }//GEN-LAST:event_Mesa5MouseEntered
-
-    private void Mesa5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa5MouseExited
- ;
-    }//GEN-LAST:event_Mesa5MouseExited
 
     private void jMeserosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMeserosMouseClicked
         this.setTitle("Galeras | Meseros");
@@ -2125,6 +2194,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
         User.setVisible(false);
+        bAgregarMesa.setVisible(false);
+        bModificarMesa.setVisible(false);
+        bPagarMesa.setVisible(false);
+        PedidosEnVivo.setVisible(false);
     }//GEN-LAST:event_jMeserosMouseClicked
 
     private void jMeserosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMeserosMouseEntered
@@ -2144,6 +2217,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
         Cuentas.setVisible(false);
         User.setVisible(false);
     }//GEN-LAST:event_bSalirMeserosActionPerformed
@@ -2157,6 +2234,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Meseros.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
         Cuentas.setVisible(false);
         User.setVisible(false);
     }//GEN-LAST:event_bSalirMesasActionPerformed
@@ -2170,6 +2251,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
         Cuentas.setVisible(false);
         User.setVisible(false);
     }//GEN-LAST:event_bSalirComparativaActionPerformed
@@ -2189,17 +2274,29 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
         Cuentas.setVisible(false);
         User.setVisible(false);
     }//GEN-LAST:event_bSalirMesasPrincipalesActionPerformed
 
     private void bAgregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPedidoActionPerformed
-        this.statusOccupied(1);
+        if(cMesa.getSelectedIndex() == 1){
+            this.statusOccupied(cMesa.getSelectedIndex()+1);
+            int precio_t = Integer.parseInt(tPrecioMesa.getText());
+            int cantidad_t = Integer.parseInt(sCantidad.getValue().toString());
+            int total_t = precio_t*cantidad_t;
+            this.registroTicket(Integer.parseInt(tTicketMesas.getText()), this.comboProducto(), Integer.parseInt((String) cMesa.getSelectedItem()), Integer.parseInt(tPrecioMesa.getText()), Integer.parseInt(sCantidad.getValue().toString()), total_t);
+        }else{
+            int precio_t = Integer.parseInt(tPrecioMesa.getText());
+            int cantidad_t = Integer.parseInt(sCantidad.getValue().toString());
+            int total_t = precio_t*cantidad_t;
+            this.statusOccupied(cMesa.getSelectedIndex()+1);
+            this.registroTicket(Integer.parseInt(tTicketMesas.getText()), this.comboProducto(), Integer.parseInt((String) cMesa.getSelectedItem()), Integer.parseInt(tPrecioMesa.getText()), Integer.parseInt(sCantidad.getValue().toString()), total_t);
+        }
     }//GEN-LAST:event_bAgregarPedidoActionPerformed
-
-    private void jCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCancelarActionPerformed
-        this.statusBorrar(1);
-    }//GEN-LAST:event_jCancelarActionPerformed
 
     private void jCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCategoriaActionPerformed
         int id_mesas = jCategoria.getSelectedIndex();
@@ -2227,6 +2324,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
         Cuentas.setVisible(false);
         User.setVisible(false);
         // TODO add your handling code here:
@@ -2260,6 +2361,18 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void bSalirProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirProductosActionPerformed
         this.setTitle("Galeras | Inicio");
         Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
+        Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_bSalirProductosActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -2271,6 +2384,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Cuentas.setVisible(false);
         Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
         User.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
@@ -2287,10 +2404,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         int precio = Integer.parseInt(tPrecioProducto.getText());
         this.registrarProducto(id_producto, nombre_producto, fk_id_categoria, precio);
     }//GEN-LAST:event_bRegistroProductoActionPerformed
-
-    private void JPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JPagarActionPerformed
-        this.statusBorrar(1);
-    }//GEN-LAST:event_JPagarActionPerformed
 
     private void cComparativaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cComparativaComboActionPerformed
         int id_compa = cComparativaCombo.getSelectedIndex();
@@ -2324,6 +2437,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.setVisible(false);
         Mesas.setVisible(false);
         Cuentas.setVisible(true);
+        bAgregarMesa.setVisible(false);
+        bModificarMesa.setVisible(false);
+        bPagarMesa.setVisible(false);
+        PedidosEnVivo.setVisible(false);
         User.setVisible(false);
     }//GEN-LAST:event_jCuentasMouseClicked
 
@@ -2344,6 +2461,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
         Cuentas.setVisible(false);
         User.setVisible(false);
     }//GEN-LAST:event_bSalirMesas1ActionPerformed
@@ -2438,6 +2559,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         Mesas.setVisible(false);
         Cuentas.setVisible(false);
         userInfo.setVisible(false);
+        bAgregarMesa.setVisible(false);
+        bModificarMesa.setVisible(false);
+        bPagarMesa.setVisible(false);
+        PedidosEnVivo.setVisible(false);
         user = false;
         this.mostrarUser(id_user);
         User.setVisible(true);
@@ -2475,6 +2600,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.setVisible(false);
         Comparativa.setVisible(false);
         Mesas.setVisible(true);
+        PedidosEnVivo.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
         Cuentas.setVisible(false);
         User.setVisible(false);
     }//GEN-LAST:event_bSalirInfoActionPerformed
@@ -2543,6 +2673,50 @@ public class Beta_Galera extends javax.swing.JFrame {
             this.ValidacionUser(tUsuario.getText());
         }
     }//GEN-LAST:event_tUsuarioKeyReleased
+
+    private void bAgregarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarMesaActionPerformed
+        try {
+            this.setTitle("Galeras | Agregar pedido");
+            tTicketMesas.setText(""+this.generarIDTicket(id));
+            this.registroIDInicialTicket(this.generarIDTicket(id));
+            this.cargarComboMesasMesas();
+            this.aparacerDesaparecerMesas(1);
+            Productos.setVisible(false);
+            MesaPrincipal.setVisible(false);
+            Sillas.setVisible(false);
+            Meseros.setVisible(false);
+            Reporte.setVisible(false);
+            Comparativa.setVisible(false);
+            bAgregarMesa.setVisible(false);
+            bModificarMesa.setVisible(false);
+            bPagarMesa.setVisible(false);
+            PedidosEnVivo.setVisible(false);
+            Cuentas.setVisible(false);
+            User.setVisible(false);
+            Mesas.setVisible(false);
+            MesaPrincipal.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bAgregarMesaActionPerformed
+
+    private void PedidosEnVivoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosEnVivoMouseEntered
+        this.setTitle("Galeras | Pedidos en vivo");
+    }//GEN-LAST:event_PedidosEnVivoMouseEntered
+
+    private void PedidosEnVivoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PedidosEnVivoMouseExited
+        this.setTitle("Galeras | Inicio");
+    }//GEN-LAST:event_PedidosEnVivoMouseExited
+
+    private void TablaEnVivoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaEnVivoMouseEntered
+        this.setTitle("Galeras | Pedidos en vivo");
+    }//GEN-LAST:event_TablaEnVivoMouseEntered
+
+    private void bEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEnviarPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bEnviarPedidoActionPerformed
         
     /**
      * @param args the command line arguments
@@ -2901,6 +3075,9 @@ public class Beta_Galera extends javax.swing.JFrame {
             Mesa48.setVisible(true);
             Mesa49.setVisible(true);
             Mesa50.setVisible(true);*/
+            bAgregarMesa.setVisible(true);
+            bModificarMesa.setVisible(true);
+            bPagarMesa.setVisible(true);
         }else if(numero==1){
             Mesa1.setVisible(false);
             Mesa2.setVisible(false);
@@ -2955,6 +3132,9 @@ public class Beta_Galera extends javax.swing.JFrame {
             Mesa48.setVisible(false);
             Mesa49.setVisible(false);
             Mesa50.setVisible(false);*/
+            bAgregarMesa.setVisible(false);
+            bModificarMesa.setVisible(false);
+            bPagarMesa.setVisible(false);
         }
     }
     
@@ -3185,6 +3365,14 @@ public class Beta_Galera extends javax.swing.JFrame {
         return misMeseros;
     }
     
+    public void cargarComboMesero() throws SQLException, ClassNotFoundException{
+        MeserosVO meserosVO;
+        ArrayList <MeserosVO> misMeseros = this.llamarMeseros();
+        for (int i = 0; i < misMeseros.size(); i++) {
+            cMeseroMesas.addItem(misMeseros.get(i).getNombre());
+        }
+    }
+    
     public ArrayList<categoriaVO> llamarCategorias() throws SQLException, ClassNotFoundException{
         ArrayList<categoriaVO> misCategoria = new ArrayList<categoriaVO>();
         ConexionBD con = new ConexionBD();
@@ -3373,7 +3561,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             rs = status.getResultSet();
             while(rs.next()){
                 precio = rs.getInt("precio");
-                lPrecio.setText("$"+precio);
+                tPrecioMesa.setText(""+precio);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
@@ -3606,10 +3794,127 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
     }
     
+    public int generarIDTicket(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select max(fk_id_tickets_p) id from tickets_pedidos;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                id = rs.getInt("id");
+            }
+            status.close();
+            rs.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id+1;
+    }
+    
+    public void registroIDInicialTicket(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("INSERT INTO tickets (id_tickets) VALUES ('"+id+"');");
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void registroTicket(int id, int producto, int mesas, int precio, int cantidad, int total){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("INSERT INTO tickets_pedidos (fk_id_tickets_p, fk_id_producto_p, fk_id_mesas_p, pk_precio, cantidad, total_pedido) VALUES ('"+id+"', '"+producto+"', '"+mesas+"', '"+precio+"', '"+cantidad+"', '"+total+"');");
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public int comboMesero(){
+        try {
+            ConexionBD con = new ConexionBD();
+            String nombre = (String) cMeseroMesas.getSelectedItem();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from empleados where nombre_empleado = '"+nombre+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                id_fk_empleado = rs.getInt("id_empleado");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id_fk_empleado;
+    }
+    
+    public int comboProducto(){
+        try {
+            ConexionBD con = new ConexionBD();
+            String producto = (String) JProducto.getSelectedItem();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from productos where nombre_producto = '"+producto+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                id_fk = rs.getInt("id_productos");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id_fk;
+    }
+    
+      
+    public ArrayList<mesasVO> llamarMesas() throws SQLException, ClassNotFoundException{
+        ArrayList<mesasVO> misMesas = new ArrayList<mesasVO>();
+        ConexionBD con = new ConexionBD();
+        try{
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from mesas where ocupacion = '1';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                mesasVO mesas = new mesasVO();
+                mesas.setMesa(rs.getInt("id_mesas"));
+                mesas.setOcupacion(rs.getInt("ocupacion"));
+                misMesas.add(mesas);
+            }
+            status.close();
+            rs.close();
+            con.desconectar();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, "No se puede mostrar la mesa ("+ e.getMessage()+")");
+        }
+        return misMesas;
+    }
+    
+    public void cargarComboMesasMesas() throws SQLException, ClassNotFoundException{
+        mesasVO mesasVO;
+        ArrayList <mesasVO> misMesas = this.llamarMesas();
+        for (int i = 0; i < misMesas.size(); i++) {
+            cMesa.addItem(""+misMesas.get(i).getMesa());
+        }
+    }
+    
+    boolean ticket = true;
     boolean user = false;
+    int numeroM;
     String nombre_user, password_user, usuario_user;
     int id_user;
-    int id, id_cuentas;
+    int id=0, id_cuentas, id_fk, id_fk_empleado;
     LocalDateTime tiempo = LocalDateTime.now();
     Desface deslice = new Desface();
     boolean mesas,comparativa,productos,reporte,meseros;
@@ -3618,7 +3923,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Comparativa;
     private javax.swing.JPanel Cuentas;
     private javax.swing.JLabel FechaActualMesero;
-    private javax.swing.JButton JPagar;
     private javax.swing.JComboBox<String> JProducto;
     private javax.swing.JLabel Mesa1;
     private javax.swing.JLabel Mesa2;
@@ -3630,14 +3934,20 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTable MesaTabla1;
     private javax.swing.JPanel Mesas;
     private javax.swing.JPanel Meseros;
+    private javax.swing.JPanel PedidosEnVivo;
     private javax.swing.JPanel Productos;
     private javax.swing.JPanel Reporte;
     private javax.swing.JPanel Sillas;
+    private javax.swing.JTable TablaEnVivo;
     private javax.swing.JPanel User;
+    private javax.swing.JButton bAgregarMesa;
     private javax.swing.JButton bAgregarPedido;
     private javax.swing.JButton bEliminarMesero;
     private javax.swing.JButton bEliminarUsuario;
     private javax.swing.JButton bEliminarUsuario1;
+    private javax.swing.JButton bEnviarPedido;
+    private javax.swing.JButton bModificarMesa;
+    private javax.swing.JButton bPagarMesa;
     private javax.swing.JButton bRegistrarCategoria;
     private javax.swing.JButton bRegistrarMesero;
     private javax.swing.JButton bRegistrarSesion;
@@ -3655,11 +3965,12 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bVisualizar;
     private javax.swing.JButton bVisualizar1;
     private javax.swing.JComboBox<String> cComparativaCombo;
+    private javax.swing.JComboBox<String> cMesa;
+    private javax.swing.JComboBox<String> cMeseroMesas;
     private javax.swing.JPanel eliminarUsuario;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jCancelar;
     private javax.swing.JComboBox<String> jCategoria;
     private javax.swing.JComboBox<String> jCategoriaProducto;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -3695,7 +4006,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -3737,6 +4047,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
@@ -3749,6 +4060,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
@@ -3790,23 +4103,26 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JComboBox<String> jSeleccionProducto1;
     private javax.swing.JComboBox<String> jSeleccionProducto2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel jTiempo;
     private javax.swing.JLabel jTiempo1;
     private javax.swing.JLabel jTitulo;
     private javax.swing.JLabel jTitulo1;
     private javax.swing.JLabel jTitulo2;
     private javax.swing.JLabel lCerrarSesion;
+    private javax.swing.JLabel lCirculo;
     private javax.swing.JLabel lGaleras;
-    private javax.swing.JLabel lPrecio;
+    private javax.swing.JLabel lTituloMesa;
     private javax.swing.JLabel lUserInfo;
     private javax.swing.JLabel lUsuario;
     private javax.swing.JLabel lValidacionC;
     private javax.swing.JLabel lValidacionP;
     private javax.swing.JLabel lValidacionU;
+    private javax.swing.JLabel lll;
     private javax.swing.JPanel panelMesero1;
     private javax.swing.JPanel panelMesero2;
     private javax.swing.JPanel panelMesero3;
@@ -3815,6 +4131,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel panelMesero6;
     private javax.swing.JPanel panelMesero7;
     private javax.swing.JPanel panelMesero8;
+    private javax.swing.JSpinner sCantidad;
     private javax.swing.JTextField tApellidoM;
     private javax.swing.JTextField tApellidoMaterno;
     private javax.swing.JTextField tApellidoMaternoUser;
@@ -3835,9 +4152,11 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tNombreproducto;
     private javax.swing.JTextField tNombres;
     private javax.swing.JTextField tNombresUser;
+    private javax.swing.JTextField tPrecioMesa;
     private javax.swing.JTextField tPrecioProducto;
     private javax.swing.JTable tTablaCategoria;
     private javax.swing.JTable tTablaProducto;
+    private javax.swing.JTextField tTicketMesas;
     private javax.swing.JTextField tUsuario;
     private javax.swing.JTextField tUsuarioUser;
     private javax.swing.JTable tablaCuenta;
@@ -3855,4 +4174,22 @@ public class Beta_Galera extends javax.swing.JFrame {
         password_user = password;
         id_user = id;
     }
+    
+    public void circuloEnVivo(){
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            int tic = 0;
+            @Override
+            public void run() {
+                if(tic%2==0){
+                    lCirculo.setVisible(true);
+                }else{
+                    lCirculo.setVisible(false);
+                }
+                tic++;
+            }
+        };
+        timer.schedule(task, 10, 500);
+    }
+
 }
