@@ -10,6 +10,7 @@ import ClasesVO.productoVO;
 import ClasesVO.mesasVO;
 import ClasesVO.categoriaVO;
 import ClasesVO.MeserosVO;
+import ClasesVO.mesasModificarVO;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Frame;
 import java.time.LocalDateTime;
@@ -71,6 +72,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             tIDCategoria.setText(""+this.generarIDCategoria(id));
             jInicioSesion.setVisible(false);
             setIconImage(getIconImage());
+            ModificarPedido.setVisible(false);
             User.setVisible(false);
             userInfo.setVisible(false);
             Cuentas.setVisible(false);
@@ -105,6 +107,35 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void initComponents() {
 
         jInicio = new javax.swing.JPanel();
+        ModificarPedido = new javax.swing.JPanel();
+        bSalirModificarPedido = new javax.swing.JButton();
+        lTituloMesa1 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        panelMesero9 = new javax.swing.JPanel();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel94 = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
+        jLabel96 = new javax.swing.JLabel();
+        jLabel97 = new javax.swing.JLabel();
+        jLabel98 = new javax.swing.JLabel();
+        bAgregarPedidoModificar = new javax.swing.JButton();
+        jLabel99 = new javax.swing.JLabel();
+        jCategoriaModificar = new javax.swing.JComboBox<>();
+        jLabel100 = new javax.swing.JLabel();
+        JProductoModificar = new javax.swing.JComboBox<>();
+        jLabel101 = new javax.swing.JLabel();
+        sCantidadModificar = new javax.swing.JSpinner();
+        jLabel102 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        ModificarTabla = new javax.swing.JTable();
+        jLabel103 = new javax.swing.JLabel();
+        jLabel104 = new javax.swing.JLabel();
+        tMeseroPedido = new javax.swing.JTextField();
+        jLabel105 = new javax.swing.JLabel();
+        cMesaModificar = new javax.swing.JComboBox<>();
+        tPrecioModificar = new javax.swing.JTextField();
+        tTicketModificar = new javax.swing.JTextField();
         User = new javax.swing.JPanel();
         bSalirInfo = new javax.swing.JButton();
         jLabel86 = new javax.swing.JLabel();
@@ -355,6 +386,199 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio.setBackground(new java.awt.Color(255, 255, 255));
         jInicio.setLayout(null);
+
+        ModificarPedido.setBackground(new java.awt.Color(255, 255, 255));
+        ModificarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ModificarPedidoMouseEntered(evt);
+            }
+        });
+        ModificarPedido.setLayout(null);
+
+        bSalirModificarPedido.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirModificarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirModificarPedido.setText("X");
+        bSalirModificarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirModificarPedidoActionPerformed(evt);
+            }
+        });
+        ModificarPedido.add(bSalirModificarPedido);
+        bSalirModificarPedido.setBounds(1290, 10, 90, 60);
+
+        lTituloMesa1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        lTituloMesa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lTituloMesa1.setText("Modificar pedido");
+        ModificarPedido.add(lTituloMesa1);
+        lTituloMesa1.setBounds(190, 0, 1100, 80);
+
+        jPanel19.setBackground(new java.awt.Color(0, 0, 0));
+        ModificarPedido.add(jPanel19);
+        jPanel19.setBounds(180, 10, 10, 610);
+
+        jPanel20.setBackground(new java.awt.Color(0, 0, 0));
+        ModificarPedido.add(jPanel20);
+        jPanel20.setBounds(0, 0, 1400, 10);
+
+        panelMesero9.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero9.setLayout(null);
+
+        jLabel85.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel85.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel85.setText("M");
+        panelMesero9.add(jLabel85);
+        jLabel85.setBounds(50, 20, 120, 90);
+
+        jLabel94.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel94.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel94.setText("E");
+        panelMesero9.add(jLabel94);
+        jLabel94.setBounds(50, 140, 100, 90);
+
+        jLabel95.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel95.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel95.setText("S");
+        panelMesero9.add(jLabel95);
+        jLabel95.setBounds(50, 260, 70, 90);
+
+        jLabel96.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel96.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel96.setText("A");
+        panelMesero9.add(jLabel96);
+        jLabel96.setBounds(50, 380, 100, 90);
+
+        jLabel97.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel97.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel97.setText("S");
+        panelMesero9.add(jLabel97);
+        jLabel97.setBounds(50, 500, 100, 90);
+
+        ModificarPedido.add(panelMesero9);
+        panelMesero9.setBounds(0, 0, 180, 620);
+
+        jLabel98.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel98.setText("VERSION INTERFACE 2.0");
+        ModificarPedido.add(jLabel98);
+        jLabel98.setBounds(1150, 580, 250, 30);
+
+        bAgregarPedidoModificar.setBackground(new java.awt.Color(255, 255, 0));
+        bAgregarPedidoModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bAgregarPedidoModificar.setText("Agregar producto");
+        bAgregarPedidoModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAgregarPedidoModificarActionPerformed(evt);
+            }
+        });
+        ModificarPedido.add(bAgregarPedidoModificar);
+        bAgregarPedidoModificar.setBounds(600, 310, 240, 50);
+
+        jLabel99.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel99.setText("Categoria:");
+        ModificarPedido.add(jLabel99);
+        jLabel99.setBounds(260, 230, 120, 32);
+
+        jCategoriaModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCategoriaModificarActionPerformed(evt);
+            }
+        });
+        ModificarPedido.add(jCategoriaModificar);
+        jCategoriaModificar.setBounds(420, 230, 140, 30);
+
+        jLabel100.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel100.setText("Mesa:");
+        ModificarPedido.add(jLabel100);
+        jLabel100.setBounds(570, 130, 80, 32);
+
+        JProductoModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JProductoModificarActionPerformed(evt);
+            }
+        });
+        ModificarPedido.add(JProductoModificar);
+        JProductoModificar.setBounds(770, 230, 180, 30);
+
+        jLabel101.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel101.setText("Cantidad:");
+        ModificarPedido.add(jLabel101);
+        jLabel101.setBounds(1030, 230, 120, 30);
+        ModificarPedido.add(sCantidadModificar);
+        sCantidadModificar.setBounds(1170, 230, 60, 30);
+
+        jLabel102.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel102.setText("Precio: $");
+        ModificarPedido.add(jLabel102);
+        jLabel102.setBounds(1010, 320, 100, 32);
+
+        ModificarTabla.setBackground(new java.awt.Color(255, 255, 0));
+        ModificarTabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ModificarTabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(ModificarTabla);
+
+        ModificarPedido.add(jScrollPane9);
+        jScrollPane9.setBounds(210, 380, 1150, 190);
+
+        jLabel103.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel103.setText("Producto:");
+        ModificarPedido.add(jLabel103);
+        jLabel103.setBounds(630, 220, 140, 40);
+
+        jLabel104.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel104.setText("Mesero:");
+        ModificarPedido.add(jLabel104);
+        jLabel104.setBounds(890, 130, 100, 32);
+
+        tMeseroPedido.setEditable(false);
+        tMeseroPedido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tMeseroPedido.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tMeseroPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tMeseroPedidoActionPerformed(evt);
+            }
+        });
+        ModificarPedido.add(tMeseroPedido);
+        tMeseroPedido.setBounds(1000, 130, 250, 30);
+
+        jLabel105.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel105.setText("Ticket:");
+        ModificarPedido.add(jLabel105);
+        jLabel105.setBounds(260, 130, 140, 32);
+
+        cMesaModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cMesaModificarActionPerformed(evt);
+            }
+        });
+        ModificarPedido.add(cMesaModificar);
+        cMesaModificar.setBounds(650, 130, 170, 30);
+
+        tPrecioModificar.setEditable(false);
+        ModificarPedido.add(tPrecioModificar);
+        tPrecioModificar.setBounds(1110, 320, 140, 30);
+
+        tTicketModificar.setEditable(false);
+        tTicketModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tTicketModificar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tTicketModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tTicketModificarActionPerformed(evt);
+            }
+        });
+        ModificarPedido.add(tTicketModificar);
+        tTicketModificar.setBounds(370, 130, 110, 30);
+
+        jInicio.add(ModificarPedido);
+        ModificarPedido.setBounds(0, 90, 1380, 620);
 
         User.setBackground(new java.awt.Color(255, 255, 255));
         User.setLayout(null);
@@ -1813,6 +2037,11 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         bModificarMesa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         bModificarMesa.setText("Modificar Pedido");
+        bModificarMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bModificarMesaActionPerformed(evt);
+            }
+        });
         Mesas.add(bModificarMesa);
         bModificarMesa.setBounds(920, 10, 210, 40);
 
@@ -2081,6 +2310,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         bModificarMesa.setVisible(false);
         bPagarMesa.setVisible(false);
         PedidosEnVivo.setVisible(false);
+        
     }//GEN-LAST:event_jMesasMouseClicked
 
     private void jComparativaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComparativaMouseClicked
@@ -2756,6 +2986,261 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void tTicketMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTicketMesasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tTicketMesasActionPerformed
+
+    private void bModificarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bModificarMesaActionPerformed
+        try {
+            this.setTitle("Galeras | Modificar pedido");
+            this.consultarMesasOcupadas();
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.cargarComboModificar();
+            this.aparacerDesaparecerMesas(1);
+            Productos.setVisible(false);
+            MesaPrincipal.setVisible(false);
+            Sillas.setVisible(false);
+            Meseros.setVisible(false);
+            Reporte.setVisible(false);
+            Comparativa.setVisible(false);
+            bAgregarMesa.setVisible(false);
+            bModificarMesa.setVisible(false);
+            bPagarMesa.setVisible(false);
+            PedidosEnVivo.setVisible(false);
+            Cuentas.setVisible(false);
+            User.setVisible(false);
+            Mesas.setVisible(false);
+            MesaPrincipal.setVisible(false);
+            ModificarPedido.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bModificarMesaActionPerformed
+
+    private void bSalirModificarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirModificarPedidoActionPerformed
+        this.setTitle("Galeras | Inicio");
+        this.aparacerDesaparecerMesas(0);
+        ModificarPedido.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
+        Cuentas.setVisible(false);
+        User.setVisible(false);
+    }//GEN-LAST:event_bSalirModificarPedidoActionPerformed
+
+    private void bAgregarPedidoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPedidoModificarActionPerformed
+        if(Integer.parseInt((String) cMesa.getSelectedItem()) == 1){
+            int precio_t = Integer.parseInt(tPrecioModificar.getText());
+            int cantidad_t = Integer.parseInt(sCantidadModificar.getValue().toString());
+            int total_t = precio_t*cantidad_t;
+            this.registroTicket(Integer.parseInt(tTicketModificar.getText()), this.comboProductoModificar(), Integer.parseInt((String) cMesaModificar.getSelectedItem()), Integer.parseInt(tPrecioModificar.getText()), Integer.parseInt(sCantidadModificar.getValue().toString()), total_t);
+            this.mostrarModificarTicket(Integer.parseInt(tTicketMesas.getText()));
+        }else{
+            int precio_t = Integer.parseInt(tPrecioModificar.getText());
+            int cantidad_t = Integer.parseInt(sCantidadModificar.getValue().toString());
+            int total_t = precio_t*cantidad_t;
+            this.registroTicket(Integer.parseInt(tTicketModificar.getText()), this.comboProductoModificar(), Integer.parseInt((String) cMesaModificar.getSelectedItem()), Integer.parseInt(tPrecioModificar.getText()), Integer.parseInt(sCantidadModificar.getValue().toString()), total_t);          
+            this.mostrarModificarTicket(Integer.parseInt(tTicketMesas.getText()));
+        }
+    }//GEN-LAST:event_bAgregarPedidoModificarActionPerformed
+
+    private void jCategoriaModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCategoriaModificarActionPerformed
+        int id_mesas = jCategoriaModificar.getSelectedIndex();
+        if(id_mesas == 0){
+            this.consultaProductosModificar(1);
+        }else if(id_mesas == 1){
+            this.consultaProductosModificar(2);
+        }else if(id_mesas == 2){
+            this.consultaProductosModificar(3);
+        }else if(id_mesas == 3){
+            this.consultaProductosModificar(4);
+        }else if(id_mesas == 4){
+            this.consultaProductosModificar(5);
+        }else if(id_mesas == 5){
+            this.consultaProductosModificar(6);
+        }else{
+            this.consultaProductosModificar(id_mesas);
+        }
+    }//GEN-LAST:event_jCategoriaModificarActionPerformed
+
+    private void JProductoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JProductoModificarActionPerformed
+        String producto = (String) JProductoModificar.getSelectedItem();
+        this.precioProductoModificar(producto);
+    }//GEN-LAST:event_JProductoModificarActionPerformed
+
+    private void tMeseroPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tMeseroPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tMeseroPedidoActionPerformed
+
+    private void tTicketModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTicketModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tTicketModificarActionPerformed
+
+    private void cMesaModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cMesaModificarActionPerformed
+        if(cMesaModificar.getSelectedIndex() == 0){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 1){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 2){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 3){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 4){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 5){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 6){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 7){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 8){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 9){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 10){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 11){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 12){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 13){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 14){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 15){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 16){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 17){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 18){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 19){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 20){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 21){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 22){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 23){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 24){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 25){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 26){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 27){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 28){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 29){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 30){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 31){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 32){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 33){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 34){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 35){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 36){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 37){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 38){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 39){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 40){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 41){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 42){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 43){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 44){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 45){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 46){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 47){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 48){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }else if(cMesaModificar.getSelectedIndex() == 49){
+            this.mostrarDatosModificarPedido(Integer.parseInt((String) cMesaModificar.getSelectedItem()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+        }
+    }//GEN-LAST:event_cMesaModificarActionPerformed
+
+    private void ModificarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPedidoMouseEntered
+
+    }//GEN-LAST:event_ModificarPedidoMouseEntered
         
     /**
      * @param args the command line arguments
@@ -4068,12 +4553,183 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
     }
     
+    public void DesaparecerAparecerModificarPedido(int numero){
+        if(numero == 0){
+            tTicketModificar.setVisible(false);
+            tMeseroPedido.setVisible(false);
+            jCategoriaModificar.setVisible(false);
+            JProductoModificar.setVisible(false);
+            sCantidadModificar.setVisible(false);
+            bAgregarPedidoModificar.setVisible(false);
+            tPrecioModificar.setVisible(false);
+        }else if(numero == 1){
+            tTicketModificar.setVisible(true);
+            tMeseroPedido.setVisible(true);
+            jCategoriaModificar.setVisible(true);
+            JProductoModificar.setVisible(true);
+            sCantidadModificar.setVisible(true);
+            bAgregarPedidoModificar.setVisible(true);
+
+            tPrecioModificar.setVisible(true);    
+        }
+    }
+    
+    public ArrayList<mesasModificarVO> consultarMesasOcupadas(){
+        try {
+            ArrayList<mesasModificarVO> misMesas = new ArrayList<mesasModificarVO>();
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select id_mesas from mesas where ocupacion = '0';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                cMesaModificar.removeAllItems();
+                mesasModificarVO mesa = new mesasModificarVO();
+                mesa.setMesa(rs.getInt("id_mesas"));
+                misMesas.add(mesa);
+                for (int i = 0; i < misMesas.size(); i++) {
+                    cMesaModificar.addItem(misMesas.get(i).getMesa()+"");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public void mostrarDatosModificarPedido(int mesa){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from tickets where fk_id_mesas = '"+mesa+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                tTicketModificar.setText(rs.getString("id_tickets"));
+                tMeseroPedido.setText(rs.getString("fk_id_empleados"));
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void cargarComboModificar() throws SQLException, ClassNotFoundException{
+        categoriaVO categoriaVO;
+        ArrayList <categoriaVO> misCategorias = this.llamarCategorias();
+        for (int i = 0; i < misCategorias.size(); i++) {
+            jCategoriaModificar.addItem(misCategorias.get(i).getId_nombre_categoria());
+        }
+    }
+    
+    public ArrayList<productoVO> consultaProductosModificar(int id){
+        try {
+            ArrayList<productoVO> misProductos = new ArrayList<productoVO>();
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select nombre_producto from productos where fk_id_categoria = '"+id+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                JProductoModificar.removeAllItems();
+                productoVO producto = new productoVO();
+                producto.setNombre(rs.getString("nombre_producto"));
+                misProductos.add(producto);
+                for (int i = 0; i < misProductos.size(); i++) {
+                    JProductoModificar.addItem(misProductos.get(i).getNombre());
+                    
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public int precioProductoModificar(String nombre){
+        int precio=0;
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select precio from productos where nombre_producto = '"+nombre+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                precio = rs.getInt("precio");
+                tPrecioModificar.setText(""+precio);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return precio;
+    }
+    
+    public void mostrarModificarTicket(int tickets){
+        try{
+            String[] titulos={"Producto", "Mesas", "Precio", "Cantidad", "Total"};
+            String[] registro = new String[5];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from tickets_pedidos where fk_id_tickets_p = '"+tickets+"';");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("fk_id_producto_p");
+                    registro[1] = rs.getString("fk_id_mesas_p");
+                    registro[2] = rs.getString("pk_precio");
+                    registro[3] = rs.getString("cantidad");
+                    registro[4] = rs.getString("total_pedido");
+                    modelo.addRow(registro);
+                }
+                ModificarTabla.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar los pedidos: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+        public int comboProductoModificar(){
+        try {
+            ConexionBD con = new ConexionBD();
+            String producto = (String) JProductoModificar.getSelectedItem();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from productos where nombre_producto = '"+producto+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                id_fk_m = rs.getInt("id_productos");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id_fk_m;
+    }
+    
     boolean ticket = true;
     boolean user = false;
     int numeroM;
     String nombre_user, password_user, usuario_user, meseroMesasUser;
     int id_user;
-    int id=0, id_cuentas, id_fk, id_fk_empleado, id_em;
+    int id=0, id_cuentas, id_fk, id_fk_empleado, id_em, id_fk_m;
     LocalDateTime tiempo = LocalDateTime.now();
     Desface deslice = new Desface();
     boolean mesas,comparativa,productos,reporte,meseros;
@@ -4083,6 +4739,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Cuentas;
     private javax.swing.JLabel FechaActualMesero;
     private javax.swing.JComboBox<String> JProducto;
+    private javax.swing.JComboBox<String> JProductoModificar;
     private javax.swing.JLabel Mesa1;
     private javax.swing.JLabel Mesa2;
     private javax.swing.JLabel Mesa3;
@@ -4093,6 +4750,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTable MesaTabla1;
     private javax.swing.JPanel Mesas;
     private javax.swing.JPanel Meseros;
+    private javax.swing.JPanel ModificarPedido;
+    private javax.swing.JTable ModificarTabla;
     private javax.swing.JPanel PedidosEnVivo;
     private javax.swing.JPanel Productos;
     private javax.swing.JPanel Reporte;
@@ -4101,6 +4760,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel User;
     private javax.swing.JButton bAgregarMesa;
     private javax.swing.JButton bAgregarPedido;
+    private javax.swing.JButton bAgregarPedidoModificar;
     private javax.swing.JButton bEliminarMesero;
     private javax.swing.JButton bEliminarUsuario;
     private javax.swing.JButton bEliminarUsuario1;
@@ -4118,6 +4778,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirMesas1;
     private javax.swing.JButton bSalirMesasPrincipales;
     private javax.swing.JButton bSalirMeseros;
+    private javax.swing.JButton bSalirModificarPedido;
     private javax.swing.JButton bSalirProductos;
     private javax.swing.JButton bSalirReporte;
     private javax.swing.JButton bSalirTablaCuenta;
@@ -4125,12 +4786,14 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bVisualizar1;
     private javax.swing.JComboBox<String> cComparativaCombo;
     private javax.swing.JComboBox<String> cMesa;
+    private javax.swing.JComboBox<String> cMesaModificar;
     private javax.swing.JComboBox<String> cMeseroMesas;
     private javax.swing.JPanel eliminarUsuario;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jCategoria;
+    private javax.swing.JComboBox<String> jCategoriaModificar;
     private javax.swing.JComboBox<String> jCategoriaProducto;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -4143,6 +4806,12 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jInicioSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel104;
+    private javax.swing.JLabel jLabel105;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -4221,6 +4890,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
@@ -4230,6 +4900,12 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel98;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jMenu;
     private javax.swing.JLabel jMesas;
     private javax.swing.JLabel jMeseros;
@@ -4243,7 +4919,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -4263,6 +4941,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JComboBox<String> jSeleccionProducto1;
     private javax.swing.JComboBox<String> jSeleccionProducto2;
     private javax.swing.JSeparator jSeparator1;
@@ -4276,6 +4955,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel lCirculo;
     private javax.swing.JLabel lGaleras;
     private javax.swing.JLabel lTituloMesa;
+    private javax.swing.JLabel lTituloMesa1;
     private javax.swing.JLabel lUserInfo;
     private javax.swing.JLabel lUsuario;
     private javax.swing.JLabel lValidacionC;
@@ -4290,7 +4970,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel panelMesero6;
     private javax.swing.JPanel panelMesero7;
     private javax.swing.JPanel panelMesero8;
+    private javax.swing.JPanel panelMesero9;
     private javax.swing.JSpinner sCantidad;
+    private javax.swing.JSpinner sCantidadModificar;
     private javax.swing.JTextField tApellidoM;
     private javax.swing.JTextField tApellidoMaterno;
     private javax.swing.JTextField tApellidoMaternoUser;
@@ -4307,15 +4989,18 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tIDUsuarioUser;
     private javax.swing.JTextField tID_Meseros;
     private javax.swing.JTextField tID_Productos;
+    private javax.swing.JTextField tMeseroPedido;
     private javax.swing.JTextField tNombre_Mesero;
     private javax.swing.JTextField tNombreproducto;
     private javax.swing.JTextField tNombres;
     private javax.swing.JTextField tNombresUser;
     private javax.swing.JTextField tPrecioMesa;
+    private javax.swing.JTextField tPrecioModificar;
     private javax.swing.JTextField tPrecioProducto;
     private javax.swing.JTable tTablaCategoria;
     private javax.swing.JTable tTablaProducto;
     private javax.swing.JTextField tTicketMesas;
+    private javax.swing.JTextField tTicketModificar;
     private javax.swing.JTextField tUsuario;
     private javax.swing.JTextField tUsuarioUser;
     private javax.swing.JTable tablaCuenta;
