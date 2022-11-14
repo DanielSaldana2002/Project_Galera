@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project_galera;
+package galeras;
 
+import ConexionBD.ConexionBD;
+import ClasesVO.productoVO;
+import ClasesVO.mesasVO;
+import ClasesVO.categoriaVO;
+import ClasesVO.MeserosVO;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Frame;
 import java.time.LocalDateTime;

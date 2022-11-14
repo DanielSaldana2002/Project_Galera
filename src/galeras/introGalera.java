@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project_galera;
+package galeras;
 
 
 import desplazable.Desface;
@@ -66,7 +66,6 @@ public class introGalera extends javax.swing.JFrame {
         Barra.setAutoscrolls(true);
 
         Texto.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Texto.setForeground(new java.awt.Color(0, 0, 0));
         Texto.setText("VERSION BETA 1.50");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -111,7 +110,6 @@ public class introGalera extends javax.swing.JFrame {
         Galeras3.setBounds(150, 0, 150, 160);
 
         Version.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        Version.setForeground(new java.awt.Color(0, 0, 0));
         Version.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Version.setText("GALERAS");
         jPanel1.add(Version);

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package project_galera;
+package galeras;
 import desplazable.Desface;
 import java.awt.Cursor;
 import ds.desktop.notify.DesktopNotify;
@@ -268,7 +268,7 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Gastos.add(jLabel32);
         jLabel32.setBounds(-10, 10, 320, 60);
         Gastos.add(Gasto_Verduras);
-        Gasto_Verduras.setBounds(70, 120, 180, 24);
+        Gasto_Verduras.setBounds(70, 120, 180, 20);
 
         jLabel35.setForeground(new java.awt.Color(255, 255, 255));
         jLabel35.setText("Refresco");
@@ -279,23 +279,23 @@ public class Inicio_Galera extends javax.swing.JFrame {
         jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Verduras");
         Gastos.add(jLabel37);
-        jLabel37.setBounds(120, 90, 80, 16);
+        jLabel37.setBounds(120, 90, 80, 14);
 
         jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText("Pescado");
         Gastos.add(jLabel39);
-        jLabel39.setBounds(120, 180, 70, 16);
+        jLabel39.setBounds(120, 180, 70, 14);
 
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Cerveza");
         Gastos.add(jLabel40);
-        jLabel40.setBounds(120, 360, 46, 16);
+        jLabel40.setBounds(120, 360, 40, 14);
         Gastos.add(Gasto_Pescado);
-        Gasto_Pescado.setBounds(70, 210, 180, 24);
+        Gasto_Pescado.setBounds(70, 210, 180, 20);
         Gastos.add(Gasto_Cervesa);
-        Gasto_Cervesa.setBounds(70, 390, 180, 24);
+        Gasto_Cervesa.setBounds(70, 390, 180, 20);
         Gastos.add(Gasto_Refresco);
-        Gasto_Refresco.setBounds(70, 300, 180, 24);
+        Gasto_Refresco.setBounds(70, 300, 180, 20);
 
         Main.add(Gastos);
         Gastos.setBounds(860, 0, 320, 550);
@@ -829,11 +829,9 @@ public class Inicio_Galera extends javax.swing.JFrame {
         informacionMesa.setBounds(70, 0, 870, 550);
 
         Mesas.setBackground(new java.awt.Color(255, 255, 255));
-        Mesas.setForeground(new java.awt.Color(0, 0, 0));
         Mesas.setLayout(null);
 
         Mesa2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa2.setForeground(new java.awt.Color(0, 0, 0));
         Mesa2.setText("Mesa 2");
         Mesa2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -850,7 +848,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa2.setBounds(150, 40, 90, 30);
 
         Mesa3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa3.setForeground(new java.awt.Color(0, 0, 0));
         Mesa3.setText("Mesa 3");
         Mesa3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -867,7 +864,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa3.setBounds(270, 40, 90, 30);
 
         Mesa1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa1.setForeground(new java.awt.Color(0, 0, 0));
         Mesa1.setText("Mesa 1");
         Mesa1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -884,7 +880,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa1.setBounds(30, 40, 80, 30);
 
         Mesa4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa4.setForeground(new java.awt.Color(0, 0, 0));
         Mesa4.setText("Mesa 4");
         Mesa4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -901,7 +896,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa4.setBounds(390, 40, 90, 30);
 
         Mesa5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa5.setForeground(new java.awt.Color(0, 0, 0));
         Mesa5.setText("Mesa 5");
         Mesa5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -918,7 +912,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa5.setBounds(520, 40, 90, 30);
 
         Mesa6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa6.setForeground(new java.awt.Color(0, 0, 0));
         Mesa6.setText("Mesa 6");
         Mesa6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -935,7 +928,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa6.setBounds(30, 90, 90, 30);
 
         Mesa7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa7.setForeground(new java.awt.Color(0, 0, 0));
         Mesa7.setText("Mesa 7");
         Mesa7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -952,7 +944,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa7.setBounds(150, 90, 90, 30);
 
         Mesa8.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa8.setForeground(new java.awt.Color(0, 0, 0));
         Mesa8.setText("Mesa 8");
         Mesa8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -969,7 +960,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa8.setBounds(270, 90, 90, 30);
 
         Mesa9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa9.setForeground(new java.awt.Color(0, 0, 0));
         Mesa9.setText("Mesa 9");
         Mesa9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -986,7 +976,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa9.setBounds(390, 90, 90, 30);
 
         Mesa10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa10.setForeground(new java.awt.Color(0, 0, 0));
         Mesa10.setText("Mesa 10");
         Mesa10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1003,7 +992,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa10.setBounds(520, 90, 100, 30);
 
         Mesa11.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa11.setForeground(new java.awt.Color(0, 0, 0));
         Mesa11.setText("Mesa 11");
         Mesa11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1020,7 +1008,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa11.setBounds(30, 140, 100, 30);
 
         Mesa12.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa12.setForeground(new java.awt.Color(0, 0, 0));
         Mesa12.setText("Mesa 12");
         Mesa12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1037,7 +1024,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa12.setBounds(150, 140, 100, 30);
 
         Mesa13.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa13.setForeground(new java.awt.Color(0, 0, 0));
         Mesa13.setText("Mesa 13");
         Mesa13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1054,7 +1040,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa13.setBounds(270, 140, 100, 30);
 
         Mesa14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa14.setForeground(new java.awt.Color(0, 0, 0));
         Mesa14.setText("Mesa 14");
         Mesa14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1071,7 +1056,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa14.setBounds(390, 140, 100, 30);
 
         Mesa15.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa15.setForeground(new java.awt.Color(0, 0, 0));
         Mesa15.setText("Mesa 15");
         Mesa15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1088,7 +1072,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa15.setBounds(520, 140, 100, 30);
 
         Mesa16.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa16.setForeground(new java.awt.Color(0, 0, 0));
         Mesa16.setText("Mesa 16");
         Mesa16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1105,7 +1088,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa16.setBounds(30, 190, 100, 30);
 
         Mesa17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa17.setForeground(new java.awt.Color(0, 0, 0));
         Mesa17.setText("Mesa 17");
         Mesa17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1122,7 +1104,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa17.setBounds(150, 190, 100, 30);
 
         Mesa18.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa18.setForeground(new java.awt.Color(0, 0, 0));
         Mesa18.setText("Mesa 18");
         Mesa18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1139,7 +1120,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa18.setBounds(270, 190, 100, 30);
 
         Mesa19.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa19.setForeground(new java.awt.Color(0, 0, 0));
         Mesa19.setText("Mesa 19");
         Mesa19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1156,7 +1136,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa19.setBounds(390, 190, 100, 30);
 
         Mesa20.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa20.setForeground(new java.awt.Color(0, 0, 0));
         Mesa20.setText("Mesa 20");
         Mesa20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1173,7 +1152,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa20.setBounds(520, 190, 100, 30);
 
         Mesa21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa21.setForeground(new java.awt.Color(0, 0, 0));
         Mesa21.setText("Mesa 21");
         Mesa21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1190,7 +1168,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa21.setBounds(30, 240, 100, 30);
 
         Mesa22.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa22.setForeground(new java.awt.Color(0, 0, 0));
         Mesa22.setText("Mesa 22");
         Mesa22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1207,7 +1184,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa22.setBounds(150, 240, 100, 30);
 
         Mesa23.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa23.setForeground(new java.awt.Color(0, 0, 0));
         Mesa23.setText("Mesa 23");
         Mesa23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1224,7 +1200,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa23.setBounds(270, 240, 100, 30);
 
         Mesa24.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa24.setForeground(new java.awt.Color(0, 0, 0));
         Mesa24.setText("Mesa 24");
         Mesa24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1241,7 +1216,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa24.setBounds(390, 240, 100, 30);
 
         Mesa25.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa25.setForeground(new java.awt.Color(0, 0, 0));
         Mesa25.setText("Mesa 25");
         Mesa25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1258,7 +1232,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa25.setBounds(520, 240, 100, 30);
 
         Mesa26.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa26.setForeground(new java.awt.Color(0, 0, 0));
         Mesa26.setText("Mesa 26");
         Mesa26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1275,7 +1248,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa26.setBounds(30, 290, 100, 30);
 
         Mesa27.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa27.setForeground(new java.awt.Color(0, 0, 0));
         Mesa27.setText("Mesa 27");
         Mesa27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1292,7 +1264,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa27.setBounds(150, 290, 100, 30);
 
         Mesa28.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa28.setForeground(new java.awt.Color(0, 0, 0));
         Mesa28.setText("Mesa 28");
         Mesa28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1309,7 +1280,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa28.setBounds(270, 290, 100, 30);
 
         Mesa29.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa29.setForeground(new java.awt.Color(0, 0, 0));
         Mesa29.setText("Mesa 29");
         Mesa29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1326,7 +1296,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa29.setBounds(390, 290, 100, 30);
 
         Mesa30.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa30.setForeground(new java.awt.Color(0, 0, 0));
         Mesa30.setText("Mesa 30");
         Mesa30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1343,7 +1312,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa30.setBounds(520, 290, 100, 30);
 
         Mesa31.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa31.setForeground(new java.awt.Color(0, 0, 0));
         Mesa31.setText("Mesa 31");
         Mesa31.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1360,7 +1328,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa31.setBounds(30, 340, 100, 30);
 
         Mesa32.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa32.setForeground(new java.awt.Color(0, 0, 0));
         Mesa32.setText("Mesa 32");
         Mesa32.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1377,7 +1344,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa32.setBounds(150, 340, 100, 30);
 
         Mesa33.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa33.setForeground(new java.awt.Color(0, 0, 0));
         Mesa33.setText("Mesa 33");
         Mesa33.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1394,7 +1360,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa33.setBounds(270, 340, 100, 30);
 
         Mesa34.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa34.setForeground(new java.awt.Color(0, 0, 0));
         Mesa34.setText("Mesa 34");
         Mesa34.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1411,7 +1376,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa34.setBounds(390, 340, 100, 30);
 
         Mesa35.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa35.setForeground(new java.awt.Color(0, 0, 0));
         Mesa35.setText("Mesa 35");
         Mesa35.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1428,7 +1392,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa35.setBounds(520, 340, 100, 30);
 
         Mesa36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa36.setForeground(new java.awt.Color(0, 0, 0));
         Mesa36.setText("Mesa 36");
         Mesa36.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1445,7 +1408,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa36.setBounds(30, 390, 100, 30);
 
         Mesa37.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa37.setForeground(new java.awt.Color(0, 0, 0));
         Mesa37.setText("Mesa 37");
         Mesa37.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1462,7 +1424,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa37.setBounds(150, 390, 100, 30);
 
         Mesa38.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa38.setForeground(new java.awt.Color(0, 0, 0));
         Mesa38.setText("Mesa 38");
         Mesa38.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1479,7 +1440,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa38.setBounds(270, 390, 100, 30);
 
         Mesa39.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa39.setForeground(new java.awt.Color(0, 0, 0));
         Mesa39.setText("Mesa 39");
         Mesa39.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1496,7 +1456,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa39.setBounds(390, 390, 100, 30);
 
         Mesa40.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa40.setForeground(new java.awt.Color(0, 0, 0));
         Mesa40.setText("Mesa 40");
         Mesa40.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1513,7 +1472,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa40.setBounds(520, 390, 100, 30);
 
         Mesa41.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa41.setForeground(new java.awt.Color(0, 0, 0));
         Mesa41.setText("Mesa 41");
         Mesa41.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1530,7 +1488,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa41.setBounds(30, 440, 100, 30);
 
         Mesa42.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa42.setForeground(new java.awt.Color(0, 0, 0));
         Mesa42.setText("Mesa 42");
         Mesa42.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1547,7 +1504,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa42.setBounds(150, 440, 100, 30);
 
         Mesa43.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa43.setForeground(new java.awt.Color(0, 0, 0));
         Mesa43.setText("Mesa 43");
         Mesa43.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1564,7 +1520,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa43.setBounds(270, 440, 100, 30);
 
         Mesa44.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa44.setForeground(new java.awt.Color(0, 0, 0));
         Mesa44.setText("Mesa 44");
         Mesa44.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1581,7 +1536,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa44.setBounds(390, 440, 100, 30);
 
         Mesa45.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa45.setForeground(new java.awt.Color(0, 0, 0));
         Mesa45.setText("Mesa 45");
         Mesa45.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1598,7 +1552,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa45.setBounds(520, 440, 100, 30);
 
         Mesa46.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa46.setForeground(new java.awt.Color(0, 0, 0));
         Mesa46.setText("Mesa 46");
         Mesa46.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1615,7 +1568,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa46.setBounds(30, 490, 100, 30);
 
         Mesa47.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa47.setForeground(new java.awt.Color(0, 0, 0));
         Mesa47.setText("Mesa 47");
         Mesa47.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1632,7 +1584,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa47.setBounds(150, 490, 100, 30);
 
         Mesa48.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa48.setForeground(new java.awt.Color(0, 0, 0));
         Mesa48.setText("Mesa 48");
         Mesa48.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1649,7 +1600,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa48.setBounds(270, 490, 100, 30);
 
         Mesa49.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa49.setForeground(new java.awt.Color(0, 0, 0));
         Mesa49.setText("Mesa 49");
         Mesa49.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1666,7 +1616,6 @@ public class Inicio_Galera extends javax.swing.JFrame {
         Mesa49.setBounds(390, 490, 100, 30);
 
         Mesa50.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        Mesa50.setForeground(new java.awt.Color(0, 0, 0));
         Mesa50.setText("Mesa 50");
         Mesa50.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
