@@ -50,7 +50,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         try {
             initComponents();
             this.setExtendedState(Frame.MAXIMIZED_BOTH);
-            //this.colorMesaDefault();
+            this.colorMesaDefault();
             this.cargarComboMesas();
             this.mostrarPedidas();
             this.cargarComboCategoriasComparativa();
@@ -73,6 +73,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             jInicioSesion.setVisible(false);
             setIconImage(getIconImage());
             ModificarPedido.setVisible(false);
+            PagarPedido.setVisible(false);
             User.setVisible(false);
             userInfo.setVisible(false);
             Cuentas.setVisible(false);
@@ -108,7 +109,7 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio = new javax.swing.JPanel();
         PagarPedido = new javax.swing.JPanel();
-        bSalirModificarPedido1 = new javax.swing.JButton();
+        bSalirPagarPedido = new javax.swing.JButton();
         lTituloMesa2 = new javax.swing.JLabel();
         jPanel22 = new javax.swing.JPanel();
         jPanel23 = new javax.swing.JPanel();
@@ -123,13 +124,13 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel113 = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        ModificarTabla1 = new javax.swing.JTable();
+        PagarTabla = new javax.swing.JTable();
         jLabel117 = new javax.swing.JLabel();
-        tMeseroPedido1 = new javax.swing.JTextField();
+        tMeseroPagar = new javax.swing.JTextField();
         jLabel118 = new javax.swing.JLabel();
-        cMesaModificar1 = new javax.swing.JComboBox<>();
-        tPrecioModificar1 = new javax.swing.JTextField();
-        tTicketModificar1 = new javax.swing.JTextField();
+        cMesaPagar = new javax.swing.JComboBox<>();
+        tTotalPagar = new javax.swing.JTextField();
+        tTicketPagar = new javax.swing.JTextField();
         jLabel119 = new javax.swing.JLabel();
         ModificarPedido = new javax.swing.JPanel();
         bSalirModificarPedido = new javax.swing.JButton();
@@ -419,16 +420,16 @@ public class Beta_Galera extends javax.swing.JFrame {
         });
         PagarPedido.setLayout(null);
 
-        bSalirModificarPedido1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        bSalirModificarPedido1.setForeground(new java.awt.Color(255, 255, 255));
-        bSalirModificarPedido1.setText("X");
-        bSalirModificarPedido1.addActionListener(new java.awt.event.ActionListener() {
+        bSalirPagarPedido.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirPagarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirPagarPedido.setText("X");
+        bSalirPagarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bSalirModificarPedido1ActionPerformed(evt);
+                bSalirPagarPedidoActionPerformed(evt);
             }
         });
-        PagarPedido.add(bSalirModificarPedido1);
-        bSalirModificarPedido1.setBounds(1290, 10, 90, 60);
+        PagarPedido.add(bSalirPagarPedido);
+        bSalirPagarPedido.setBounds(1290, 10, 90, 60);
 
         lTituloMesa2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
         lTituloMesa2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -506,9 +507,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         PagarPedido.add(jLabel115);
         jLabel115.setBounds(230, 210, 170, 32);
 
-        ModificarTabla1.setBackground(new java.awt.Color(255, 255, 0));
-        ModificarTabla1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        ModificarTabla1.setModel(new javax.swing.table.DefaultTableModel(
+        PagarTabla.setBackground(new java.awt.Color(255, 255, 0));
+        PagarTabla.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        PagarTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -519,7 +520,7 @@ public class Beta_Galera extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane10.setViewportView(ModificarTabla1);
+        jScrollPane10.setViewportView(PagarTabla);
 
         PagarPedido.add(jScrollPane10);
         jScrollPane10.setBounds(210, 290, 1150, 190);
@@ -529,44 +530,44 @@ public class Beta_Galera extends javax.swing.JFrame {
         PagarPedido.add(jLabel117);
         jLabel117.setBounds(890, 130, 100, 32);
 
-        tMeseroPedido1.setEditable(false);
-        tMeseroPedido1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tMeseroPedido1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tMeseroPedido1.addActionListener(new java.awt.event.ActionListener() {
+        tMeseroPagar.setEditable(false);
+        tMeseroPagar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tMeseroPagar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tMeseroPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tMeseroPedido1ActionPerformed(evt);
+                tMeseroPagarActionPerformed(evt);
             }
         });
-        PagarPedido.add(tMeseroPedido1);
-        tMeseroPedido1.setBounds(1000, 130, 250, 30);
+        PagarPedido.add(tMeseroPagar);
+        tMeseroPagar.setBounds(1000, 130, 250, 30);
 
         jLabel118.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel118.setText("Ticket:");
         PagarPedido.add(jLabel118);
         jLabel118.setBounds(260, 130, 140, 32);
 
-        cMesaModificar1.addActionListener(new java.awt.event.ActionListener() {
+        cMesaPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cMesaModificar1ActionPerformed(evt);
+                cMesaPagarActionPerformed(evt);
             }
         });
-        PagarPedido.add(cMesaModificar1);
-        cMesaModificar1.setBounds(650, 130, 170, 30);
+        PagarPedido.add(cMesaPagar);
+        cMesaPagar.setBounds(650, 130, 170, 30);
 
-        tPrecioModificar1.setEditable(false);
-        PagarPedido.add(tPrecioModificar1);
-        tPrecioModificar1.setBounds(1070, 520, 140, 30);
+        tTotalPagar.setEditable(false);
+        PagarPedido.add(tTotalPagar);
+        tTotalPagar.setBounds(1070, 520, 140, 30);
 
-        tTicketModificar1.setEditable(false);
-        tTicketModificar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tTicketModificar1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        tTicketModificar1.addActionListener(new java.awt.event.ActionListener() {
+        tTicketPagar.setEditable(false);
+        tTicketPagar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tTicketPagar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tTicketPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tTicketModificar1ActionPerformed(evt);
+                tTicketPagarActionPerformed(evt);
             }
         });
-        PagarPedido.add(tTicketModificar1);
-        tTicketModificar1.setBounds(370, 130, 110, 30);
+        PagarPedido.add(tTicketPagar);
+        tTicketPagar.setBounds(370, 130, 110, 30);
 
         jLabel119.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel119.setText("Precio Total: $");
@@ -2144,7 +2145,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("VERSION BETA 2.00");
+        jLabel2.setText("VERSION BETA 2.50");
         jInicio.add(jLabel2);
         jLabel2.setBounds(1130, 650, 240, 50);
 
@@ -2211,6 +2212,11 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         bPagarMesa.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         bPagarMesa.setText("Pagar Pedido");
+        bPagarMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPagarMesaActionPerformed(evt);
+            }
+        });
         Mesas.add(bPagarMesa);
         bPagarMesa.setBounds(1160, 10, 190, 40);
 
@@ -3226,18 +3232,18 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirModificarPedidoActionPerformed
 
     private void bAgregarPedidoModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPedidoModificarActionPerformed
-        if(Integer.parseInt((String) cMesa.getSelectedItem()) == 1){
+        if(Integer.parseInt((String) cMesaModificar.getSelectedItem()) == 1){
             int precio_t = Integer.parseInt(tPrecioModificar.getText());
             int cantidad_t = Integer.parseInt(sCantidadModificar.getValue().toString());
             int total_t = precio_t*cantidad_t;
             this.registroTicket(Integer.parseInt(tTicketModificar.getText()), this.comboProductoModificar(), Integer.parseInt((String) cMesaModificar.getSelectedItem()), Integer.parseInt(tPrecioModificar.getText()), Integer.parseInt(sCantidadModificar.getValue().toString()), total_t);
-            this.mostrarModificarTicket(Integer.parseInt(tTicketMesas.getText()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
         }else{
             int precio_t = Integer.parseInt(tPrecioModificar.getText());
             int cantidad_t = Integer.parseInt(sCantidadModificar.getValue().toString());
             int total_t = precio_t*cantidad_t;
             this.registroTicket(Integer.parseInt(tTicketModificar.getText()), this.comboProductoModificar(), Integer.parseInt((String) cMesaModificar.getSelectedItem()), Integer.parseInt(tPrecioModificar.getText()), Integer.parseInt(sCantidadModificar.getValue().toString()), total_t);          
-            this.mostrarModificarTicket(Integer.parseInt(tTicketMesas.getText()));
+            this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
         }
     }//GEN-LAST:event_bAgregarPedidoModificarActionPerformed
 
@@ -3256,7 +3262,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         }else if(id_mesas == 5){
             this.consultaProductosModificar(6);
         }else{
-            this.consultaProductosModificar(id_mesas);
+            this.consultaProductosModificar(id_mesas+1);
         }
     }//GEN-LAST:event_jCategoriaModificarActionPerformed
 
@@ -3430,30 +3436,103 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void ModificarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPedidoMouseEntered
 
     }//GEN-LAST:event_ModificarPedidoMouseEntered
-
-    private void bSalirModificarPedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirModificarPedido1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bSalirModificarPedido1ActionPerformed
+    private void bSalirPagarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirPagarPedidoActionPerformed
+        this.setTitle("Galeras | Inicio");
+        this.aparacerDesaparecerMesas(0);
+        ModificarPedido.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
+        Cuentas.setVisible(false);
+        User.setVisible(false);
+        PagarPedido.setVisible(false);
+    }//GEN-LAST:event_bSalirPagarPedidoActionPerformed
 
     private void bPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPagarActionPerformed
-        // TODO add your handling code here:
+        this.pagarPedidoTicket(Integer.parseInt((String) cMesaPagar.getSelectedItem()), Integer.parseInt(tTicketPagar.getText()), Integer.parseInt(tTotalPagar.getText()));
+        this.mostrarPedidas();
+        this.setTitle("Galeras | Inicio");
+        this.aparacerDesaparecerMesas(0);
+        this.statusBorrar(Integer.parseInt((String) cMesaPagar.getSelectedItem()));
+        PagarPedido.setVisible(false);
+        ModificarPedido.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        Mesas.setVisible(true);
+        bAgregarMesa.setVisible(true);
+        bModificarMesa.setVisible(true);
+        bPagarMesa.setVisible(true);
+        PedidosEnVivo.setVisible(true);
+        Cuentas.setVisible(false);
+        User.setVisible(false);
     }//GEN-LAST:event_bPagarActionPerformed
 
-    private void tMeseroPedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tMeseroPedido1ActionPerformed
+    private void tMeseroPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tMeseroPagarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tMeseroPedido1ActionPerformed
+    }//GEN-LAST:event_tMeseroPagarActionPerformed
 
-    private void cMesaModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cMesaModificar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cMesaModificar1ActionPerformed
+    private void cMesaPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cMesaPagarActionPerformed
+        if(cMesaPagar.getSelectedIndex() == 0){
+            this.mostrarDatosPagar(Integer.parseInt((String)cMesaPagar.getSelectedItem()));
+            this.mostrarPagarTicket(Integer.parseInt(tTicketPagar.getText()));
+            this.sumarTotalPedido(Integer.parseInt(tTicketPagar.getText()));
+        }else if(cMesaPagar.getSelectedIndex() == 1){
+            this.mostrarDatosPagar(Integer.parseInt((String)cMesaPagar.getSelectedItem()));
+            this.mostrarPagarTicket(Integer.parseInt(tTicketPagar.getText()));
+            this.sumarTotalPedido(Integer.parseInt(tTicketPagar.getText()));
+        }else if(cMesaPagar.getSelectedIndex() == 2){
+            this.mostrarDatosPagar(Integer.parseInt((String)cMesaPagar.getSelectedItem()));
+            this.mostrarPagarTicket(Integer.parseInt(tTicketPagar.getText()));
+            this.sumarTotalPedido(Integer.parseInt(tTicketPagar.getText()));
+        }else if(cMesaPagar.getSelectedIndex() == 3){
+            this.mostrarDatosPagar(Integer.parseInt((String)cMesaPagar.getSelectedItem()));
+            this.mostrarPagarTicket(Integer.parseInt(tTicketPagar.getText()));
+            this.sumarTotalPedido(Integer.parseInt(tTicketPagar.getText()));
+        }
+    }//GEN-LAST:event_cMesaPagarActionPerformed
 
-    private void tTicketModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTicketModificar1ActionPerformed
+    private void tTicketPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTicketPagarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tTicketModificar1ActionPerformed
+    }//GEN-LAST:event_tTicketPagarActionPerformed
 
     private void PagarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PagarPedidoMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_PagarPedidoMouseEntered
+
+    private void bPagarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPagarMesaActionPerformed
+        this.setTitle("Galeras | Pagar pedido");
+        this.consultarMesasOcupadasPagar();
+        this.aparacerDesaparecerMesas(1);
+        Productos.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        Sillas.setVisible(false);
+        Meseros.setVisible(false);
+        Reporte.setVisible(false);
+        Comparativa.setVisible(false);
+        bAgregarMesa.setVisible(false);
+        bModificarMesa.setVisible(false);
+        bPagarMesa.setVisible(false);
+        PedidosEnVivo.setVisible(false);
+        Cuentas.setVisible(false);
+        User.setVisible(false);
+        Mesas.setVisible(false);
+        MesaPrincipal.setVisible(false);
+        PagarPedido.setVisible(true);
+    }//GEN-LAST:event_bPagarMesaActionPerformed
         
     /**
      * @param args the command line arguments
@@ -3514,11 +3593,11 @@ public class Beta_Galera extends javax.swing.JFrame {
     }
     
     public void colorMesaDefault(){
-        Mesa1.setForeground(Color.GREEN);
-        Mesa2.setForeground(Color.GREEN);
-        Mesa3.setForeground(Color.GREEN);
-        Mesa4.setForeground(Color.GREEN);
-        Mesa5.setForeground(Color.GREEN);
+        Mesa1.setForeground(Color.BLACK);
+        Mesa2.setForeground(Color.BLACK);
+        Mesa3.setForeground(Color.BLACK);
+        Mesa4.setForeground(Color.BLACK);
+        Mesa5.setForeground(Color.BLACK);
         //Mesa6.setForeground(Color.GREEN);
         //Mesa7.setForeground(Color.GREEN);
         //Mesa8.setForeground(Color.GREEN);
@@ -3649,19 +3728,19 @@ public class Beta_Galera extends javax.swing.JFrame {
      public void statusBorrar(int numero){
         if(numero==1){
             mesa1="Active";
-            Mesa1.setForeground(Color.GREEN);
+            Mesa1.setForeground(Color.BLACK);
         }else if(numero==2){
             mesa2="Active";
-            Mesa2.setForeground(Color.GREEN);
+            Mesa2.setForeground(Color.BLACK);
         }else if(numero==3){
             mesa3="Active";
-            Mesa3.setForeground(Color.GREEN);
+            Mesa3.setForeground(Color.BLACK);
         }else if(numero==4){
             mesa4="Active";
-            Mesa4.setForeground(Color.GREEN);
+            Mesa4.setForeground(Color.BLACK);
         }else if(numero==5){
             mesa5="Active";
-            Mesa5.setForeground(Color.GREEN);
+            Mesa5.setForeground(Color.BLACK);
         /*}else if(numero==6){
             mesa6="Active";
             Mesa6.setForeground(Color.GREEN);
@@ -4668,7 +4747,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         try {
             ConexionBD con = new ConexionBD();
             Statement status = con.getConecction().createStatement();
-            status.executeUpdate("UPDATE tickets SET fk_id_empleados = '"+id+"', fk_id_mesas = '"+mesa+"' WHERE id_tickets = '"+ticket+"';");
+            status.executeUpdate("UPDATE tickets SET fk_id_empleados = '"+id+"', fk_id_mesas = '"+mesa+"', pagado = '1' WHERE id_tickets = '"+ticket+"';");
             JOptionPane.showMessageDialog(null, "Se guardo el ticket correctamente");
         } catch (SQLException ex) {
             Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
@@ -4711,7 +4790,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             ConexionBD con = new ConexionBD();
             try{
                 Statement status = con.getConecction().createStatement();
-                status.executeQuery("Select id_tickets, fk_id_mesas from tickets;");
+                status.executeQuery("Select id_tickets, fk_id_mesas from tickets where pagado = '1';");
                 ResultSet rs = null;
                 rs = status.getResultSet();
                 while(rs.next()){
@@ -4745,7 +4824,7 @@ public class Beta_Galera extends javax.swing.JFrame {
                 ResultSet rs = null;
                 rs = status.getResultSet();
                 while(rs.next()){
-                    registro[0] = rs.getString("fk_id_producto_p");
+                    registro[0] = this.productoNombre(rs.getInt("fk_id_producto_p"));
                     registro[1] = rs.getString("fk_id_mesas_p");
                     registro[2] = rs.getString("pk_precio");
                     registro[3] = rs.getString("cantidad");
@@ -4821,7 +4900,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             rs = status.getResultSet();
             while(rs.next()){
                 tTicketModificar.setText(rs.getString("id_tickets"));
-                tMeseroPedido.setText(rs.getString("fk_id_empleados"));
+                tMeseroPedido.setText(this.meseroNombre(rs.getInt("fk_id_empleados")));
                 
             }
         } catch (SQLException ex) {
@@ -4897,7 +4976,7 @@ public class Beta_Galera extends javax.swing.JFrame {
                 ResultSet rs = null;
                 rs = status.getResultSet();
                 while(rs.next()){
-                    registro[0] = rs.getString("fk_id_producto_p");
+                    registro[0] = this.productoNombre(rs.getInt("fk_id_producto_p"));
                     registro[1] = rs.getString("fk_id_mesas_p");
                     registro[2] = rs.getString("pk_precio");
                     registro[3] = rs.getString("cantidad");
@@ -4936,6 +5015,156 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
         return id_fk_m;
     }
+        
+    public ArrayList<mesasModificarVO> consultarMesasOcupadasPagar(){
+        try {
+            ArrayList<mesasModificarVO> misMesas = new ArrayList<mesasModificarVO>();
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select id_mesas from mesas where ocupacion = '0';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                cMesaPagar.removeAllItems();
+                mesasModificarVO mesa = new mesasModificarVO();
+                mesa.setMesa(rs.getInt("id_mesas"));
+                misMesas.add(mesa);
+                for (int i = 0; i < misMesas.size(); i++) {
+                    cMesaPagar.addItem(misMesas.get(i).getMesa()+"");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public void mostrarPagarTicket(int tickets){
+        try{
+            String[] titulos={"Producto", "Mesas", "Precio", "Cantidad", "Total"};
+            String[] registro = new String[5];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from tickets_pedidos where fk_id_tickets_p = '"+tickets+"';");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = this.productoNombre(rs.getInt("fk_id_producto_p"));
+                    registro[1] = rs.getString("fk_id_mesas_p");
+                    registro[2] = rs.getString("pk_precio");
+                    registro[3] = rs.getString("cantidad");
+                    registro[4] = rs.getString("total_pedido");
+                    modelo.addRow(registro);
+                }
+                PagarTabla.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar los pedidos: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void mostrarDatosPagar(int mesa){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select * from tickets where fk_id_mesas = '"+mesa+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                
+                tTicketPagar.setText(rs.getString("id_tickets"));
+                tMeseroPagar.setText(this.meseroNombre(rs.getInt("fk_id_empleados")));
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public String meseroNombre(int id_mesero){
+        String nombre_e = null;
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select nombre_empleado from empleados where id_empleado = '"+id_mesero+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                nombre_e = rs.getString("nombre_empleado");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nombre_e;
+
+    }
+    
+    public String productoNombre(int id_producto){
+        String nombre_p = null;
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select nombre_producto from productos where id_productos = '"+id_producto+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                nombre_p = rs.getString("nombre_producto");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nombre_p;
+
+    }
+    
+    public void sumarTotalPedido(int ticket_pedido){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("SELECT sum(total_pedido) total from tickets_pedidos where fk_id_tickets_p = '"+ticket_pedido+"';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                tTotalPagar.setText(rs.getString("total"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void pagarPedidoTicket(int i_mesa, int i_ticket, int total_t){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("UPDATE mesas SET ocupacion = '1' WHERE id_mesas = '"+i_mesa+"';");
+            status.executeUpdate("UPDATE tickets SET total = '"+total_t+"', fecha_pago_final = now(), pagado = '0' WHERE id_tickets = '"+i_ticket+"';");
+            JOptionPane.showMessageDialog(null, "Ticket pagado correctamente");
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+    }
     
     boolean ticket = true;
     boolean user = false;
@@ -4943,7 +5172,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     String nombre_user, password_user, usuario_user, meseroMesasUser;
     int id_user;
     int id=0, id_cuentas, id_fk, id_fk_empleado, id_em, id_fk_m;
-    LocalDateTime tiempo = LocalDateTime.now();
+    LocalDateTime tiempo = LocalDateTime.now();    
     Desface deslice = new Desface();
     boolean mesas,comparativa,productos,reporte,meseros;
     String mesa1="Active", mesa2="Active", mesa3="Active", mesa4="Active", mesa5="Active", mesa6="Active", mesa7="Active", mesa8="Active", mesa9="Active", mesa10="Active", mesa11="Active", mesa12="Active", mesa13="Active", mesa14="Active", mesa15="Active", mesa16="Active", mesa17="Active", mesa18="Active", mesa19="Active", mesa20="Active", mesa21="Active", mesa22="Active", mesa23="Active", mesa24="Active", mesa25="Active", mesa26="Active", mesa27="Active", mesa28="Active", mesa29="Active", mesa30="Active", mesa31="Active", mesa32="Active", mesa33="Active", mesa34="Active", mesa35="Active", mesa36="Active", mesa37="Active", mesa38="Active", mesa39="Active", mesa40="Active", mesa41="Active", mesa42="Active", mesa43="Active", mesa44="Active", mesa45="Active", mesa46="Active", mesa47="Active", mesa48="Active", mesa49="Active", mesa50="Active";
@@ -4965,8 +5194,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Meseros;
     private javax.swing.JPanel ModificarPedido;
     private javax.swing.JTable ModificarTabla;
-    private javax.swing.JTable ModificarTabla1;
     private javax.swing.JPanel PagarPedido;
+    private javax.swing.JTable PagarTabla;
     private javax.swing.JPanel PedidosEnVivo;
     private javax.swing.JPanel Productos;
     private javax.swing.JPanel Reporte;
@@ -4995,7 +5224,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirMesasPrincipales;
     private javax.swing.JButton bSalirMeseros;
     private javax.swing.JButton bSalirModificarPedido;
-    private javax.swing.JButton bSalirModificarPedido1;
+    private javax.swing.JButton bSalirPagarPedido;
     private javax.swing.JButton bSalirProductos;
     private javax.swing.JButton bSalirReporte;
     private javax.swing.JButton bSalirTablaCuenta;
@@ -5004,7 +5233,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cComparativaCombo;
     private javax.swing.JComboBox<String> cMesa;
     private javax.swing.JComboBox<String> cMesaModificar;
-    private javax.swing.JComboBox<String> cMesaModificar1;
+    private javax.swing.JComboBox<String> cMesaPagar;
     private javax.swing.JComboBox<String> cMeseroMesas;
     private javax.swing.JPanel eliminarUsuario;
     private javax.swing.JButton jButton3;
@@ -5223,21 +5452,21 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tIDUsuarioUser;
     private javax.swing.JTextField tID_Meseros;
     private javax.swing.JTextField tID_Productos;
+    private javax.swing.JTextField tMeseroPagar;
     private javax.swing.JTextField tMeseroPedido;
-    private javax.swing.JTextField tMeseroPedido1;
     private javax.swing.JTextField tNombre_Mesero;
     private javax.swing.JTextField tNombreproducto;
     private javax.swing.JTextField tNombres;
     private javax.swing.JTextField tNombresUser;
     private javax.swing.JTextField tPrecioMesa;
     private javax.swing.JTextField tPrecioModificar;
-    private javax.swing.JTextField tPrecioModificar1;
     private javax.swing.JTextField tPrecioProducto;
     private javax.swing.JTable tTablaCategoria;
     private javax.swing.JTable tTablaProducto;
     private javax.swing.JTextField tTicketMesas;
     private javax.swing.JTextField tTicketModificar;
-    private javax.swing.JTextField tTicketModificar1;
+    private javax.swing.JTextField tTicketPagar;
+    private javax.swing.JTextField tTotalPagar;
     private javax.swing.JTextField tUsuario;
     private javax.swing.JTextField tUsuarioUser;
     private javax.swing.JTable tablaCuenta;
