@@ -107,6 +107,30 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void initComponents() {
 
         jInicio = new javax.swing.JPanel();
+        PagarPedido = new javax.swing.JPanel();
+        bSalirModificarPedido1 = new javax.swing.JButton();
+        lTituloMesa2 = new javax.swing.JLabel();
+        jPanel22 = new javax.swing.JPanel();
+        jPanel23 = new javax.swing.JPanel();
+        panelMesero10 = new javax.swing.JPanel();
+        jLabel106 = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
+        jLabel108 = new javax.swing.JLabel();
+        jLabel109 = new javax.swing.JLabel();
+        jLabel110 = new javax.swing.JLabel();
+        jLabel111 = new javax.swing.JLabel();
+        bPagar = new javax.swing.JButton();
+        jLabel113 = new javax.swing.JLabel();
+        jLabel115 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        ModificarTabla1 = new javax.swing.JTable();
+        jLabel117 = new javax.swing.JLabel();
+        tMeseroPedido1 = new javax.swing.JTextField();
+        jLabel118 = new javax.swing.JLabel();
+        cMesaModificar1 = new javax.swing.JComboBox<>();
+        tPrecioModificar1 = new javax.swing.JTextField();
+        tTicketModificar1 = new javax.swing.JTextField();
+        jLabel119 = new javax.swing.JLabel();
         ModificarPedido = new javax.swing.JPanel();
         bSalirModificarPedido = new javax.swing.JButton();
         lTituloMesa1 = new javax.swing.JLabel();
@@ -386,6 +410,171 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         jInicio.setBackground(new java.awt.Color(255, 255, 255));
         jInicio.setLayout(null);
+
+        PagarPedido.setBackground(new java.awt.Color(255, 255, 255));
+        PagarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                PagarPedidoMouseEntered(evt);
+            }
+        });
+        PagarPedido.setLayout(null);
+
+        bSalirModificarPedido1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        bSalirModificarPedido1.setForeground(new java.awt.Color(255, 255, 255));
+        bSalirModificarPedido1.setText("X");
+        bSalirModificarPedido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirModificarPedido1ActionPerformed(evt);
+            }
+        });
+        PagarPedido.add(bSalirModificarPedido1);
+        bSalirModificarPedido1.setBounds(1290, 10, 90, 60);
+
+        lTituloMesa2.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+        lTituloMesa2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lTituloMesa2.setText("Pagar Ticket");
+        PagarPedido.add(lTituloMesa2);
+        lTituloMesa2.setBounds(190, 10, 1100, 80);
+
+        jPanel22.setBackground(new java.awt.Color(0, 0, 0));
+        PagarPedido.add(jPanel22);
+        jPanel22.setBounds(180, 10, 10, 610);
+
+        jPanel23.setBackground(new java.awt.Color(0, 0, 0));
+        PagarPedido.add(jPanel23);
+        jPanel23.setBounds(0, 0, 1400, 10);
+
+        panelMesero10.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero10.setLayout(null);
+
+        jLabel106.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel106.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel106.setText("M");
+        panelMesero10.add(jLabel106);
+        jLabel106.setBounds(50, 20, 120, 90);
+
+        jLabel107.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel107.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel107.setText("E");
+        panelMesero10.add(jLabel107);
+        jLabel107.setBounds(50, 140, 100, 90);
+
+        jLabel108.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel108.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel108.setText("S");
+        panelMesero10.add(jLabel108);
+        jLabel108.setBounds(50, 260, 70, 90);
+
+        jLabel109.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel109.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel109.setText("A");
+        panelMesero10.add(jLabel109);
+        jLabel109.setBounds(50, 380, 100, 90);
+
+        jLabel110.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel110.setFont(new java.awt.Font("Dialog", 1, 100)); // NOI18N
+        jLabel110.setText("S");
+        panelMesero10.add(jLabel110);
+        jLabel110.setBounds(50, 500, 100, 90);
+
+        PagarPedido.add(panelMesero10);
+        panelMesero10.setBounds(0, 0, 180, 620);
+
+        jLabel111.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel111.setText("VERSION INTERFACE 2.0");
+        PagarPedido.add(jLabel111);
+        jLabel111.setBounds(1150, 580, 250, 30);
+
+        bPagar.setBackground(new java.awt.Color(255, 255, 0));
+        bPagar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bPagar.setText("Pagar");
+        bPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bPagarActionPerformed(evt);
+            }
+        });
+        PagarPedido.add(bPagar);
+        bPagar.setBounds(460, 520, 240, 50);
+
+        jLabel113.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel113.setText("Mesa:");
+        PagarPedido.add(jLabel113);
+        jLabel113.setBounds(570, 130, 80, 32);
+
+        jLabel115.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel115.setText("Descripcion:");
+        PagarPedido.add(jLabel115);
+        jLabel115.setBounds(230, 210, 170, 32);
+
+        ModificarTabla1.setBackground(new java.awt.Color(255, 255, 0));
+        ModificarTabla1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ModificarTabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane10.setViewportView(ModificarTabla1);
+
+        PagarPedido.add(jScrollPane10);
+        jScrollPane10.setBounds(210, 290, 1150, 190);
+
+        jLabel117.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel117.setText("Mesero:");
+        PagarPedido.add(jLabel117);
+        jLabel117.setBounds(890, 130, 100, 32);
+
+        tMeseroPedido1.setEditable(false);
+        tMeseroPedido1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tMeseroPedido1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tMeseroPedido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tMeseroPedido1ActionPerformed(evt);
+            }
+        });
+        PagarPedido.add(tMeseroPedido1);
+        tMeseroPedido1.setBounds(1000, 130, 250, 30);
+
+        jLabel118.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel118.setText("Ticket:");
+        PagarPedido.add(jLabel118);
+        jLabel118.setBounds(260, 130, 140, 32);
+
+        cMesaModificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cMesaModificar1ActionPerformed(evt);
+            }
+        });
+        PagarPedido.add(cMesaModificar1);
+        cMesaModificar1.setBounds(650, 130, 170, 30);
+
+        tPrecioModificar1.setEditable(false);
+        PagarPedido.add(tPrecioModificar1);
+        tPrecioModificar1.setBounds(1070, 520, 140, 30);
+
+        tTicketModificar1.setEditable(false);
+        tTicketModificar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tTicketModificar1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        tTicketModificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tTicketModificar1ActionPerformed(evt);
+            }
+        });
+        PagarPedido.add(tTicketModificar1);
+        tTicketModificar1.setBounds(370, 130, 110, 30);
+
+        jLabel119.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel119.setText("Precio Total: $");
+        PagarPedido.add(jLabel119);
+        jLabel119.setBounds(890, 520, 170, 32);
+
+        jInicio.add(PagarPedido);
+        PagarPedido.setBounds(0, 90, 1380, 620);
 
         ModificarPedido.setBackground(new java.awt.Color(255, 255, 255));
         ModificarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -3241,6 +3430,30 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void ModificarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ModificarPedidoMouseEntered
 
     }//GEN-LAST:event_ModificarPedidoMouseEntered
+
+    private void bSalirModificarPedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirModificarPedido1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bSalirModificarPedido1ActionPerformed
+
+    private void bPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPagarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bPagarActionPerformed
+
+    private void tMeseroPedido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tMeseroPedido1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tMeseroPedido1ActionPerformed
+
+    private void cMesaModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cMesaModificar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cMesaModificar1ActionPerformed
+
+    private void tTicketModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTicketModificar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tTicketModificar1ActionPerformed
+
+    private void PagarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PagarPedidoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PagarPedidoMouseEntered
         
     /**
      * @param args the command line arguments
@@ -4752,6 +4965,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Meseros;
     private javax.swing.JPanel ModificarPedido;
     private javax.swing.JTable ModificarTabla;
+    private javax.swing.JTable ModificarTabla1;
+    private javax.swing.JPanel PagarPedido;
     private javax.swing.JPanel PedidosEnVivo;
     private javax.swing.JPanel Productos;
     private javax.swing.JPanel Reporte;
@@ -4766,6 +4981,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bEliminarUsuario1;
     private javax.swing.JButton bEnviarPedido;
     private javax.swing.JButton bModificarMesa;
+    private javax.swing.JButton bPagar;
     private javax.swing.JButton bPagarMesa;
     private javax.swing.JButton bRegistrarCategoria;
     private javax.swing.JButton bRegistrarMesero;
@@ -4779,6 +4995,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirMesasPrincipales;
     private javax.swing.JButton bSalirMeseros;
     private javax.swing.JButton bSalirModificarPedido;
+    private javax.swing.JButton bSalirModificarPedido1;
     private javax.swing.JButton bSalirProductos;
     private javax.swing.JButton bSalirReporte;
     private javax.swing.JButton bSalirTablaCuenta;
@@ -4787,6 +5004,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cComparativaCombo;
     private javax.swing.JComboBox<String> cMesa;
     private javax.swing.JComboBox<String> cMesaModificar;
+    private javax.swing.JComboBox<String> cMesaModificar1;
     private javax.swing.JComboBox<String> cMeseroMesas;
     private javax.swing.JPanel eliminarUsuario;
     private javax.swing.JButton jButton3;
@@ -4812,7 +5030,18 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel106;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel108;
+    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel110;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -4923,6 +5152,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -4934,6 +5165,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jProductos;
     private javax.swing.JLabel jReporte;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -4956,6 +5188,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel lGaleras;
     private javax.swing.JLabel lTituloMesa;
     private javax.swing.JLabel lTituloMesa1;
+    private javax.swing.JLabel lTituloMesa2;
     private javax.swing.JLabel lUserInfo;
     private javax.swing.JLabel lUsuario;
     private javax.swing.JLabel lValidacionC;
@@ -4963,6 +5196,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel lValidacionU;
     private javax.swing.JLabel lll;
     private javax.swing.JPanel panelMesero1;
+    private javax.swing.JPanel panelMesero10;
     private javax.swing.JPanel panelMesero2;
     private javax.swing.JPanel panelMesero3;
     private javax.swing.JPanel panelMesero4;
@@ -4990,17 +5224,20 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tID_Meseros;
     private javax.swing.JTextField tID_Productos;
     private javax.swing.JTextField tMeseroPedido;
+    private javax.swing.JTextField tMeseroPedido1;
     private javax.swing.JTextField tNombre_Mesero;
     private javax.swing.JTextField tNombreproducto;
     private javax.swing.JTextField tNombres;
     private javax.swing.JTextField tNombresUser;
     private javax.swing.JTextField tPrecioMesa;
     private javax.swing.JTextField tPrecioModificar;
+    private javax.swing.JTextField tPrecioModificar1;
     private javax.swing.JTextField tPrecioProducto;
     private javax.swing.JTable tTablaCategoria;
     private javax.swing.JTable tTablaProducto;
     private javax.swing.JTextField tTicketMesas;
     private javax.swing.JTextField tTicketModificar;
+    private javax.swing.JTextField tTicketModificar1;
     private javax.swing.JTextField tUsuario;
     private javax.swing.JTextField tUsuarioUser;
     private javax.swing.JTable tablaCuenta;
