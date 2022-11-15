@@ -2145,9 +2145,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("VERSION BETA 2.50");
+        jLabel2.setText("VERSION PRE-FINAL");
         jInicio.add(jLabel2);
-        jLabel2.setBounds(1130, 650, 240, 50);
+        jLabel2.setBounds(1120, 650, 250, 50);
 
         Mesas.setBackground(new java.awt.Color(255, 255, 255));
         Mesas.setLayout(null);
