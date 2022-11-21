@@ -10,6 +10,7 @@ import ClasesVO.productoVO;
 import ClasesVO.mesasVO;
 import ClasesVO.categoriaVO;
 import ClasesVO.MeserosVO;
+import ClasesVO.ReporteVO;
 import ClasesVO.mesasModificarVO;
 import com.sun.glass.events.KeyEvent;
 import java.awt.Frame;
@@ -25,6 +26,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -296,11 +298,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel63 = new javax.swing.JLabel();
         jLabel64 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        bEnviarReporte = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        MesaTabla1 = new javax.swing.JTable();
+        tablaReporte = new javax.swing.JTable();
         jLabel52 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        cReporte = new javax.swing.JComboBox<>();
         Comparativa = new javax.swing.JPanel();
         bSalirComparativa = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
@@ -1687,20 +1689,20 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.add(jLabel54);
         jLabel54.setBounds(1150, 580, 250, 30);
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 0));
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton6.setText("Enviar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        bEnviarReporte.setBackground(new java.awt.Color(255, 255, 0));
+        bEnviarReporte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bEnviarReporte.setText("Enviar");
+        bEnviarReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                bEnviarReporteActionPerformed(evt);
             }
         });
-        Reporte.add(jButton6);
-        jButton6.setBounds(940, 160, 240, 50);
+        Reporte.add(bEnviarReporte);
+        bEnviarReporte.setBounds(940, 160, 240, 50);
 
-        MesaTabla1.setBackground(new java.awt.Color(255, 255, 0));
-        MesaTabla1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        MesaTabla1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaReporte.setBackground(new java.awt.Color(255, 255, 0));
+        tablaReporte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tablaReporte.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1711,7 +1713,7 @@ public class Beta_Galera extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(MesaTabla1);
+        jScrollPane2.setViewportView(tablaReporte);
 
         Reporte.add(jScrollPane2);
         jScrollPane2.setBounds(210, 310, 1140, 220);
@@ -1721,9 +1723,13 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.add(jLabel52);
         jLabel52.setBounds(420, 160, 200, 40);
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Reporte.add(jComboBox8);
-        jComboBox8.setBounds(640, 170, 230, 30);
+        cReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cReporteActionPerformed(evt);
+            }
+        });
+        Reporte.add(cReporte);
+        cReporte.setBounds(640, 170, 230, 30);
 
         jInicio.add(Reporte);
         Reporte.setBounds(0, 90, 1370, 620);
@@ -2560,6 +2566,7 @@ public class Beta_Galera extends javax.swing.JFrame {
 
     private void jReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jReporteMouseClicked
         this.setTitle("Galeras | Reporte");
+        this.consultarFechaReporte();
         Productos.setVisible(false);
         Reporte.setVisible(true);
         Meseros.setVisible(false);
@@ -2813,21 +2820,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         User.setVisible(false);
     }//GEN-LAST:event_bSalirProductosActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Productos.setVisible(false);
-        Sillas.setVisible(false);
-        MesaPrincipal.setVisible(false);
-        Meseros.setVisible(false);
-        Reporte.setVisible(false);
-        Comparativa.setVisible(false);
-        Cuentas.setVisible(false);
-        Mesas.setVisible(true);
-        bAgregarMesa.setVisible(true);
-        bModificarMesa.setVisible(true);
-        bPagarMesa.setVisible(true);
-        PedidosEnVivo.setVisible(true);
-        User.setVisible(false);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void bEnviarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEnviarReporteActionPerformed
+
+    }//GEN-LAST:event_bEnviarReporteActionPerformed
 
     private void bRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarCategoriaActionPerformed
         int id_categoria = Integer.parseInt(tIDCategoria.getText());
@@ -3506,7 +3501,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_cMesaPagarActionPerformed
 
     private void tTicketPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tTicketPagarActionPerformed
-        // TODO add your handling code here:
+         // TODO add your handling code here:
     }//GEN-LAST:event_tTicketPagarActionPerformed
 
     private void PagarPedidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PagarPedidoMouseEntered
@@ -3533,6 +3528,10 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.setVisible(false);
         PagarPedido.setVisible(true);
     }//GEN-LAST:event_bPagarMesaActionPerformed
+
+    private void cReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cReporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cReporteActionPerformed
         
     /**
      * @param args the command line arguments
@@ -5166,6 +5165,37 @@ public class Beta_Galera extends javax.swing.JFrame {
             
     }
     
+    public ArrayList<ReporteVO> consultarFechaReporte(){
+        try {
+            ArrayList<ReporteVO> misReportes = new ArrayList<ReporteVO>();
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select date(fecha_pago_final) fecha, date_format(fecha_pago_final, '%T') hora, count(*) total from tickets where fecha_pago_final group by fecha having count(*);");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                cReporte.removeAllItems();
+                ReporteVO reporte = new ReporteVO();
+                Date fecha_r = rs.getDate("fecha");
+                Date hora_r = rs.getDate("hora");
+                reporte.setFecha(fecha_r);
+                reporte.setHora(hora_r);
+
+                misReportes.add(reporte);
+                for (int i = 0; i < misReportes.size(); i++) {
+                    cReporte.addItem(misReportes.get(i).getFecha()+"");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    
+    
     boolean ticket = true;
     boolean user = false;
     int numeroM;
@@ -5189,7 +5219,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel Mesa5;
     private javax.swing.JPanel MesaPrincipal;
     private javax.swing.JTable MesaTabla;
-    private javax.swing.JTable MesaTabla1;
     private javax.swing.JPanel Mesas;
     private javax.swing.JPanel Meseros;
     private javax.swing.JPanel ModificarPedido;
@@ -5209,6 +5238,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bEliminarUsuario;
     private javax.swing.JButton bEliminarUsuario1;
     private javax.swing.JButton bEnviarPedido;
+    private javax.swing.JButton bEnviarReporte;
     private javax.swing.JButton bModificarMesa;
     private javax.swing.JButton bPagar;
     private javax.swing.JButton bPagarMesa;
@@ -5235,10 +5265,10 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cMesaModificar;
     private javax.swing.JComboBox<String> cMesaPagar;
     private javax.swing.JComboBox<String> cMeseroMesas;
+    private javax.swing.JComboBox<String> cReporte;
     private javax.swing.JPanel eliminarUsuario;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jCategoria;
     private javax.swing.JComboBox<String> jCategoriaModificar;
     private javax.swing.JComboBox<String> jCategoriaProducto;
@@ -5246,7 +5276,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jComparativa;
     private javax.swing.JLabel jCuentas;
     private javax.swing.JPanel jInicio;
@@ -5472,6 +5501,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTable tablaCuenta;
     private javax.swing.JPanel tablaCuentas;
     private javax.swing.JTable tablaEliminar;
+    private javax.swing.JTable tablaReporte;
     private javax.swing.JTable tmostrarMeseros;
     private javax.swing.JPanel userInfo;
     // End of variables declaration//GEN-END:variables

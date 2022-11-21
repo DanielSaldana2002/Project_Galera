@@ -195,7 +195,7 @@ public class InicioSesion extends javax.swing.JFrame {
                 String nombre = rs.getString("nombre_sesion");
                 String apellidoP = rs.getString("apellido_p_sesion");
                 String apellidoM = rs.getString("apellido_m_sesion");
-                JOptionPane.showMessageDialog(null, "¡Bienvenido a la PRE-FINAL de GALERAS!");
+                //JOptionPane.showMessageDialog(null, "¡Bienvenido a la PRE-FINAL de GALERAS!");
                 this.dispose();
                 Beta_Galera galera = new Beta_Galera();
                 galera.settMostrarDatos(usuario1, password1, nombre, apellidoP, apellidoM, id);
