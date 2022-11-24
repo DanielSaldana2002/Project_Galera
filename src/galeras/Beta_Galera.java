@@ -10,6 +10,8 @@ import ClasesVO.productoVO;
 import ClasesVO.mesasVO;
 import ClasesVO.categoriaVO;
 import ClasesVO.MeserosVO;
+import ClasesVO.ReporteAñoVO;
+import ClasesVO.ReporteMesVO;
 import ClasesVO.ReporteVO;
 import ClasesVO.mesasModificarVO;
 import com.sun.glass.events.KeyEvent;
@@ -61,6 +63,8 @@ public class Beta_Galera extends javax.swing.JFrame {
             this.mostrarProducto();
             this.cargarComboMesero();
             this.circuloEnVivo();
+            this.consultarFechaReporte();
+
             try {
                 this.cargarComboCategorias();
             } catch (SQLException ex) {
@@ -299,19 +303,23 @@ public class Beta_Galera extends javax.swing.JFrame {
         bEnviarReporte = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaReporte = new javax.swing.JTable();
-        jLabel52 = new javax.swing.JLabel();
+        lTotalTicket = new javax.swing.JLabel();
         cReporte = new javax.swing.JComboBox<>();
         jScrollPane11 = new javax.swing.JScrollPane();
         tablaProducto = new javax.swing.JTable();
         jLabel112 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
-        jLabel116 = new javax.swing.JLabel();
+        lTickets = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
         tablaMeseros = new javax.swing.JTable();
         jLabel120 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
         tablaMesas = new javax.swing.JTable();
         jLabel121 = new javax.swing.JLabel();
+        tTotalTicket = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        cFiltroFecha = new javax.swing.JComboBox<>();
+        jLabel116 = new javax.swing.JLabel();
         Comparativa = new javax.swing.JPanel();
         bSalirComparativa = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
@@ -1699,12 +1707,12 @@ public class Beta_Galera extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tablaReporte);
 
         Reporte.add(jScrollPane2);
-        jScrollPane2.setBounds(210, 230, 1140, 180);
+        jScrollPane2.setBounds(210, 240, 1140, 170);
 
-        jLabel52.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel52.setText("Fecha a generar:");
-        Reporte.add(jLabel52);
-        jLabel52.setBounds(410, 130, 200, 40);
+        lTotalTicket.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        lTotalTicket.setText("Total:");
+        Reporte.add(lTotalTicket);
+        lTotalTicket.setBounds(940, 200, 220, 30);
 
         cReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1742,11 +1750,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         Reporte.add(jLabel59);
         jLabel59.setBounds(250, 430, 300, 20);
 
-        jLabel116.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel116.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel116.setText("Tickets:");
-        Reporte.add(jLabel116);
-        jLabel116.setBounds(210, 200, 80, 30);
+        lTickets.setBackground(new java.awt.Color(0, 0, 0));
+        lTickets.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        lTickets.setText("Tickets:");
+        Reporte.add(lTickets);
+        lTickets.setBounds(210, 200, 300, 30);
 
         tablaMeseros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1791,6 +1799,32 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel121.setText("Mesas con mayor tickets (Actual):");
         Reporte.add(jLabel121);
         jLabel121.setBounds(1010, 430, 320, 20);
+
+        tTotalTicket.setEditable(false);
+        Reporte.add(tTotalTicket);
+        tTotalTicket.setBounds(1160, 200, 180, 30);
+
+        jLabel54.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel54.setText("Filtro de fecha:");
+        Reporte.add(jLabel54);
+        jLabel54.setBounds(270, 130, 230, 40);
+
+        cFiltroFecha.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dias", "Meses", "Años" }));
+        cFiltroFecha.setToolTipText("");
+        cFiltroFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cFiltroFechaActionPerformed(evt);
+            }
+        });
+        Reporte.add(cFiltroFecha);
+        cFiltroFecha.setBounds(500, 140, 70, 30);
+
+        jLabel116.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel116.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel116.setText("Fecha a generar:");
+        Reporte.add(jLabel116);
+        jLabel116.setBounds(630, 100, 230, 40);
 
         jInicio.add(Reporte);
         Reporte.setBounds(0, 90, 1370, 620);
@@ -2470,7 +2504,6 @@ public class Beta_Galera extends javax.swing.JFrame {
 
     private void jReporteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jReporteMouseClicked
         this.setTitle("Galeras | Reporte");
-        this.consultarFechaReporte();
         this.mostrarProductoMayor();
         this.mostrarMeseroMayor();
         this.mostrarMesasMayor();
@@ -2705,6 +2738,10 @@ public class Beta_Galera extends javax.swing.JFrame {
 
     private void bEnviarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEnviarReporteActionPerformed
         this.mostrarReporteTickets((String) cReporte.getSelectedItem());
+        String fechaReporte = (String) cReporte.getSelectedItem();
+        lTickets.setText("Tickets "+fechaReporte+":");
+        lTotalTicket.setText("Total: "+fechaReporte+":");
+        this.totalTicketMostrar((String) cReporte.getSelectedItem());
     }//GEN-LAST:event_bEnviarReporteActionPerformed
 
     private void bRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRegistrarCategoriaActionPerformed
@@ -3404,6 +3441,16 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void cReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cReporteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cReporteActionPerformed
+
+    private void cFiltroFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cFiltroFechaActionPerformed
+        if(cFiltroFecha.getSelectedIndex()==0){
+            this.consultarFechaReporte();
+        }else if(cFiltroFecha.getSelectedIndex()==1){
+            this.consultarFechaMes();
+        }else if(cFiltroFecha.getSelectedIndex()==2){
+            this.consultarFechaAño();
+        }
+    }//GEN-LAST:event_cFiltroFechaActionPerformed
         
     /**
      * @param args the command line arguments
@@ -5042,20 +5089,27 @@ public class Beta_Galera extends javax.swing.JFrame {
             ArrayList<ReporteVO> misReportes = new ArrayList<ReporteVO>();
             ConexionBD con = new ConexionBD();
             Statement status = con.getConecction().createStatement();
-            status.executeQuery("Select date(fecha_pago_final) fecha, date_format(fecha_pago_final, '%T') hora, count(*) total from tickets where fecha_pago_final group by fecha having count(*);");
+            status.executeQuery("Select year(fecha_pago_final) año, month(fecha_pago_final) mes, day(fecha_pago_final) dia, date_format(fecha_pago_final, '%T') hora, count(*) total from tickets where fecha_pago_final group by dia having count(*);");
             ResultSet rs = null;
             rs = status.getResultSet();
             while(rs.next()){
                 cReporte.removeAllItems();
                 ReporteVO reporte = new ReporteVO();
-                Date fecha_r = rs.getDate("fecha");
+                int año = rs.getInt("año");
+                int mes = rs.getInt("mes");
+                int dia = rs.getInt("dia");
                 Date hora_r = rs.getDate("hora");
-                reporte.setFecha(fecha_r);
+                reporte.setAño(año);
+                reporte.setMes(mes);
+                reporte.setDia(dia);
                 reporte.setHora(hora_r);
-
                 misReportes.add(reporte);
                 for (int i = 0; i < misReportes.size(); i++) {
-                    cReporte.addItem(misReportes.get(i).getFecha()+"");
+                    if(misReportes.get(i).getMes()>=10 && misReportes.get(i).getDia()>=10){
+                        cReporte.addItem(misReportes.get(i).getAño()+"-"+misReportes.get(i).getMes()+"-"+misReportes.get(i).getDia());
+                    }else{
+                        cReporte.addItem(misReportes.get(i).getAño()+"-0"+misReportes.get(i).getMes()+"-0"+misReportes.get(i).getDia());
+                    }
                 }
             }
         } catch (SQLException ex) {
@@ -5148,6 +5202,23 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
     }
     
+    public void totalTicketMostrar(String fecha){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.execute("Select sum(total) total from tickets where fecha_pago_final like '"+fecha+"%';");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                tTotalTicket.setText("$"+rs.getInt("total"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void mostrarMesasMayor(){
         try{
             String[] titulos={"Mesas", "Cantidad"};
@@ -5208,16 +5279,69 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
     }
     
+    public ArrayList<ReporteMesVO> consultarFechaMes(){
+        try {
+            ArrayList<ReporteMesVO> misReportes = new ArrayList<ReporteMesVO>();
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select month(fecha_pago_final) mes, year(fecha_pago_final) año, date_format(fecha_pago_final, '%T') hora, count(*) total from tickets where fecha_pago_final group by mes having count(*);");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                cReporte.removeAllItems();
+                ReporteMesVO reporte = new ReporteMesVO();
+                reporte.setAño(rs.getInt("año"));
+                reporte.setMes(rs.getInt("mes"));
+                misReportes.add(reporte);
+                for (int i = 0; i < misReportes.size(); i++) {
+                    if(misReportes.get(i).getMes()>=10){
+                        cReporte.addItem(misReportes.get(i).getAño()+"-"+misReportes.get(i).getMes());
+                    }else{
+                        cReporte.addItem(misReportes.get(i).getAño()+"-0"+misReportes.get(i).getMes());
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public ArrayList<ReporteAñoVO> consultarFechaAño(){
+        try {
+            ArrayList<ReporteAñoVO> misReportes = new ArrayList<ReporteAñoVO>();
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select year(fecha_pago_final) año, date_format(fecha_pago_final, '%T') hora, count(*) total from tickets where fecha_pago_final group by año having count(*);");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                cReporte.removeAllItems();
+                ReporteAñoVO reporte = new ReporteAñoVO();
+                reporte.setAño(rs.getString("año"));
+                misReportes.add(reporte);
+                for (int i = 0; i < misReportes.size(); i++) {
+                    cReporte.addItem(misReportes.get(i).getAño());
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     
     boolean ticket = true;
     boolean user = false;
     int numeroM;
     String nombre_user, password_user, usuario_user, meseroMesasUser;
     int id_user;
-    int id=0, id_cuentas, id_fk, id_fk_empleado, id_em, id_fk_m;
+    int id=0, id_cuentas, id_fk, id_fk_empleado, id_em, id_fk_m;    
     LocalDateTime tiempo = LocalDateTime.now();    
     Desface deslice = new Desface();
-    boolean mesas,comparativa,productos,reporte,meseros;
     String mesa1="Active", mesa2="Active", mesa3="Active", mesa4="Active", mesa5="Active", mesa6="Active", mesa7="Active", mesa8="Active", mesa9="Active", mesa10="Active", mesa11="Active", mesa12="Active", mesa13="Active", mesa14="Active", mesa15="Active", mesa16="Active", mesa17="Active", mesa18="Active", mesa19="Active", mesa20="Active", mesa21="Active", mesa22="Active", mesa23="Active", mesa24="Active", mesa25="Active", mesa26="Active", mesa27="Active", mesa28="Active", mesa29="Active", mesa30="Active", mesa31="Active", mesa32="Active", mesa33="Active", mesa34="Active", mesa35="Active", mesa36="Active", mesa37="Active", mesa38="Active", mesa39="Active", mesa40="Active", mesa41="Active", mesa42="Active", mesa43="Active", mesa44="Active", mesa45="Active", mesa46="Active", mesa47="Active", mesa48="Active", mesa49="Active", mesa50="Active";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Comparativa;
@@ -5272,6 +5396,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bVisualizar;
     private javax.swing.JButton bVisualizar1;
     private javax.swing.JComboBox<String> cComparativaCombo;
+    private javax.swing.JComboBox<String> cFiltroFecha;
     private javax.swing.JComboBox<String> cMesa;
     private javax.swing.JComboBox<String> cMesaModificar;
     private javax.swing.JComboBox<String> cMesaPagar;
@@ -5341,8 +5466,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
@@ -5443,9 +5568,11 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel lCerrarSesion;
     private javax.swing.JLabel lCirculo;
     private javax.swing.JLabel lGaleras;
+    private javax.swing.JLabel lTickets;
     private javax.swing.JLabel lTituloMesa;
     private javax.swing.JLabel lTituloMesa1;
     private javax.swing.JLabel lTituloMesa2;
+    private javax.swing.JLabel lTotalTicket;
     private javax.swing.JLabel lUserInfo;
     private javax.swing.JLabel lUsuario;
     private javax.swing.JLabel lValidacionC;
@@ -5494,6 +5621,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tTicketModificar;
     private javax.swing.JTextField tTicketPagar;
     private javax.swing.JTextField tTotalPagar;
+    private javax.swing.JTextField tTotalTicket;
     private javax.swing.JTextField tUsuario;
     private javax.swing.JTextField tUsuarioUser;
     private javax.swing.JTable tablaCuenta;
@@ -5532,5 +5660,4 @@ public class Beta_Galera extends javax.swing.JFrame {
         };
         timer.schedule(task, 10, 500);
     }
-
 }

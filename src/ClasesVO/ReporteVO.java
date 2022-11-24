@@ -12,17 +12,35 @@ import java.sql.Date;
  * @author cdani
  */
 public class ReporteVO {
-    Date fecha;
+    int año;
+    int mes;
+    int dia;
     Date hora;
 
-    public Date getFecha() {
-        return fecha;
+    public int getAño() {
+        return año;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setAño(int año) {
+        this.año = año;
     }
 
+    public int getMes() {
+        return mes;
+    }
+
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
+    
     public Date getHora() {
         return hora;
     }
