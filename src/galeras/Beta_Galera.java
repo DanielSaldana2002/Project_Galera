@@ -333,20 +333,21 @@ public class Beta_Galera extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tPrecioProducto1 = new javax.swing.JTextField();
+        tCantidadProducto1 = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel44 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        tPrecioProducto2 = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        tCantidadProducto2 = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaProducto2 = new javax.swing.JTable();
         jScrollPane15 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        TablaProducto1 = new javax.swing.JTable();
+        jLabel122 = new javax.swing.JLabel();
+        jLabel123 = new javax.swing.JLabel();
         Meseros = new javax.swing.JPanel();
         bSalirMeseros = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -1897,12 +1898,17 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.add(jSeleccionProducto1);
         jSeleccionProducto1.setBounds(500, 200, 190, 30);
 
+        jSeleccionProducto2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSeleccionProducto2ActionPerformed(evt);
+            }
+        });
         Comparativa.add(jSeleccionProducto2);
         jSeleccionProducto2.setBounds(1050, 200, 210, 30);
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
         Comparativa.add(jSeparator1);
-        jSeparator1.setBounds(150, 390, 1220, 10);
+        jSeparator1.setBounds(150, 340, 1220, 10);
 
         jLabel41.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel41.setText("Solo se puede comparar productos de la misma categoria");
@@ -1910,49 +1916,44 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel41.setBounds(910, 110, 370, 40);
 
         jLabel42.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel42.setText("Seleccione el producto 1:");
+        jLabel42.setText("Producto 2:");
         Comparativa.add(jLabel42);
-        jLabel42.setBounds(190, 180, 300, 70);
+        jLabel42.setBounds(890, 370, 140, 40);
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        Comparativa.add(jTextField1);
-        jTextField1.setBounds(300, 280, 80, 30);
+        tPrecioProducto1.setEditable(false);
+        tPrecioProducto1.setBackground(new java.awt.Color(204, 204, 204));
+        Comparativa.add(tPrecioProducto1);
+        tPrecioProducto1.setBounds(300, 280, 80, 30);
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        Comparativa.add(jTextField2);
-        jTextField2.setBounds(510, 280, 80, 30);
+        tCantidadProducto1.setEditable(false);
+        tCantidadProducto1.setBackground(new java.awt.Color(204, 204, 204));
+        Comparativa.add(tCantidadProducto1);
+        tCantidadProducto1.setBounds(510, 280, 80, 30);
 
         jLabel43.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel43.setText("Cantidad:");
         Comparativa.add(jLabel43);
         jLabel43.setBounds(420, 280, 90, 30);
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jButton1.setText("Enviar");
-        Comparativa.add(jButton1);
-        jButton1.setBounds(630, 330, 270, 50);
-
         jLabel44.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel44.setText("Precio:");
         Comparativa.add(jLabel44);
         jLabel44.setBounds(780, 280, 70, 30);
 
-        jTextField3.setEditable(false);
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        Comparativa.add(jTextField3);
-        jTextField3.setBounds(850, 280, 80, 30);
+        tPrecioProducto2.setEditable(false);
+        tPrecioProducto2.setBackground(new java.awt.Color(204, 204, 204));
+        Comparativa.add(tPrecioProducto2);
+        tPrecioProducto2.setBounds(850, 280, 80, 30);
 
         jLabel45.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel45.setText("Cantidad:");
         Comparativa.add(jLabel45);
         jLabel45.setBounds(970, 280, 90, 30);
 
-        jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        Comparativa.add(jTextField4);
-        jTextField4.setBounds(1060, 280, 80, 30);
+        tCantidadProducto2.setEditable(false);
+        tCantidadProducto2.setBackground(new java.awt.Color(204, 204, 204));
+        Comparativa.add(tCantidadProducto2);
+        tCantidadProducto2.setBounds(1060, 280, 80, 30);
 
         jLabel46.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel46.setText("Seleccione la categoria del producto:");
@@ -1964,7 +1965,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         Comparativa.add(jLabel52);
         jLabel52.setBounds(730, 180, 300, 70);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaProducto2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1975,12 +1976,12 @@ public class Beta_Galera extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane14.setViewportView(jTable1);
+        jScrollPane14.setViewportView(TablaProducto2);
 
         Comparativa.add(jScrollPane14);
         jScrollPane14.setBounds(890, 410, 390, 180);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        TablaProducto1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -1991,10 +1992,20 @@ public class Beta_Galera extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane15.setViewportView(jTable2);
+        jScrollPane15.setViewportView(TablaProducto1);
 
         Comparativa.add(jScrollPane15);
         jScrollPane15.setBounds(260, 410, 390, 180);
+
+        jLabel122.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel122.setText("Seleccione el producto 1:");
+        Comparativa.add(jLabel122);
+        jLabel122.setBounds(190, 180, 300, 70);
+
+        jLabel123.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel123.setText("Producto 1:");
+        Comparativa.add(jLabel123);
+        jLabel123.setBounds(260, 370, 140, 40);
 
         jInicio.add(Comparativa);
         Comparativa.setBounds(0, 90, 1370, 620);
@@ -2173,9 +2184,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         jTiempo1.setBounds(1150, 680, 230, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("VERSION PRE-FINAL");
+        jLabel2.setText("VERSION FINAL");
         jInicio.add(jLabel2);
-        jLabel2.setBounds(1120, 650, 250, 50);
+        jLabel2.setBounds(1180, 650, 190, 50);
 
         Mesas.setBackground(new java.awt.Color(255, 255, 255));
         Mesas.setLayout(null);
@@ -2804,7 +2815,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_cComparativaComboActionPerformed
 
     private void jSeleccionProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionProducto1ActionPerformed
-        // TODO add your handling code here:
+        this.ComparativaPrecioCantidad((String)jSeleccionProducto1.getSelectedItem());
+        this.ComparativaMostrarTabla((String)jSeleccionProducto1.getSelectedItem());
     }//GEN-LAST:event_jSeleccionProducto1ActionPerformed
 
     private void cComparativaComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cComparativaComboMouseClicked
@@ -3495,6 +3507,11 @@ public class Beta_Galera extends javax.swing.JFrame {
             tPrecioProducto.setText("");
         }
     }//GEN-LAST:event_tPrecioProductoKeyReleased
+
+    private void jSeleccionProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionProducto2ActionPerformed
+        this.ComparativaPrecioCantidad2((String)jSeleccionProducto2.getSelectedItem());
+        this.ComparativaMostrarTabla2((String)jSeleccionProducto2.getSelectedItem());
+    }//GEN-LAST:event_jSeleccionProducto2ActionPerformed
         
     /**
      * @param args the command line arguments
@@ -5378,6 +5395,104 @@ public class Beta_Galera extends javax.swing.JFrame {
         return null;
     }
     
+    public void ComparativaMostrarTabla(String nombreP){
+        try{
+            String[] titulos={"Nombre", "Tickets", "Fecha"};
+            String[] registro = new String[3];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select productos.nombre_producto producto, tickets.id_tickets ticket, date(tickets.fecha_pago_final) fecha from tickets_pedidos, tickets, productos where productos.nombre_producto = '"+nombreP+"' && tickets_pedidos.fk_id_tickets_p = tickets.id_tickets && tickets_pedidos.fk_id_producto_p = productos.id_productos;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("producto");
+                    registro[1] = rs.getString("ticket");
+                    registro[2] = rs.getString("fecha");
+                    modelo.addRow(registro);
+                }
+                TablaProducto1.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar los pedidos: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void ComparativaMostrarTabla2(String nombreP){
+        try{
+            String[] titulos={"Nombre", "Tickets", "Fecha"};
+            String[] registro = new String[3];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select productos.nombre_producto producto, tickets.id_tickets ticket, date(tickets.fecha_pago_final) fecha from tickets_pedidos, tickets, productos where productos.nombre_producto = '"+nombreP+"' && tickets_pedidos.fk_id_tickets_p = tickets.id_tickets && tickets_pedidos.fk_id_producto_p = productos.id_productos;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("producto");
+                    registro[1] = rs.getString("ticket");
+                    registro[2] = rs.getString("fecha");
+                    modelo.addRow(registro);
+                }
+                TablaProducto2.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar los pedidos: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void ComparativaPrecioCantidad(String nombreP){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select productos.precio, sum(tickets_pedidos.cantidad) cantidad from productos, tickets_pedidos where productos.nombre_producto = '"+nombreP+"' && tickets_pedidos.fk_id_producto_p = productos.id_productos;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                tPrecioProducto1.setText("$"+rs.getString("precio"));
+                tCantidadProducto1.setText(rs.getString("cantidad"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void ComparativaPrecioCantidad2(String nombreP){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeQuery("Select productos.precio, sum(tickets_pedidos.cantidad) cantidad from productos, tickets_pedidos where productos.nombre_producto = '"+nombreP+"' && tickets_pedidos.fk_id_producto_p = productos.id_productos;");
+            ResultSet rs = null;
+            rs = status.getResultSet();
+            while(rs.next()){
+                tPrecioProducto2.setText("$"+rs.getString("precio"));
+                tCantidadProducto2.setText(rs.getString("cantidad"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     boolean ticket = true;
     boolean user = false;
     int numeroM;
@@ -5410,6 +5525,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel Productos;
     private javax.swing.JPanel Reporte;
     private javax.swing.JTable TablaEnVivo;
+    private javax.swing.JTable TablaProducto1;
+    private javax.swing.JTable TablaProducto2;
     private javax.swing.JPanel User;
     private javax.swing.JButton bAgregarMesa;
     private javax.swing.JButton bAgregarPedido;
@@ -5447,7 +5564,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cMeseroMesas;
     private javax.swing.JComboBox<String> cReporte;
     private javax.swing.JPanel eliminarUsuario;
-    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCategoria;
     private javax.swing.JComboBox<String> jCategoriaModificar;
     private javax.swing.JComboBox<String> jCategoriaProducto;
@@ -5481,6 +5597,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
     private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel122;
+    private javax.swing.JLabel jLabel123;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
@@ -5602,12 +5720,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jSeleccionProducto2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel jTiempo;
     private javax.swing.JLabel jTiempo1;
     private javax.swing.JLabel jTitulo;
@@ -5646,6 +5758,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tApellidoPaternoUser;
     private javax.swing.JTextField tBorrar;
     private javax.swing.JButton tBorrarCuenta;
+    private javax.swing.JTextField tCantidadProducto1;
+    private javax.swing.JTextField tCantidadProducto2;
     private javax.swing.JTextField tContraseña;
     private javax.swing.JTextField tContraseñaUser;
     private javax.swing.JTextField tEscribirCategoria;
@@ -5663,6 +5777,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tPrecioMesa;
     private javax.swing.JTextField tPrecioModificar;
     private javax.swing.JTextField tPrecioProducto;
+    private javax.swing.JTextField tPrecioProducto1;
+    private javax.swing.JTextField tPrecioProducto2;
     private javax.swing.JTable tTablaCategoria;
     private javax.swing.JTable tTablaProducto;
     private javax.swing.JTextField tTicketMesas;
