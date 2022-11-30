@@ -3454,72 +3454,106 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
         if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(true);
+            this.ValidacionUser(tUsuario.getText());
         }
     }//GEN-LAST:event_tUsuarioKeyReleased
 
@@ -4156,288 +4190,424 @@ public class Beta_Galera extends javax.swing.JFrame {
     private void tNombresKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tNombresKeyReleased
         if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(true);
+            this.ValidacionUser(tUsuario.getText());
         }
     }//GEN-LAST:event_tNombresKeyReleased
 
     private void tApellidoPaternoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tApellidoPaternoKeyReleased
         if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(true);
+            this.ValidacionUser(tUsuario.getText());
         }
     }//GEN-LAST:event_tApellidoPaternoKeyReleased
 
     private void tApellidoMaternoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tApellidoMaternoKeyReleased
         if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(true);
+            this.ValidacionUser(tUsuario.getText());
         }
     }//GEN-LAST:event_tApellidoMaternoKeyReleased
 
     private void tContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tContraseñaKeyReleased
         if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
            bRegistrarSesion.setEnabled(false); 
+           this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
             bRegistrarSesion.setEnabled(false);
+            this.ValidacionUser(tUsuario.getText());
         }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
             bRegistrarSesion.setEnabled(true);
+            this.ValidacionUser(tUsuario.getText());
         }
     }//GEN-LAST:event_tContraseñaKeyReleased
 
