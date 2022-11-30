@@ -72,6 +72,11 @@ public class Beta_Galera extends javax.swing.JFrame {
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
             }
+            bRegistrarSesion.setEnabled(false);
+            bRegistrarMesero.setEnabled(false);
+            bRegistrarCategoria.setEnabled(false);
+            bRegistroProducto.setEnabled(false);
+            eliminarMeseros.setVisible(false);
             tID_Productos.setText(""+this.generarIDProducto(id));
             tIDUsuario.setText(""+this.generarIDCuentas(id_cuentas));
             tID_Meseros.setText(""+this.generarIDMeseros(id));
@@ -166,13 +171,13 @@ public class Beta_Galera extends javax.swing.JFrame {
         cMesaModificar = new javax.swing.JComboBox<>();
         tPrecioModificar = new javax.swing.JTextField();
         tTicketModificar = new javax.swing.JTextField();
+        bEliminarPedidos1 = new javax.swing.JButton();
         User = new javax.swing.JPanel();
         bSalirInfo = new javax.swing.JButton();
         jLabel86 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         panelMesero8 = new javax.swing.JPanel();
-        bVisualizar1 = new javax.swing.JButton();
         jLabel87 = new javax.swing.JLabel();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
@@ -259,6 +264,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         cMesa = new javax.swing.JComboBox<>();
         bEnviarPedido = new javax.swing.JButton();
         tPrecioMesa = new javax.swing.JTextField();
+        bEliminarPedidos = new javax.swing.JButton();
         Productos = new javax.swing.JPanel();
         bSalirProductos = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
@@ -273,6 +279,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         lValidacionC = new javax.swing.JLabel();
         tEscribirCategoria = new javax.swing.JTextField();
         jLabel81 = new javax.swing.JLabel();
+        bEliminarCategoria = new javax.swing.JButton();
         jLabel66 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         tID_Productos = new javax.swing.JTextField();
@@ -287,6 +294,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         tTablaProducto = new javax.swing.JTable();
         jLabel73 = new javax.swing.JLabel();
         lValidacionP = new javax.swing.JLabel();
+        bEliminarProducto = new javax.swing.JButton();
         Reporte = new javax.swing.JPanel();
         bSalirReporte = new javax.swing.JButton();
         jLabel49 = new javax.swing.JLabel();
@@ -349,6 +357,17 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel122 = new javax.swing.JLabel();
         jLabel123 = new javax.swing.JLabel();
         Meseros = new javax.swing.JPanel();
+        eliminarMeseros = new javax.swing.JPanel();
+        jPanel24 = new javax.swing.JPanel();
+        bSalirEliminarUsuario1 = new javax.swing.JButton();
+        jTitulo3 = new javax.swing.JLabel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        tablaEliminarMeseros = new javax.swing.JTable();
+        jLabel124 = new javax.swing.JLabel();
+        jLabel125 = new javax.swing.JLabel();
+        jLabel126 = new javax.swing.JLabel();
+        tBorrar1 = new javax.swing.JTextField();
+        tBorrarCuenta1 = new javax.swing.JButton();
         bSalirMeseros = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -392,6 +411,21 @@ public class Beta_Galera extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         TablaEnVivo = new javax.swing.JTable();
         lCirculo = new javax.swing.JLabel();
+        Mesa6 = new javax.swing.JLabel();
+        Mesa7 = new javax.swing.JLabel();
+        Mesa8 = new javax.swing.JLabel();
+        Mesa9 = new javax.swing.JLabel();
+        Mesa10 = new javax.swing.JLabel();
+        Mesa11 = new javax.swing.JLabel();
+        Mesa12 = new javax.swing.JLabel();
+        Mesa13 = new javax.swing.JLabel();
+        Mesa14 = new javax.swing.JLabel();
+        Mesa15 = new javax.swing.JLabel();
+        Mesa16 = new javax.swing.JLabel();
+        Mesa17 = new javax.swing.JLabel();
+        Mesa18 = new javax.swing.JLabel();
+        Mesa19 = new javax.swing.JLabel();
+        Mesa20 = new javax.swing.JLabel();
         jMenu = new javax.swing.JPanel();
         jTitulo = new javax.swing.JLabel();
         jComparativa = new javax.swing.JLabel();
@@ -662,7 +696,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         ModificarPedido.add(bAgregarPedidoModificar);
-        bAgregarPedidoModificar.setBounds(600, 310, 240, 50);
+        bAgregarPedidoModificar.setBounds(670, 310, 240, 50);
 
         jLabel99.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel99.setText("Categoria:");
@@ -694,6 +728,12 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel101.setText("Cantidad:");
         ModificarPedido.add(jLabel101);
         jLabel101.setBounds(1030, 230, 120, 30);
+
+        sCantidadModificar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sCantidadModificarMouseClicked(evt);
+            }
+        });
         ModificarPedido.add(sCantidadModificar);
         sCantidadModificar.setBounds(1170, 230, 60, 30);
 
@@ -769,6 +809,17 @@ public class Beta_Galera extends javax.swing.JFrame {
         ModificarPedido.add(tTicketModificar);
         tTicketModificar.setBounds(370, 130, 110, 30);
 
+        bEliminarPedidos1.setBackground(new java.awt.Color(255, 0, 0));
+        bEliminarPedidos1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bEliminarPedidos1.setText("Eliminar pedido");
+        bEliminarPedidos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarPedidos1ActionPerformed(evt);
+            }
+        });
+        ModificarPedido.add(bEliminarPedidos1);
+        bEliminarPedidos1.setBounds(400, 310, 220, 50);
+
         jInicio.add(ModificarPedido);
         ModificarPedido.setBounds(0, 90, 1380, 620);
 
@@ -803,17 +854,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         panelMesero8.setLayout(null);
         User.add(panelMesero8);
         panelMesero8.setBounds(0, 0, 160, 620);
-
-        bVisualizar1.setBackground(new java.awt.Color(255, 255, 255));
-        bVisualizar1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        bVisualizar1.setText("Modificar");
-        bVisualizar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bVisualizar1ActionPerformed(evt);
-            }
-        });
-        User.add(bVisualizar1);
-        bVisualizar1.setBounds(500, 480, 240, 70);
 
         jLabel87.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel87.setText("VERSION INTERFACE 1.0");
@@ -914,7 +954,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         User.add(bEliminarUsuario1);
-        bEliminarUsuario1.setBounds(830, 480, 240, 70);
+        bEliminarUsuario1.setBounds(640, 480, 240, 70);
 
         tApellidoPaternoUser.setEditable(false);
         tApellidoPaternoUser.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -1134,6 +1174,11 @@ public class Beta_Galera extends javax.swing.JFrame {
                 tNombresActionPerformed(evt);
             }
         });
+        tNombres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tNombresKeyReleased(evt);
+            }
+        });
         Cuentas.add(tNombres);
         tNombres.setBounds(280, 170, 270, 30);
 
@@ -1165,6 +1210,11 @@ public class Beta_Galera extends javax.swing.JFrame {
                 tContraseñaActionPerformed(evt);
             }
         });
+        tContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tContraseñaKeyReleased(evt);
+            }
+        });
         Cuentas.add(tContraseña);
         tContraseña.setBounds(840, 380, 270, 30);
 
@@ -1178,6 +1228,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         tApellidoMaterno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tApellidoMaternoActionPerformed(evt);
+            }
+        });
+        tApellidoMaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tApellidoMaternoKeyReleased(evt);
             }
         });
         Cuentas.add(tApellidoMaterno);
@@ -1222,6 +1277,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         tApellidoPaterno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tApellidoPaternoActionPerformed(evt);
+            }
+        });
+        tApellidoPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tApellidoPaternoKeyReleased(evt);
             }
         });
         Cuentas.add(tApellidoPaterno);
@@ -1318,7 +1378,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         MesaPrincipal.add(bAgregarPedido);
-        bAgregarPedido.setBounds(420, 310, 240, 50);
+        bAgregarPedido.setBounds(460, 310, 240, 50);
 
         jLabel34.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel34.setText("Categoria:");
@@ -1350,6 +1410,12 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel36.setText("Cantidad:");
         MesaPrincipal.add(jLabel36);
         jLabel36.setBounds(1030, 230, 120, 30);
+
+        sCantidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sCantidadMouseClicked(evt);
+            }
+        });
         MesaPrincipal.add(sCantidad);
         sCantidad.setBounds(1170, 230, 60, 30);
 
@@ -1423,6 +1489,17 @@ public class Beta_Galera extends javax.swing.JFrame {
         MesaPrincipal.add(tPrecioMesa);
         tPrecioMesa.setBounds(1110, 320, 140, 30);
 
+        bEliminarPedidos.setBackground(new java.awt.Color(255, 0, 0));
+        bEliminarPedidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bEliminarPedidos.setText("Eliminar pedido");
+        bEliminarPedidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarPedidosActionPerformed(evt);
+            }
+        });
+        MesaPrincipal.add(bEliminarPedidos);
+        bEliminarPedidos.setBounds(220, 310, 220, 50);
+
         jInicio.add(MesaPrincipal);
         MesaPrincipal.setBounds(0, 90, 1380, 620);
 
@@ -1454,6 +1531,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         jPanel13.setBounds(0, 0, 1400, 10);
 
         panelMesero6.setBackground(new java.awt.Color(255, 255, 0));
+        panelMesero6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelMesero6MouseEntered(evt);
+            }
+        });
         panelMesero6.setLayout(null);
 
         jLabel65.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
@@ -1479,7 +1561,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         panelMesero6.add(bRegistrarCategoria);
-        bRegistrarCategoria.setBounds(170, 280, 270, 60);
+        bRegistrarCategoria.setBounds(330, 280, 200, 60);
 
         tTablaCategoria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1503,6 +1585,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         lValidacionC.setBounds(320, 240, 290, 30);
 
         tEscribirCategoria.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        tEscribirCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tEscribirCategoriaActionPerformed(evt);
+            }
+        });
         tEscribirCategoria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tEscribirCategoriaKeyReleased(evt);
@@ -1515,6 +1602,15 @@ public class Beta_Galera extends javax.swing.JFrame {
         jLabel81.setText("Escribe el nombre de tu categoria:");
         panelMesero6.add(jLabel81);
         jLabel81.setBounds(320, 160, 310, 30);
+
+        bEliminarCategoria.setText("Eliminar categoria");
+        bEliminarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarCategoriaActionPerformed(evt);
+            }
+        });
+        panelMesero6.add(bEliminarCategoria);
+        bEliminarCategoria.setBounds(100, 280, 190, 60);
 
         Productos.add(panelMesero6);
         panelMesero6.setBounds(0, 0, 660, 620);
@@ -1578,7 +1674,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             }
         });
         Productos.add(bRegistroProducto);
-        bRegistroProducto.setBounds(890, 360, 320, 60);
+        bRegistroProducto.setBounds(1060, 360, 200, 60);
 
         tTablaProducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1605,6 +1701,15 @@ public class Beta_Galera extends javax.swing.JFrame {
         lValidacionP.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Productos.add(lValidacionP);
         lValidacionP.setBounds(990, 190, 300, 30);
+
+        bEliminarProducto.setText("Eliminar productos");
+        bEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bEliminarProductoActionPerformed(evt);
+            }
+        });
+        Productos.add(bEliminarProducto);
+        bEliminarProducto.setBounds(810, 360, 190, 60);
 
         jInicio.add(Productos);
         Productos.setBounds(0, 90, 1380, 620);
@@ -2013,6 +2118,78 @@ public class Beta_Galera extends javax.swing.JFrame {
         Meseros.setBackground(new java.awt.Color(255, 255, 255));
         Meseros.setLayout(null);
 
+        eliminarMeseros.setBackground(new java.awt.Color(204, 204, 204));
+        eliminarMeseros.setLayout(null);
+
+        jPanel24.setBackground(new java.awt.Color(255, 255, 0));
+        jPanel24.setLayout(null);
+
+        bSalirEliminarUsuario1.setBackground(new java.awt.Color(255, 255, 0));
+        bSalirEliminarUsuario1.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        bSalirEliminarUsuario1.setText("X");
+        bSalirEliminarUsuario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSalirEliminarUsuario1ActionPerformed(evt);
+            }
+        });
+        jPanel24.add(bSalirEliminarUsuario1);
+        bSalirEliminarUsuario1.setBounds(300, 20, 80, 50);
+
+        jTitulo3.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
+        jTitulo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/galera/Imagen/1663952285593 (2).png"))); // NOI18N
+        jTitulo3.setText("GALERAS");
+        jPanel24.add(jTitulo3);
+        jTitulo3.setBounds(10, 0, 220, 90);
+
+        eliminarMeseros.add(jPanel24);
+        jPanel24.setBounds(0, 0, 400, 90);
+
+        tablaEliminarMeseros.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        tablaEliminarMeseros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane16.setViewportView(tablaEliminarMeseros);
+
+        eliminarMeseros.add(jScrollPane16);
+        jScrollPane16.setBounds(0, 170, 400, 190);
+
+        jLabel124.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel124.setText("ID Usuario:");
+        eliminarMeseros.add(jLabel124);
+        jLabel124.setBounds(10, 370, 100, 50);
+
+        jLabel125.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel125.setText("VERSION INTERFACE 1.0");
+        eliminarMeseros.add(jLabel125);
+        jLabel125.setBounds(220, 430, 190, 30);
+
+        jLabel126.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel126.setText("ELIMINAR MESEROS");
+        eliminarMeseros.add(jLabel126);
+        jLabel126.setBounds(80, 100, 250, 40);
+        eliminarMeseros.add(tBorrar1);
+        tBorrar1.setBounds(120, 380, 180, 30);
+
+        tBorrarCuenta1.setText("Borrar");
+        tBorrarCuenta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tBorrarCuenta1ActionPerformed(evt);
+            }
+        });
+        eliminarMeseros.add(tBorrarCuenta1);
+        tBorrarCuenta1.setBounds(310, 380, 77, 23);
+
+        Meseros.add(eliminarMeseros);
+        eliminarMeseros.setBounds(490, 10, 400, 460);
+
         bSalirMeseros.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         bSalirMeseros.setForeground(new java.awt.Color(255, 255, 255));
         bSalirMeseros.setText("X");
@@ -2046,6 +2223,11 @@ public class Beta_Galera extends javax.swing.JFrame {
         tNombre_Mesero.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 tNombre_MeseroFocusGained(evt);
+            }
+        });
+        tNombre_Mesero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tNombre_MeseroKeyReleased(evt);
             }
         });
         Meseros.add(tNombre_Mesero);
@@ -2105,6 +2287,11 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         tApellidoP.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tApellidoP.setToolTipText("Escriba");
+        tApellidoP.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tApellidoPKeyReleased(evt);
+            }
+        });
         Meseros.add(tApellidoP);
         tApellidoP.setBounds(620, 300, 220, 30);
 
@@ -2115,6 +2302,11 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         tApellidoM.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         tApellidoM.setToolTipText("Escriba");
+        tApellidoM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tApellidoMKeyReleased(evt);
+            }
+        });
         Meseros.add(tApellidoM);
         tApellidoM.setBounds(1100, 300, 210, 30);
 
@@ -2329,6 +2521,180 @@ public class Beta_Galera extends javax.swing.JFrame {
 
         Mesas.add(PedidosEnVivo);
         PedidosEnVivo.setBounds(710, 70, 640, 490);
+
+        Mesa6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa6.setText("Mesa 6");
+        Mesas.add(Mesa6);
+        Mesa6.setBounds(20, 120, 80, 30);
+
+        Mesa7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa7.setText("Mesa 7");
+        Mesa7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa7MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa7);
+        Mesa7.setBounds(140, 120, 90, 30);
+
+        Mesa8.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa8.setText("Mesa 8");
+        Mesa8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa8MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa8MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa8);
+        Mesa8.setBounds(260, 120, 90, 30);
+
+        Mesa9.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa9.setText("Mesa 9");
+        Mesa9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa9MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa9MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa9);
+        Mesa9.setBounds(380, 120, 90, 30);
+
+        Mesa10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa10.setText("Mesa 10");
+        Mesas.add(Mesa10);
+        Mesa10.setBounds(510, 120, 100, 30);
+
+        Mesa11.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa11.setText("Mesa 11");
+        Mesas.add(Mesa11);
+        Mesa11.setBounds(20, 200, 100, 30);
+
+        Mesa12.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa12.setText("Mesa 12");
+        Mesa12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa12MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa12MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa12);
+        Mesa12.setBounds(140, 200, 100, 30);
+
+        Mesa13.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa13.setText("Mesa 13");
+        Mesa13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa13MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa13MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa13MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa13);
+        Mesa13.setBounds(260, 200, 100, 30);
+
+        Mesa14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa14.setText("Mesa 14");
+        Mesa14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa14MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa14MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa14MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa14);
+        Mesa14.setBounds(380, 200, 100, 30);
+
+        Mesa15.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa15.setText("Mesa 15");
+        Mesas.add(Mesa15);
+        Mesa15.setBounds(510, 200, 100, 30);
+
+        Mesa16.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa16.setText("Mesa 16");
+        Mesas.add(Mesa16);
+        Mesa16.setBounds(20, 280, 100, 30);
+
+        Mesa17.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa17.setText("Mesa 17");
+        Mesa17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa17MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa17MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa17MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa17);
+        Mesa17.setBounds(140, 280, 100, 30);
+
+        Mesa18.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa18.setText("Mesa 18");
+        Mesa18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa18MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa18MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa18MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa18);
+        Mesa18.setBounds(260, 280, 100, 30);
+
+        Mesa19.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa19.setText("Mesa 19");
+        Mesa19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Mesa19MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Mesa19MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Mesa19MouseExited(evt);
+            }
+        });
+        Mesas.add(Mesa19);
+        Mesa19.setBounds(380, 280, 100, 30);
+
+        Mesa20.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        Mesa20.setText("Mesa 20");
+        Mesas.add(Mesa20);
+        Mesa20.setBounds(510, 280, 100, 30);
 
         jInicio.add(Mesas);
         Mesas.setBounds(10, 90, 1370, 620);
@@ -2676,6 +3042,9 @@ public class Beta_Galera extends javax.swing.JFrame {
         this.aparacerDesaparecerMesas(0);
         MesaTabla.removeAll();
         this.EliminarTicket(Integer.parseInt(tTicketMesas.getText()), Integer.parseInt((String) cMesa.getSelectedItem()));
+        bEnviarPedido.setEnabled(false);
+        cMesa.setEnabled(true);
+        cMeseroMesas.setEnabled(true);
         Productos.setVisible(false);
         MesaPrincipal.setVisible(false);
         Meseros.setVisible(false);
@@ -2691,6 +3060,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_bSalirMesasPrincipalesActionPerformed
 
     private void bAgregarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPedidoActionPerformed
+        cMesa.setEnabled(false);
+        cMeseroMesas.setEnabled(false);
+        bEnviarPedido.setEnabled(true);
         if(Integer.parseInt((String) cMesa.getSelectedItem()) == 1){
             int precio_t = Integer.parseInt(tPrecioMesa.getText());
             int cantidad_t = Integer.parseInt(sCantidad.getValue().toString());
@@ -2758,7 +3130,8 @@ public class Beta_Galera extends javax.swing.JFrame {
     }//GEN-LAST:event_tNombre_MeseroFocusGained
 
     private void bEliminarMeseroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarMeseroActionPerformed
-        JOptionPane.showMessageDialog(null, "Proximamente...");
+        eliminarMeseros.setVisible(true);
+        this.mostrarEliminarUsuario();
     }//GEN-LAST:event_bEliminarMeseroActionPerformed
 
     private void bSalirProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bSalirProductosMouseClicked
@@ -3006,10 +3379,6 @@ public class Beta_Galera extends javax.swing.JFrame {
         User.setVisible(false);
     }//GEN-LAST:event_bSalirInfoActionPerformed
 
-    private void bVisualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVisualizar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bVisualizar1ActionPerformed
-
     private void tNombresUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tNombresUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tNombresUserActionPerformed
@@ -3047,6 +3416,11 @@ public class Beta_Galera extends javax.swing.JFrame {
             lValidacionC.setText("");
             this.ValidacionCategoria(tEscribirCategoria.getText());
         }
+        if(tEscribirCategoria.getText().length()>=1){
+           bRegistrarCategoria.setEnabled(true);
+        }else if(tEscribirCategoria.getText().length()<=0){
+           bRegistrarCategoria.setEnabled(false);
+        }
     }//GEN-LAST:event_tEscribirCategoriaKeyReleased
 
     private void tNombreproductoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tNombreproductoKeyReleased
@@ -3057,6 +3431,15 @@ public class Beta_Galera extends javax.swing.JFrame {
             bRegistroProducto.setEnabled(true);
             lValidacionP.setText("");
             this.ValidacionProducto(tNombreproducto.getText());
+        }
+        if(tPrecioProducto.getText().length()>=1 && tNombreproducto.getText().length()>=1){
+           bRegistroProducto.setEnabled(true);
+        }else if(tPrecioProducto.getText().length()<=0 && tNombreproducto.getText().length()<=0){
+           bRegistroProducto.setEnabled(false);
+        }else if(tPrecioProducto.getText().length()>=1 && tNombreproducto.getText().length()>=0){
+            bRegistroProducto.setEnabled(false);
+        }else if(tPrecioProducto.getText().length()>=0 && tNombreproducto.getText().length()>=1){
+            bRegistroProducto.setEnabled(false);
         }
     }//GEN-LAST:event_tNombreproductoKeyReleased
 
@@ -3069,6 +3452,75 @@ public class Beta_Galera extends javax.swing.JFrame {
             lValidacionU.setText("");
             this.ValidacionUser(tUsuario.getText());
         }
+        if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(true);
+        }
     }//GEN-LAST:event_tUsuarioKeyReleased
 
     private void bAgregarMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarMesaActionPerformed
@@ -3080,6 +3532,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             this.registroIDInicialTicket(this.generarIDTicket(id));
             this.mostrarPedidosTicket(Integer.parseInt(tTicketMesas.getText()));
             this.aparacerDesaparecerMesas(1);
+            bEnviarPedido.setEnabled(false);
             Productos.setVisible(false);
             MesaPrincipal.setVisible(false);
             Meseros.setVisible(false);
@@ -3119,6 +3572,8 @@ public class Beta_Galera extends javax.swing.JFrame {
         this.statusOccupied(Integer.parseInt((String) cMesa.getSelectedItem()));
         this.mostrarPedidas();
         this.aparacerDesaparecerMesas(0);
+        cMesa.setEnabled(true);
+        cMeseroMesas.setEnabled(true);
         MesaPrincipal.setVisible(false);
         Productos.setVisible(false);
         MesaPrincipal.setVisible(false);
@@ -3506,12 +3961,531 @@ public class Beta_Galera extends javax.swing.JFrame {
         }else{
             tPrecioProducto.setText("");
         }
+        if(tPrecioProducto.getText().length()>=1 && tNombreproducto.getText().length()>=1){
+           bRegistroProducto.setEnabled(true);
+        }else if(tPrecioProducto.getText().length()<=0 && tNombreproducto.getText().length()<=0){
+           bRegistroProducto.setEnabled(false);
+        }else if(tPrecioProducto.getText().length()>=1 && tNombreproducto.getText().length()>=0){
+            bRegistroProducto.setEnabled(false);
+        }else if(tPrecioProducto.getText().length()>=0 && tNombreproducto.getText().length()>=1){
+            bRegistroProducto.setEnabled(false);
+        }
     }//GEN-LAST:event_tPrecioProductoKeyReleased
 
     private void jSeleccionProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSeleccionProducto2ActionPerformed
         this.ComparativaPrecioCantidad2((String)jSeleccionProducto2.getSelectedItem());
         this.ComparativaMostrarTabla2((String)jSeleccionProducto2.getSelectedItem());
     }//GEN-LAST:event_jSeleccionProducto2ActionPerformed
+
+    private void Mesa7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa7MouseClicked
+
+    private void Mesa7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa7MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa7MouseEntered
+
+    private void Mesa7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa7MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa7MouseExited
+
+    private void Mesa8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa8MouseClicked
+
+    private void Mesa8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa8MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa8MouseEntered
+
+    private void Mesa8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa8MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa8MouseExited
+
+    private void Mesa9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa9MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa9MouseClicked
+
+    private void Mesa9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa9MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa9MouseEntered
+
+    private void Mesa9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa9MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa9MouseExited
+
+    private void Mesa12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa12MouseClicked
+
+    private void Mesa12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa12MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa12MouseEntered
+
+    private void Mesa12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa12MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa12MouseExited
+
+    private void Mesa13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa13MouseClicked
+
+    private void Mesa13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa13MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa13MouseEntered
+
+    private void Mesa13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa13MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa13MouseExited
+
+    private void Mesa14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa14MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa14MouseClicked
+
+    private void Mesa14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa14MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa14MouseEntered
+
+    private void Mesa14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa14MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa14MouseExited
+
+    private void Mesa17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa17MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa17MouseClicked
+
+    private void Mesa17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa17MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa17MouseEntered
+
+    private void Mesa17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa17MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa17MouseExited
+
+    private void Mesa18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa18MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa18MouseClicked
+
+    private void Mesa18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa18MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa18MouseEntered
+
+    private void Mesa18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa18MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa18MouseExited
+
+    private void Mesa19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa19MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa19MouseClicked
+
+    private void Mesa19MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa19MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa19MouseEntered
+
+    private void Mesa19MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Mesa19MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Mesa19MouseExited
+
+    private void tEscribirCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tEscribirCategoriaActionPerformed
+
+    }//GEN-LAST:event_tEscribirCategoriaActionPerformed
+
+    private void panelMesero6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMesero6MouseEntered
+ 
+    }//GEN-LAST:event_panelMesero6MouseEntered
+
+    private void tNombre_MeseroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tNombre_MeseroKeyReleased
+        if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(true);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }
+    }//GEN-LAST:event_tNombre_MeseroKeyReleased
+
+    private void tApellidoPKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tApellidoPKeyReleased
+        if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(true);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }
+    }//GEN-LAST:event_tApellidoPKeyReleased
+
+    private void tApellidoMKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tApellidoMKeyReleased
+        if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(true);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()<=0){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()<=0 && tApellidoP.getText().length()>=1 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }else if(tNombre_Mesero.getText().length()>=1 && tApellidoP.getText().length()<=0 && tApellidoM.getText().length()>=1){
+            bRegistrarMesero.setEnabled(false);
+        }
+    }//GEN-LAST:event_tApellidoMKeyReleased
+
+    private void tNombresKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tNombresKeyReleased
+        if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(true);
+        }
+    }//GEN-LAST:event_tNombresKeyReleased
+
+    private void tApellidoPaternoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tApellidoPaternoKeyReleased
+        if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(true);
+        }
+    }//GEN-LAST:event_tApellidoPaternoKeyReleased
+
+    private void tApellidoMaternoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tApellidoMaternoKeyReleased
+        if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(true);
+        }
+    }//GEN-LAST:event_tApellidoMaternoKeyReleased
+
+    private void tContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tContraseñaKeyReleased
+        if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>= 1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+           bRegistrarSesion.setEnabled(false); 
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()<=0 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()<=0 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()<=0 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()<=0 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()<=0){
+            bRegistrarSesion.setEnabled(false);
+        }else if(tNombres.getText().length()>=1 && tApellidoPaterno.getText().length()>=1 && tApellidoMaterno.getText().length()>=1 && tUsuario.getText().length()>=1 && tContraseña.getText().length()>=1){
+            bRegistrarSesion.setEnabled(true);
+        }
+    }//GEN-LAST:event_tContraseñaKeyReleased
+
+    private void bSalirEliminarUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalirEliminarUsuario1ActionPerformed
+        eliminarMeseros.setVisible(false);
+    }//GEN-LAST:event_bSalirEliminarUsuario1ActionPerformed
+
+    private void tBorrarCuenta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBorrarCuenta1ActionPerformed
+        this.eliminarMeseros(Integer.parseInt(tBorrar1.getText()));
+        this.mostrarMeseros();
+        tID_Meseros.setText(""+this.generarIDMeseros(id));
+    }//GEN-LAST:event_tBorrarCuenta1ActionPerformed
+
+    private void bEliminarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarCategoriaActionPerformed
+        String category = JOptionPane.showInputDialog(null, "Escribe el id de la categoria que deseas eliminar:");
+        if(category == null){   
+        }else{
+            int id_categoria = Integer.parseInt(category);
+            this.eliminarCategoria(id_categoria);
+        }
+    }//GEN-LAST:event_bEliminarCategoriaActionPerformed
+
+    private void bEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarProductoActionPerformed
+        String product = JOptionPane.showInputDialog(null, "Escribe el id del producto que deseas eliminar:");
+        if(product == null){
+        }else{
+            int id_producto = Integer.parseInt(product);
+            this.eliminarProducto(id_producto);
+        }
+    }//GEN-LAST:event_bEliminarProductoActionPerformed
+
+    private void bEliminarPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarPedidosActionPerformed
+        this.EliminarProductosTicket(Integer.parseInt(tTicketMesas.getText()));
+        this.mostrarPedidosTicket(Integer.parseInt(tTicketMesas.getText()));
+    }//GEN-LAST:event_bEliminarPedidosActionPerformed
+
+    private void bEliminarPedidos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarPedidos1ActionPerformed
+        this.EliminarProductosTicket(Integer.parseInt(tTicketModificar.getText()));
+        this.mostrarModificarTicket(Integer.parseInt(tTicketModificar.getText()));
+    }//GEN-LAST:event_bEliminarPedidos1ActionPerformed
+
+    private void sCantidadModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sCantidadModificarMouseClicked
+
+    }//GEN-LAST:event_sCantidadModificarMouseClicked
+
+    private void sCantidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sCantidadMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sCantidadMouseClicked
         
     /**
      * @param args the command line arguments
@@ -3604,7 +4578,7 @@ public class Beta_Galera extends javax.swing.JFrame {
         }else if(numero==5){
             mesa5="Occupied";
             Mesa5.setForeground(Color.RED);
-        /*}else if(numero==6){
+        }else if(numero==6){
             mesa6="Occupied";
             Mesa6.setForeground(Color.RED);
         }else if(numero==7){
@@ -3618,29 +4592,40 @@ public class Beta_Galera extends javax.swing.JFrame {
             Mesa9.setForeground(Color.RED);
         }else if(numero==10){
             mesa10="Occupied";
-            Mesa10.setForeground(Color.RED);*/
+            Mesa10.setForeground(Color.RED);
         }else if(numero==11){
             mesa11="Occupied";
+            Mesa11.setForeground(Color.RED);
         }else if(numero==12){
             mesa12="Occupied";
+            Mesa12.setForeground(Color.RED);
         }else if(numero==13){
             mesa13="Occupied";
+            Mesa13.setForeground(Color.RED);
         }else if(numero==14){
-            mesa3="Occupied";
+            mesa14="Occupied";
+            Mesa14.setForeground(Color.RED);
         }else if(numero==3){
             mesa14="Occupied";
+            Mesa14.setForeground(Color.RED);
         }else if(numero==15){
             mesa15="Occupied";
+            Mesa15.setForeground(Color.RED);
         }else if(numero==16){
             mesa16="Occupied";
+            Mesa16.setForeground(Color.RED);
         }else if(numero==17){
             mesa17="Occupied";
+            Mesa17.setForeground(Color.RED);
         }else if(numero==18){
             mesa18="Occupied";
+            Mesa18.setForeground(Color.RED);
         }else if(numero==19){
             mesa19="Occupied";
+            Mesa19.setForeground(Color.RED);
         }else if(numero==20){
             mesa20="Occupied";
+            Mesa20.setForeground(Color.RED);
         }else if(numero==21){
             mesa21="Occupied";
         }else if(numero==22){
@@ -3720,42 +4705,53 @@ public class Beta_Galera extends javax.swing.JFrame {
         }else if(numero==5){
             mesa5="Active";
             Mesa5.setForeground(Color.BLACK);
-        /*}else if(numero==6){
+        }else if(numero==6){
             mesa6="Active";
-            Mesa6.setForeground(Color.GREEN);
+            Mesa6.setForeground(Color.BLACK);
         }else if(numero==7){
             mesa7="Active";
-            Mesa7.setForeground(Color.GREEN);
+            Mesa7.setForeground(Color.BLACK);
         }else if(numero==8){
             mesa8="Active";
-            Mesa8.setForeground(Color.GREEN);
+            Mesa8.setForeground(Color.BLACK);
         }else if(numero==9){
             mesa9="Active";
-            Mesa9.setForeground(Color.GREEN);
+            Mesa9.setForeground(Color.BLACK);
         }else if(numero==10){
             mesa10="Active";
-            Mesa10.setForeground(Color.GREEN);*/
+            Mesa10.setForeground(Color.BLACK);
         }else if(numero==11){
             mesa11="Active";
+            Mesa11.setForeground(Color.BLACK);
         }else if(numero==12){
             mesa12="Active";
+            Mesa12.setForeground(Color.BLACK);
         }else if(numero==13){
             mesa13="Active";
+            Mesa13.setForeground(Color.BLACK);
         }else if(numero==14){
             mesa14="Active";
+            Mesa14.setForeground(Color.BLACK);
         }else if(numero==15){
             mesa15="Active";
+            Mesa15.setForeground(Color.BLACK);
         }else if(numero==16){
             mesa16="Active";
+            Mesa16.setForeground(Color.BLACK);
         }else if(numero==17){
             mesa17="Active";
+            Mesa17.setForeground(Color.BLACK);
         }else if(numero==18){
             mesa18="Active";
+            Mesa18.setForeground(Color.BLACK);
         }else if(numero==19){
             mesa19="Active";
+            Mesa19.setForeground(Color.BLACK);
         }else if(numero==20){
             mesa20="Active";
-        }else if(numero==21){
+            Mesa20.setForeground(Color.BLACK);
+        }    
+        /*}else if(numero==21){
             mesa21="Active";
         }else if(numero==22){
             mesa22="Active";
@@ -3815,7 +4811,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             mesa49="Active";
         }else if(numero==50){
             mesa50="Active";
-        }
+        }*/
     }
      
     public void aparacerDesaparecerMesas(int numero){
@@ -3825,7 +4821,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             Mesa3.setVisible(true);
             Mesa4.setVisible(true);
             Mesa5.setVisible(true);
-            /*Mesa6.setVisible(true);
+            Mesa6.setVisible(true);
             Mesa7.setVisible(true);
             Mesa8.setVisible(true);
             Mesa9.setVisible(true);
@@ -3839,7 +4835,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             Mesa17.setVisible(true);
             Mesa18.setVisible(true);
             Mesa19.setVisible(true);
-            Mesa20.setVisible(true);
+            /*Mesa20.setVisible(true);
             Mesa21.setVisible(true);
             Mesa22.setVisible(true);
             Mesa23.setVisible(true);
@@ -3882,7 +4878,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             Mesa3.setVisible(false);
             Mesa4.setVisible(false);
             Mesa5.setVisible(false);
-            /*Mesa6.setVisible(false);
+            Mesa6.setVisible(false);
             Mesa7.setVisible(false);
             Mesa8.setVisible(false);
             Mesa9.setVisible(false);
@@ -3896,7 +4892,7 @@ public class Beta_Galera extends javax.swing.JFrame {
             Mesa17.setVisible(false);
             Mesa18.setVisible(false);
             Mesa19.setVisible(false);
-            Mesa20.setVisible(false);
+            /*Mesa20.setVisible(false);
             Mesa21.setVisible(false);
             Mesa22.setVisible(false);
             Mesa23.setVisible(false);
@@ -5493,6 +6489,102 @@ public class Beta_Galera extends javax.swing.JFrame {
         }
     }
     
+    public void mostrarEliminarUsuario(){
+        try{
+            String[] titulos={"ID","Nombre","Apellido Paterno", "Apellido Materno"};
+            String[] registro = new String[4];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            ConexionBD con = new ConexionBD();
+            try{
+                Statement status = con.getConecction().createStatement();
+                status.executeQuery("Select * from empleados order by id_empleado;");
+                ResultSet rs = null;
+                rs = status.getResultSet();
+                while(rs.next()){
+                    registro[0] = rs.getString("id_empleado");
+                    registro[1] = rs.getString("nombre_empleado");
+                    registro[2] = rs.getString("apellido_paterno");
+                    registro[3] = rs.getString("apellido_materno");
+                    modelo.addRow(registro);
+                }
+                tablaEliminarMeseros.setModel(modelo);
+                status.close();
+                rs.close();
+                con.desconectar();
+            }catch(SQLException e){
+                JOptionPane.showMessageDialog(null, "No se puede mostrar los meseros: ("+ e.getMessage()+")");
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE,null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void eliminarMeseros(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("delete from empleados where id_empleado = '"+id+"';");
+            JOptionPane.showMessageDialog(null, "Eliminaste el usuario: "+id);
+            this.mostrarEliminarUsuario();
+            tBorrar1.setText("");
+            status.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No existe este usuario ("+ex+")");
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void eliminarCategoria(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("delete from categoria_productos where id_categoria = '"+id+"';");
+            JOptionPane.showMessageDialog(null, "Eliminaste la categoria: "+id);
+            this.mostrarCategoria();
+            tIDCategoria.setText(""+this.generarIDCategoria(id));
+            status.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Primero tienes que eliminar los productos que esten registrados con esa categoria("+ex+")");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void eliminarProducto(int id){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("delete from productos where id_productos = '"+id+"';");
+            JOptionPane.showMessageDialog(null, "Eliminaste el producto: "+id);
+            this.mostrarProducto();
+            tID_Productos.setText(""+this.generarIDProducto(id));
+            status.close();
+            con.desconectar();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error ("+ex+")");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void EliminarProductosTicket(int ticket){
+        try {
+            ConexionBD con = new ConexionBD();
+            Statement status = con.getConecction().createStatement();
+            status.executeUpdate("Delete from tickets_pedidos where fk_id_tickets_p = '"+ticket+"' limit 1;");
+        } catch (SQLException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Beta_Galera.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     boolean ticket = true;
     boolean user = false;
     int numeroM;
@@ -5509,10 +6601,25 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JProducto;
     private javax.swing.JComboBox<String> JProductoModificar;
     private javax.swing.JLabel Mesa1;
+    private javax.swing.JLabel Mesa10;
+    private javax.swing.JLabel Mesa11;
+    private javax.swing.JLabel Mesa12;
+    private javax.swing.JLabel Mesa13;
+    private javax.swing.JLabel Mesa14;
+    private javax.swing.JLabel Mesa15;
+    private javax.swing.JLabel Mesa16;
+    private javax.swing.JLabel Mesa17;
+    private javax.swing.JLabel Mesa18;
+    private javax.swing.JLabel Mesa19;
     private javax.swing.JLabel Mesa2;
+    private javax.swing.JLabel Mesa20;
     private javax.swing.JLabel Mesa3;
     private javax.swing.JLabel Mesa4;
     private javax.swing.JLabel Mesa5;
+    private javax.swing.JLabel Mesa6;
+    private javax.swing.JLabel Mesa7;
+    private javax.swing.JLabel Mesa8;
+    private javax.swing.JLabel Mesa9;
     private javax.swing.JPanel MesaPrincipal;
     private javax.swing.JTable MesaTabla;
     private javax.swing.JPanel Mesas;
@@ -5531,7 +6638,11 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bAgregarMesa;
     private javax.swing.JButton bAgregarPedido;
     private javax.swing.JButton bAgregarPedidoModificar;
+    private javax.swing.JButton bEliminarCategoria;
     private javax.swing.JButton bEliminarMesero;
+    private javax.swing.JButton bEliminarPedidos;
+    private javax.swing.JButton bEliminarPedidos1;
+    private javax.swing.JButton bEliminarProducto;
     private javax.swing.JButton bEliminarUsuario;
     private javax.swing.JButton bEliminarUsuario1;
     private javax.swing.JButton bEnviarPedido;
@@ -5545,6 +6656,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bRegistroProducto;
     private javax.swing.JButton bSalirComparativa;
     private javax.swing.JButton bSalirEliminarUsuario;
+    private javax.swing.JButton bSalirEliminarUsuario1;
     private javax.swing.JButton bSalirInfo;
     private javax.swing.JButton bSalirMesas1;
     private javax.swing.JButton bSalirMesasPrincipales;
@@ -5555,7 +6667,6 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JButton bSalirReporte;
     private javax.swing.JButton bSalirTablaCuenta;
     private javax.swing.JButton bVisualizar;
-    private javax.swing.JButton bVisualizar1;
     private javax.swing.JComboBox<String> cComparativaCombo;
     private javax.swing.JComboBox<String> cFiltroFecha;
     private javax.swing.JComboBox<String> cMesa;
@@ -5563,6 +6674,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cMesaPagar;
     private javax.swing.JComboBox<String> cMeseroMesas;
     private javax.swing.JComboBox<String> cReporte;
+    private javax.swing.JPanel eliminarMeseros;
     private javax.swing.JPanel eliminarUsuario;
     private javax.swing.JComboBox<String> jCategoria;
     private javax.swing.JComboBox<String> jCategoriaModificar;
@@ -5599,6 +6711,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel122;
     private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel124;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel126;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
@@ -5693,6 +6808,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -5708,6 +6824,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -5725,6 +6842,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JLabel jTitulo;
     private javax.swing.JLabel jTitulo1;
     private javax.swing.JLabel jTitulo2;
+    private javax.swing.JLabel jTitulo3;
     private javax.swing.JLabel lCerrarSesion;
     private javax.swing.JLabel lCirculo;
     private javax.swing.JLabel lGaleras;
@@ -5757,7 +6875,9 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTextField tApellidoPaterno;
     private javax.swing.JTextField tApellidoPaternoUser;
     private javax.swing.JTextField tBorrar;
+    private javax.swing.JTextField tBorrar1;
     private javax.swing.JButton tBorrarCuenta;
+    private javax.swing.JButton tBorrarCuenta1;
     private javax.swing.JTextField tCantidadProducto1;
     private javax.swing.JTextField tCantidadProducto2;
     private javax.swing.JTextField tContraseña;
@@ -5791,6 +6911,7 @@ public class Beta_Galera extends javax.swing.JFrame {
     private javax.swing.JTable tablaCuenta;
     private javax.swing.JPanel tablaCuentas;
     private javax.swing.JTable tablaEliminar;
+    private javax.swing.JTable tablaEliminarMeseros;
     private javax.swing.JTable tablaMesas;
     private javax.swing.JTable tablaMeseros;
     private javax.swing.JTable tablaProducto;
